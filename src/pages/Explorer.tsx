@@ -6,6 +6,7 @@ import { content } from "@/config/content";
 import { useUser } from "@/context/UserContext";
 import { baseDonneesFodmap } from "@/lib/fodmap-db";
 import type { Food, FoodCategory } from "@/types";
+import { Footer } from "@/components/Footer";
 
 const categories: Array<{ value: FoodCategory; label: string }> = [
   { value: "cereales", label: content.explorer.filters.categories.cereales },
@@ -162,6 +163,8 @@ export default function Explorer() {
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }

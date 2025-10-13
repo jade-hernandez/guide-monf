@@ -5,6 +5,7 @@ import { content } from "@/config/content";
 import { useUser } from "@/context/UserContext";
 import type { FODMAPType } from "@/types";
 import { Check, X } from "lucide-react";
+import { Footer } from "@/components/Footer";
 
 const fodmapTypes = content.profile.fodmaps.map((fodmap: any) => ({
   type: fodmap.type as FODMAPType,
@@ -162,6 +163,8 @@ export default function Profile() {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

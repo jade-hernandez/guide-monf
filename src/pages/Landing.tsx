@@ -3,6 +3,7 @@ import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { content } from "@/config/content";
 import { medicalDisclaimer } from "@/config/disclaimers";
 import { Check, AlertTriangle } from "lucide-react";
+import { Footer } from "@/components/Footer";
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -135,6 +136,8 @@ export default function Landing() {
           </EnhancedButton>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
