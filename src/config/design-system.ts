@@ -3,6 +3,8 @@
  * Centralized design tokens for consistent styling across the app
  */
 
+// Todo:
+// Should we split this file into multiple files? Maybe one for colors, one for typography, etc.?
 // ============================================================================
 // COLOR PALETTE
 // ============================================================================

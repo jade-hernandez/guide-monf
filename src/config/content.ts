@@ -3,6 +3,7 @@
  * Centralized content management for easy updates
  */
 
+// Todo: Maybe we should split this file into multiple files and collocate them in a "locales" folder or with the components that use them?
 export const content = {
   // ============================================================================
   // LANDING PAGE
@@ -11,6 +12,12 @@ export const content = {
     hero: {
       title: "MonGuide FODMAP",
       subtitle: "Votre guide alimentaire personnalisé selon vos intolérances",
+      cta: "Créer mon profil",
+    },
+
+    ctaFooter: {
+      title: "Prêt à commencer ?",
+      subtitle: "Créez votre profil personnalisé en quelques minutes",
       cta: "Créer mon profil",
     },
 
@@ -59,7 +66,7 @@ export const content = {
     },
 
     disclaimer: {
-      title: "⚠️ Avertissement Important",
+      title: "Avertissement Important",
       content:
         "Cette application est fournie à des fins d'information et d'éducation uniquement. Elle ne remplace pas les conseils médicaux professionnels, un diagnostic ou un traitement. Consultez toujours votre médecin ou un diététicien qualifié avant de modifier votre régime alimentaire. Les données sont basées sur les recherches de l'Université Monash 2024-2025.",
     },
@@ -225,6 +232,16 @@ export const content = {
   },
 
   // ============================================================================
+  // NOT FOUND PAGE
+  // ============================================================================
+
+  notFound: {
+    title: "404",
+    subtitle: "Désolé, la page que vous recherchez n'existe pas.",
+    cta: "Retour à l'accueil",
+  },
+
+  // ============================================================================
   // COMMON ELEMENTS
   // ============================================================================
   common: {
@@ -289,6 +306,8 @@ export const content = {
   },
 };
 
+// Todo:
+// Shouldn't these helpers be in a separate file?
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================

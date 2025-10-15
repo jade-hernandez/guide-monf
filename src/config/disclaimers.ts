@@ -8,8 +8,8 @@
 // ============================================================================
 
 export const medicalDisclaimer = {
-  title: "⚠️ Avertissement Médical",
-  
+  title: "Avertissement Médical",
+
   full: `Cette application est fournie à des fins d'information et d'éducation uniquement. Les informations contenues dans cette application ne constituent pas des conseils médicaux professionnels, un diagnostic ou un traitement médical.
 
 Les contenus de cette application ne remplacent en aucun cas l'avis, le diagnostic ou le traitement d'un professionnel de santé qualifié. Consultez toujours votre médecin ou un diététicien qualifié avant de modifier votre régime alimentaire ou si vous avez des questions concernant votre santé digestive.
@@ -27,7 +27,7 @@ En cas d'urgence médicale, contactez immédiatement les services d'urgence.`,
 
 export const dataProtectionNotice = {
   title: "Protection des Données Personnelles",
-  
+
   full: `Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vos données de santé sont protégées par des mesures de sécurité renforcées.
 
 Vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données personnelles. Pour exercer ces droits, vous pouvez supprimer votre profil directement dans l'application.
@@ -43,7 +43,7 @@ Les données collectées sont utilisées uniquement pour les fonctionnalités de
 
 export const dietaryDisclaimer = {
   title: "Avertissement Alimentaire",
-  
+
   full: `Le régime pauvre en FODMAP doit être suivi sous supervision médicale appropriée. Cette application fournit des informations générales qui peuvent ne pas convenir à votre situation personnelle.
 
 • Consultez un diététicien avant de commencer un régime d'élimination
@@ -62,7 +62,7 @@ Les utilisateurs assument la responsabilité de leurs choix alimentaires basés 
 
 export const userQualificationNotice = {
   title: "💡 Bon à Savoir",
-  
+
   content: `Cette application fonctionne uniquement pour les personnes qui ont déjà effectué des tests de réintroduction FODMAP avec un professionnel de santé et connaissent leurs intolérances spécifiques.
 
 Si vous n'avez pas encore identifié vos intolérances :
@@ -78,7 +78,7 @@ Si vous n'avez pas encore identifié vos intolérances :
 
 export const dataSourceNotice = {
   title: "Source des Données",
-  
+
   full: `Les données alimentaires de cette application sont basées sur les recherches de l'Université Monash (Australie), référence mondiale pour le régime FODMAP.
 
 • Source : Monash University FODMAP Database 2024-2025
@@ -97,7 +97,7 @@ Les données sont fournies "telles quelles" à des fins éducatives. L'exactitud
 
 export const liabilityLimitation = {
   title: "Limitation de Responsabilité",
-  
+
   content: `L'éditeur de cette application ne peut être tenu responsable de tout dommage direct, indirect, accessoire ou consécutif résultant de :
 
 • L'utilisation ou l'impossibilité d'utiliser cette application
@@ -115,7 +115,7 @@ L'utilisation de cette application se fait à vos propres risques. Consultez tou
 
 export const intellectualPropertyNotice = {
   title: "Propriété Intellectuelle",
-  
+
   content: `Les contenus de cette application (textes, données, interface) sont protégés par les droits d'auteur et les lois sur la propriété intellectuelle.
 
 • Les données FODMAP sont dérivées de sources publiques (Monash University)
@@ -131,7 +131,7 @@ export const intellectualPropertyNotice = {
 
 export const modificationNotice = {
   title: "Modification des Conditions",
-  
+
   content: `Ces conditions et disclaimers peuvent être modifiés à tout moment pour refléter :
 
 • Les changements dans la réglementation
@@ -150,21 +150,21 @@ export const pageDisclaimers = {
   landing: {
     title: medicalDisclaimer.title,
     content: medicalDisclaimer.full,
-    placement: "before-cta", // Display before the main CTA button
+    placement: "before-cta",
     dismissible: false,
   },
 
   profile: {
     title: userQualificationNotice.title,
     content: userQualificationNotice.content,
-    placement: "bottom", // Display at bottom of page
+    placement: "bottom",
     dismissible: false,
   },
 
   explorer: {
     title: "ℹ️ Informations Importantes",
     content: `Les recommandations sont basées sur votre profil et les données de l'Université Monash 2024-2025. Les tolérances individuelles peuvent varier. En cas de doute, consultez votre diététicien.`,
-    placement: "banner", // Dismissible banner at top
+    placement: "banner",
     dismissible: true,
   },
 };
@@ -199,7 +199,7 @@ ${modificationNotice.content}
 
 ---
 
-**Dernière mise à jour** : Décembre 2024
+**Dernière mise à jour** : Octobre 2025
 
 En utilisant cette application, vous acceptez ces conditions et reconnaissez avoir lu et compris ces avertissements.
 `;
@@ -210,9 +210,9 @@ En utilisant cette application, vous acceptez ces conditions et reconnaissez avo
 
 export const consentText = {
   checkbox: `J'ai lu et je comprends les avertissements ci-dessus. J'accepte d'utiliser cette application à des fins éducatives uniquement et de consulter un professionnel de santé pour des conseils médicaux personnalisés.`,
-  
+
   button: `J'ai compris et j'accepte`,
-  
+
   decline: `Je refuse`,
 };
 
@@ -223,7 +223,7 @@ export const consentText = {
 /**
  * Get disclaimer for specific page
  */
-export function getPageDisclaimer(page: 'landing' | 'profile' | 'explorer') {
+export function getPageDisclaimer(page: "landing" | "profile" | "explorer") {
   return pageDisclaimers[page];
 }
 
@@ -232,7 +232,7 @@ export function getPageDisclaimer(page: 'landing' | 'profile' | 'explorer') {
  */
 export function shouldShowDisclaimer(): boolean {
   try {
-    const seen = localStorage.getItem('disclaimer_accepted');
+    const seen = localStorage.getItem("disclaimer_accepted");
     return !seen;
   } catch {
     return true; // Show by default if localStorage unavailable
@@ -244,7 +244,7 @@ export function shouldShowDisclaimer(): boolean {
  */
 export function acceptDisclaimer(): boolean {
   try {
-    localStorage.setItem('disclaimer_accepted', new Date().toISOString());
+    localStorage.setItem("disclaimer_accepted", new Date().toISOString());
     return true;
   } catch {
     return false;
@@ -255,10 +255,10 @@ export function acceptDisclaimer(): boolean {
  * Get formatted date for legal text
  */
 export function getLastUpdateDate(): string {
-  return new Date('2024-12-01').toLocaleDateString('fr-FR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return new Date("2024-12-01").toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
@@ -267,15 +267,15 @@ export function getLastUpdateDate(): string {
  */
 export const emergencyContacts = {
   samu: {
-    number: '15',
-    description: 'Service d\'Aide Médicale Urgente',
+    number: "15",
+    description: "Service d'Aide Médicale Urgente",
   },
   pompiers: {
-    number: '18',
-    description: 'Sapeurs-Pompiers',
+    number: "18",
+    description: "Sapeurs-Pompiers",
   },
   urgences: {
-    number: '112',
-    description: 'Numéro d\'urgence européen',
+    number: "112",
+    description: "Numéro d'urgence européen",
   },
 };

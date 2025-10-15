@@ -78,6 +78,7 @@ export interface UserProfile {
 
 export interface UserContextType {
   profile: UserProfile | null;
+  isLoading: boolean; // Add this line
   updateProfile: (profile: UserProfile) => void;
   clearProfile: () => void;
   isCompatible: (food: Food) => boolean;
@@ -203,9 +204,14 @@ export interface FilterOptions {
 export function isFODMAPType(value: unknown): value is FODMAPType {
   return (
     typeof value === "string" &&
-    ["fructanes", "galactanes", "lactose", "fructose", "mannitol", "sorbitol"].includes(
-      value
-    )
+    [
+      "fructanes",
+      "galactanes",
+      "lactose",
+      "fructose",
+      "mannitol",
+      "sorbitol",
+    ].includes(value)
   );
 }
 

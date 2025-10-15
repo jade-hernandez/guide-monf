@@ -2,21 +2,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { content } from "@/config/content";
-import { useUser } from "@/context/UserContext";
+import { useUser } from "@/hooks/use-user";
 import type { FODMAPType } from "@/types";
-import { Check, X } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { ArrowLeft, Check, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const fodmapTypes = content.profile.fodmaps.map((fodmap: any) => ({
-  type: fodmap.type as FODMAPType,
-  info: fodmap,
-}));
+const fodmapTypes = content.profile.fodmaps.map(
+  (fodmap: {
+    type: string;
+    name: string;
+    description: string;
+    examples: string;
+  }) => ({
+    type: fodmap.type as FODMAPType,
+    info: fodmap,
+  })
+);
 
 export default function Profile() {
   const navigate = useNavigate();
   const { profile, updateProfile } = useUser();
-  
-  const [selections, setSelections] = useState<Record<FODMAPType, boolean | null>>(
+
+  const [selections, setSelections] = useState<
+    Record<FODMAPType, boolean | null>
+  >(
     profile
       ? profile.fodmapIntolerances
       : {
@@ -30,10 +40,12 @@ export default function Profile() {
   );
 
   const handleToggle = (type: FODMAPType, tolerates: boolean) => {
-    setSelections(prev => ({ ...prev, [type]: tolerates }));
+    setSelections((prev) => ({ ...prev, [type]: tolerates }));
   };
 
-  const configuredCount = Object.values(selections).filter(v => v !== null).length;
+  const configuredCount = Object.values(selections).filter(
+    (v) => v !== null
+  ).length;
   const allConfigured = configuredCount === 6;
 
   const handleContinue = () => {
@@ -52,12 +64,21 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+        <EnhancedButton
+          variant="ghost"
+          size="icon"
+          onClick={() => navigate("/")}
+          aria-label={content.common.buttons.back}
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </EnhancedButton>
+
         {/* Header */}
-        <header className="mb-8 text-center">
-          <h1 className="mb-3 text-3xl font-bold text-foreground sm:text-4xl">
+        <header className=" flex flex-col mx-auto p-6 sm:px-6 lg:px-8 justify-center ">
+          <h1 className=" py-4 text-3xl font-bold text-foreground text-center">
             {content.profile.header.title}
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground text-center">
             {content.profile.header.subtitle}
           </p>
         </header>
@@ -97,12 +118,9 @@ export default function Profile() {
               <h3 className="text-xl font-bold text-foreground mb-2">
                 {info.name}
               </h3>
-              <p className="text-muted-foreground mb-4">
-                {info.description}
-              </p>
+              <p className="text-muted-foreground mb-4">{info.description}</p>
               <p className="text-sm text-muted-foreground mb-4">
-                <span className="font-semibold">Exemples:</span>{" "}
-                {info.examples}
+                <span className="font-semibold">Exemples:</span> {info.examples}
               </p>
 
               {/* Toggle Buttons */}
@@ -167,8 +185,4 @@ export default function Profile() {
       <Footer />
     </div>
   );
-}
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(" ");
 }

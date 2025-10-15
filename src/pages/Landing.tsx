@@ -103,15 +103,15 @@ export default function Landing() {
       <section className="bg-caution/5 border-t border-caution/20 py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
-              <AlertTriangle className="h-6 w-6 text-caution" />
+            <div className="flex-shrink-0 ">
+              <AlertTriangle className="h-6 w-6 text-caution " />
             </div>
             <div>
               <h2 className="mb-3 text-xl font-bold text-foreground">
-                {medicalDisclaimer.title}
+                {content.landing.disclaimer.title}
               </h2>
               <p className="text-foreground leading-relaxed">
-                {medicalDisclaimer.short}
+                {content.landing.disclaimer.content}
               </p>
             </div>
           </div>
@@ -122,17 +122,17 @@ export default function Landing() {
       <section className="py-16 text-center">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-3xl font-bold text-foreground">
-            Prêt à commencer ?
+            {content.landing.ctaFooter.title}
           </h2>
           <p className="mb-8 text-lg text-muted-foreground">
-            Créez votre profil personnalisé en quelques minutes
+            {content.landing.ctaFooter.subtitle}
           </p>
           <EnhancedButton
             size="lg"
             onClick={() => navigate("/profile")}
             className="shadow-lg hover:shadow-xl"
           >
-            {content.landing.hero.cta}
+            {content.landing.ctaFooter.cta}
           </EnhancedButton>
         </div>
       </section>

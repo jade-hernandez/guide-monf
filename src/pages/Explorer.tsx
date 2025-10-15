@@ -2,35 +2,108 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, Filter, ArrowLeft, Check, X } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { content } from "@/config/content";
-import { useUser } from "@/context/UserContext";
+import { useUser } from "@/hooks/use-user";
 import { baseDonneesFodmap } from "@/lib/fodmap-db";
 import type { Food, FoodCategory } from "@/types";
 import { Footer } from "@/components/Footer";
+import { cn } from "@/lib/utils";
 
 const categories: Array<{ value: FoodCategory; label: string }> = [
   { value: "cereales", label: content.explorer.filters.categories.cereales },
   { value: "legumes", label: content.explorer.filters.categories.legumes },
-  { value: "legumineuses", label: content.explorer.filters.categories.legumineuses },
+  {
+    value: "legumineuses",
+    label: content.explorer.filters.categories.legumineuses,
+  },
   { value: "fruits", label: content.explorer.filters.categories.fruits },
-  { value: "produits-laitiers", label: content.explorer.filters.categories["produits-laitiers"] },
-  { value: "edulcorants", label: content.explorer.filters.categories.edulcorants },
-  { value: "alternatives-vegetales", label: content.explorer.filters.categories["alternatives-vegetales"] },
-  { value: "noix-graines", label: content.explorer.filters.categories["noix-graines"] },
+  {
+    value: "produits-laitiers",
+    label: content.explorer.filters.categories["produits-laitiers"],
+  },
+  {
+    value: "edulcorants",
+    label: content.explorer.filters.categories.edulcorants,
+  },
+  {
+    value: "alternatives-vegetales",
+    label: content.explorer.filters.categories["alternatives-vegetales"],
+  },
+  {
+    value: "noix-graines",
+    label: content.explorer.filters.categories["noix-graines"],
+  },
 ];
+
+// Loading skeleton component
+function ExplorerSkeleton() {
+  return (
+    <div className="min-h-screen bg-background pb-8">
+      <header className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-4">
+            <Skeleton className="h-10 w-10 rounded-lg bg-foreground/10" />
+            <Skeleton className="h-8 w-48 bg-foreground/10" />
+          </div>
+          <Skeleton className="w-full h-12 rounded-xl bg-foreground/10" />
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mb-6 space-y-4">
+          <Skeleton className="h-11 w-48 rounded-lg bg-foreground/10" />
+          <div className="flex flex-wrap gap-2">
+            {[...Array(8)].map((_, i) => (
+              <Skeleton
+                key={i}
+                className="h-10 w-32 rounded-full bg-foreground/10"
+              />
+            ))}
+          </div>
+        </div>
+
+        <Skeleton className="h-5 w-40 mb-4 bg-foreground/10" />
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {[...Array(12)].map((_, i) => (
+            <Skeleton key={i} className="h-48 rounded-xl bg-foreground/10" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// When the user has no complete profile, we show an error message on the explorer page
+function NoProfileUser() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-bold text-foreground">Oops!</h1>
+      <p className="mt-2 text-muted-foreground">
+        Vous devez remplir votre profile avant d'explorer les aliments.
+      </p>
+      <EnhancedButton
+        variant="destructive"
+        className="mt-4"
+        onClick={() => navigate("/profile")}
+      >
+        Remplir mon profile
+      </EnhancedButton>
+    </div>
+  );
+}
 
 export default function Explorer() {
   const navigate = useNavigate();
-  const { profile, isCompatible } = useUser();
+  const { profile, isLoading, isCompatible } = useUser();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
+  const [selectedCategories, setSelectedCategories] = useState<
+    Set<FoodCategory>
+  >(new Set());
   const [showCompatibleOnly, setShowCompatibleOnly] = useState(false);
-
-  // Redirect if no profile
-  if (!profile) {
-    navigate("/profile");
-    return null;
-  }
 
   // Filter foods
   const filteredFoods = useMemo(() => {
@@ -39,26 +112,24 @@ export default function Explorer() {
     // Search filter
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      foods = foods.filter(food =>
-        food.name.toLowerCase().includes(query)
-      );
+      foods = foods.filter((food) => food.name.toLowerCase().includes(query));
     }
 
     // Category filter
     if (selectedCategories.size > 0) {
-      foods = foods.filter(food => selectedCategories.has(food.category));
+      foods = foods.filter((food) => selectedCategories.has(food.category));
     }
 
     // Compatibility filter
     if (showCompatibleOnly) {
-      foods = foods.filter(food => isCompatible(food));
+      foods = foods.filter((food) => isCompatible(food));
     }
 
     return foods;
   }, [searchQuery, selectedCategories, showCompatibleOnly, isCompatible]);
 
   const toggleCategory = (category: FoodCategory) => {
-    setSelectedCategories(prev => {
+    setSelectedCategories((prev) => {
       const next = new Set(prev);
       if (next.has(category)) {
         next.delete(category);
@@ -69,16 +140,26 @@ export default function Explorer() {
     });
   };
 
+  // Show loading skeleton while checking for profile
+  if (isLoading) {
+    return <ExplorerSkeleton />;
+  }
+
+  // Show error message if no profile after loading
+  if (!profile) {
+    return <NoProfileUser />;
+  }
+
+  // Main content when profile exists
   return (
     <div className="min-h-screen bg-background pb-8">
-      {/* Header */}
       <header className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-4 ">
             <EnhancedButton
               variant="ghost"
               size="icon"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/profile")}
               aria-label={content.common.buttons.back}
             >
               <ArrowLeft className="h-5 w-5" />
@@ -88,7 +169,6 @@ export default function Explorer() {
             </h1>
           </div>
 
-          {/* Search Bar */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <input
@@ -185,7 +265,11 @@ function FoodCard({ food }: { food: Food }) {
               ? "bg-success/10 text-success"
               : "bg-destructive/10 text-destructive"
           )}
-          aria-label={compatible ? content.explorer.foodCard.compatible : content.explorer.foodCard.avoid}
+          aria-label={
+            compatible
+              ? content.explorer.foodCard.compatible
+              : content.explorer.foodCard.avoid
+          }
         >
           {compatible ? (
             <Check className="h-3 w-3" />
@@ -198,7 +282,7 @@ function FoodCard({ food }: { food: Food }) {
 
       {/* Category */}
       <p className="text-sm text-muted-foreground mb-2">
-        {categories.find(c => c.value === food.category)?.label}
+        {categories.find((c) => c.value === food.category)?.label}
       </p>
 
       {/* Portion limit */}
@@ -219,8 +303,4 @@ function FoodCard({ food }: { food: Food }) {
       </div>
     </div>
   );
-}
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(" ");
 }

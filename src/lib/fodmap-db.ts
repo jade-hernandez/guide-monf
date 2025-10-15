@@ -1,20 +1,20 @@
 /**
  * Base de données FODMAP - Guide Personnel FODMAP
- * Version: 2.0.0
- * Dernière mise à jour: Décembre 2024
+ * Version: 1.0.0
+ * Dernière mise à jour: Octobre 2025
  * Source: Université Monash 2024-2025
  */
 
-import type { Food, FoodDatabase, FODMAPType } from '@/types';
+import type { Food, FoodDatabase, FODMAPType } from "@/types";
 
 // ============================================================================
 // BASE DE DONNÉES COMPLÈTE (110 aliments)
 // ============================================================================
 
 export const baseDonneesFodmap: FoodDatabase = {
-  version: "2.0.0",
-  lastUpdated: "2024-12-01",
-  totalFoods: 110,
+  version: "1.0.0",
+  lastUpdated: "2025-10-10",
+  totalFoods: 110, // Todo: Should we use a function to dynamically count this? Is it maintainable to calculate it manually? What are the costs of having JS calculate it at runtime?
   validationStatus: "Données Monash University 2024-2025",
   foods: [
     // ========================================================================
@@ -28,7 +28,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_ble_blanc",
@@ -37,11 +37,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 24,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_levain_ble",
@@ -51,7 +51,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "avoine",
@@ -60,11 +60,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 60,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "flocons_avoine",
@@ -73,11 +73,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 50,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_mais",
@@ -87,7 +87,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_seigle",
@@ -97,7 +97,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "crackers_riz",
@@ -107,7 +107,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "flocons_mais",
@@ -117,7 +117,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "cookies_pepites_chocolat",
@@ -127,7 +127,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "bretzel",
@@ -137,7 +137,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "galettes_riz_souffle",
@@ -146,11 +146,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 28,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "fructose", isPrimary: false }
+        { type: "fructose", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pates_oeufs",
@@ -160,7 +160,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "amarante_soufflee",
@@ -169,11 +169,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 10,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "biscuits_avoine",
@@ -183,7 +183,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "chataignes_cuites",
@@ -192,11 +192,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 168,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "chataignes_grillees",
@@ -205,11 +205,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 84,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "flocons_quinoa",
@@ -219,7 +219,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "galettes_mais_souffle",
@@ -229,7 +229,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_ble_complet",
@@ -239,7 +239,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_levain_epeautre",
@@ -249,7 +249,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_levain_ble_complet",
@@ -259,7 +259,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pain_sans_gluten_cereales",
@@ -268,11 +268,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 40,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "fructose", isPrimary: false }
+        { type: "fructose", isPrimary: false },
       ],
       confidence: "moyenne",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "biscuits_fourres_chocolat",
@@ -282,7 +282,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "crackers_sales",
@@ -292,7 +292,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -306,7 +306,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "chou_fleur",
@@ -317,7 +317,8 @@ export const baseDonneesFodmap: FoodDatabase = {
       confidence: "elevee",
       lastUpdated: "2024-12-01",
       source: "Monash University 2024",
-      notes: "Classification mise à jour : précédemment listé sous mannitol, maintenant confirmé comme fructanes"
+      notes:
+        "Classification mise à jour : précédemment listé sous mannitol, maintenant confirmé comme fructanes",
     },
     {
       id: "champignons_paris",
@@ -326,12 +327,12 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 75,
       fodmaps: [
         { type: "mannitol", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
       source: "Monash University 2024",
-      notes: "Contient à la fois du mannitol ET des fructanes"
+      notes: "Contient à la fois du mannitol ET des fructanes",
     },
     {
       id: "asperges",
@@ -340,11 +341,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 12,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "fructose", isPrimary: false }
+        { type: "fructose", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "tomates_cerises",
@@ -354,7 +355,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "brocoli_entier",
@@ -364,7 +365,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "betterave_conserve",
@@ -374,7 +375,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "betterave_fraiche",
@@ -383,11 +384,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 20,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "choux_bruxelles",
@@ -397,7 +398,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "artichaut_entier",
@@ -407,7 +408,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "artichaut_marine",
@@ -416,11 +417,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 10,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "fructose", isPrimary: false }
+        { type: "fructose", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "fenouil_bulbe",
@@ -429,11 +430,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 48,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "mannitol", isPrimary: false }
+        { type: "mannitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "epi_mais",
@@ -442,11 +443,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 43,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "topinambour",
@@ -455,11 +456,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 75,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "fructose", isPrimary: false }
+        { type: "fructose", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "courge_butternut",
@@ -468,11 +469,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 45,
       fodmaps: [
         { type: "mannitol", isPrimary: true },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "haricots_verts_plats",
@@ -481,11 +482,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 17,
       fodmaps: [
         { type: "mannitol", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pois_mange_tout",
@@ -495,11 +496,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [
         { type: "mannitol", isPrimary: true },
         { type: "fructanes", isPrimary: false },
-        { type: "galactanes", isPrimary: false }
+        { type: "galactanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "brocoli_fleurettes",
@@ -509,7 +510,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pasteque",
@@ -519,11 +520,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [
         { type: "fructose", isPrimary: true },
         { type: "fructanes", isPrimary: false },
-        { type: "mannitol", isPrimary: false }
+        { type: "mannitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -537,7 +538,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lentilles_vertes_bouillies",
@@ -546,11 +547,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 23,
       fodmaps: [
         { type: "galactanes", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lentilles_rouges",
@@ -560,7 +561,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "haricots_rouges_bouillis",
@@ -569,11 +570,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 40,
       fodmaps: [
         { type: "galactanes", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "haricots_rouges_conserve",
@@ -583,7 +584,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "haricots_lima",
@@ -592,11 +593,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 39,
       fodmaps: [
         { type: "galactanes", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "haricots_blancs_conserve",
@@ -606,7 +607,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "petits_pois_decongeles",
@@ -616,7 +617,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "petits_pois_conserve",
@@ -626,7 +627,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "tempeh_nature",
@@ -635,11 +636,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 100,
       fodmaps: [
         { type: "galactanes", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "moyenne",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -653,7 +654,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "raisins",
@@ -664,7 +665,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       confidence: "elevee",
       lastUpdated: "2024-12-01",
       source: "Monash University 2024",
-      notes: "Limite considérablement réduite - seulement 2 raisins (6g) sûrs"
+      notes: "Limite considérablement réduite - seulement 2 raisins (6g) sûrs",
     },
     {
       id: "cerises",
@@ -673,11 +674,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 20,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "mangue",
@@ -687,7 +688,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "banane",
@@ -697,7 +698,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pomme_granny_smith",
@@ -706,11 +707,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 30,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pomme_pink_lady",
@@ -719,11 +720,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 28,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "mures",
@@ -733,7 +734,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "moyenne",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "figues_fraiches",
@@ -743,7 +744,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "figues_mures",
@@ -753,7 +754,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "framboises",
@@ -763,7 +764,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "litchi_cru",
@@ -773,7 +774,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "abricots_conserve",
@@ -782,11 +783,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 20,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "poire_nashi",
@@ -795,11 +796,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 10,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "feijoa",
@@ -809,7 +810,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -823,7 +824,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "yaourt_nature_vache",
@@ -833,7 +834,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "fromage_creme",
@@ -843,7 +844,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "cheddar",
@@ -853,7 +854,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "parmesan",
@@ -863,7 +864,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "beurre",
@@ -873,7 +874,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_vache_ecreme",
@@ -883,7 +884,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_vache_demi_ecreme",
@@ -893,7 +894,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "yaourt_aromatise",
@@ -903,7 +904,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "yaourt_chevre",
@@ -913,7 +914,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "yaourt_brebis",
@@ -923,7 +924,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "fromage_blanc",
@@ -933,7 +934,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "mozzarella",
@@ -943,7 +944,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "ricotta",
@@ -953,7 +954,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "gouda",
@@ -963,7 +964,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "glace_vanille",
@@ -973,7 +974,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "lactose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -987,7 +988,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "noix",
@@ -997,7 +998,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "noisettes",
@@ -1006,11 +1007,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 15,
       fodmaps: [
         { type: "galactanes", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "graines_chia",
@@ -1020,7 +1021,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "graines_courge",
@@ -1030,7 +1031,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "graines_lin",
@@ -1040,7 +1041,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "graines_sesame",
@@ -1050,7 +1051,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "beurre_amande",
@@ -1060,7 +1061,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "noix_bresil",
@@ -1070,7 +1071,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "pignons_pin",
@@ -1080,7 +1081,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -1094,7 +1095,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructose", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "sirop_agave",
@@ -1103,11 +1104,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 5,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "sucre_coco",
@@ -1116,11 +1117,11 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 4,
       fodmaps: [
         { type: "fructose", isPrimary: true },
-        { type: "fructanes", isPrimary: false }
+        { type: "fructanes", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
 
     // ========================================================================
@@ -1134,7 +1135,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_avoine",
@@ -1144,7 +1145,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "galactanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_coco_uht",
@@ -1154,7 +1155,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_riz",
@@ -1164,7 +1165,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "lait_quinoa",
@@ -1174,7 +1175,7 @@ export const baseDonneesFodmap: FoodDatabase = {
       fodmaps: [{ type: "fructanes", isPrimary: true }],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
+      source: "Monash University 2024",
     },
     {
       id: "eau_coco_bouteille",
@@ -1183,15 +1184,17 @@ export const baseDonneesFodmap: FoodDatabase = {
       limitGrams: 100,
       fodmaps: [
         { type: "fructanes", isPrimary: true },
-        { type: "sorbitol", isPrimary: false }
+        { type: "sorbitol", isPrimary: false },
       ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
-      source: "Monash University 2024"
-    }
-  ]
+      source: "Monash University 2024",
+    },
+  ],
 };
 
+// Todo:
+// Shouldn't these helpers be in a separate file?
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
@@ -1200,15 +1203,15 @@ export const baseDonneesFodmap: FoodDatabase = {
  * Get all foods from a specific category
  */
 export function getFoodsByCategory(category: string): Food[] {
-  return baseDonneesFodmap.foods.filter(food => food.category === category);
+  return baseDonneesFodmap.foods.filter((food) => food.category === category);
 }
 
 /**
  * Get all foods containing a specific FODMAP type
  */
 export function getFoodsByFodmap(fodmapType: FODMAPType): Food[] {
-  return baseDonneesFodmap.foods.filter(food =>
-    food.fodmaps.some(fodmap => fodmap.type === fodmapType)
+  return baseDonneesFodmap.foods.filter((food) =>
+    food.fodmaps.some((fodmap) => fodmap.type === fodmapType)
   );
 }
 
@@ -1217,8 +1220,8 @@ export function getFoodsByFodmap(fodmapType: FODMAPType): Food[] {
  * A food is INCOMPATIBLE if it contains ANY FODMAP the user is intolerant to
  */
 export function getCompatibleFoods(intolerances: FODMAPType[]): Food[] {
-  return baseDonneesFodmap.foods.filter(food =>
-    !food.fodmaps.some(fodmap => intolerances.includes(fodmap.type))
+  return baseDonneesFodmap.foods.filter(
+    (food) => !food.fodmaps.some((fodmap) => intolerances.includes(fodmap.type))
   );
 }
 
@@ -1227,23 +1230,29 @@ export function getCompatibleFoods(intolerances: FODMAPType[]): Food[] {
  */
 export function searchFoods(query: string): Food[] {
   const normalized = query.toLowerCase().trim();
-  
+
   if (!normalized) {
     return baseDonneesFodmap.foods;
   }
 
-  return baseDonneesFodmap.foods.filter(food =>
-    food.name.toLowerCase().includes(normalized) ||
-    food.category.toLowerCase().includes(normalized) ||
-    food.fodmaps.some(fodmap => fodmap.type.toLowerCase().includes(normalized))
+  return baseDonneesFodmap.foods.filter(
+    (food) =>
+      food.name.toLowerCase().includes(normalized) ||
+      food.category.toLowerCase().includes(normalized) ||
+      food.fodmaps.some((fodmap) =>
+        fodmap.type.toLowerCase().includes(normalized)
+      )
   );
 }
 
 /**
  * Check if a food is compatible with user's profile
  */
-export function isFoodCompatible(food: Food, intolerances: FODMAPType[]): boolean {
-  return !food.fodmaps.some(fodmap => intolerances.includes(fodmap.type));
+export function isFoodCompatible(
+  food: Food,
+  intolerances: FODMAPType[]
+): boolean {
+  return !food.fodmaps.some((fodmap) => intolerances.includes(fodmap.type));
 }
 
 /**
@@ -1257,19 +1266,20 @@ export function getDatabaseStats() {
     byConfidence: {
       elevee: 0,
       moyenne: 0,
-      faible: 0
-    }
+      faible: 0,
+    },
   };
 
-  baseDonneesFodmap.foods.forEach(food => {
+  baseDonneesFodmap.foods.forEach((food) => {
     // Count by category
-    stats.byCategory[food.category] = (stats.byCategory[food.category] || 0) + 1;
-    
+    stats.byCategory[food.category] =
+      (stats.byCategory[food.category] || 0) + 1;
+
     // Count by confidence
     stats.byConfidence[food.confidence]++;
-    
+
     // Count by FODMAP type
-    food.fodmaps.forEach(fodmap => {
+    food.fodmaps.forEach((fodmap) => {
       stats.byFodmap[fodmap.type] = (stats.byFodmap[fodmap.type] || 0) + 1;
     });
   });
