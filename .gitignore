@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+TESTING_STRATEGY.md
+DESIGN_REVIEW_2025.md

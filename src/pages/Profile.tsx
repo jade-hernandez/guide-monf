@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { EnhancedButton } from "@/components/ui/enhanced-button";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { content } from "@/config/content";
 import { useUser } from "@/hooks/use-user";
 import type { FODMAPType } from "@/types";
@@ -62,26 +62,38 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <EnhancedButton
-          variant="ghost"
-          size="icon"
-          onClick={() => navigate("/")}
-          aria-label={content.common.buttons.back}
-        >
-          <ArrowLeft className="h-5 w-5" />
-        </EnhancedButton>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="sticky top-0 z-10 bg-card/80 backdrop-blur-sm border-b border-border">
+        <div className="container mx-auto px-4 py-4 flex items-center">
+          {/* <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour à l'accueil
+          </Link> */}
+          <Button
+            asChild={true}
+            className="bg-transparent inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors border border-border"
+          >
+            <Link to="/">
+              <ArrowLeft className="h-4 w-4" />
+              Retour à l'accueil
+            </Link>
+          </Button>
+        </div>
+      </header>
 
-        {/* Header */}
-        <header className=" flex flex-col mx-auto p-6 sm:px-6 lg:px-8 justify-center ">
+      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className=" flex flex-col mx-auto p-6 sm:px-6 lg:px-8 justify-center  ">
           <h1 className=" py-4 text-3xl font-bold text-foreground text-center">
             {content.profile.header.title}
           </h1>
           <p className="text-lg text-muted-foreground text-center">
             {content.profile.header.subtitle}
           </p>
-        </header>
+        </div>
 
         {/* Progress */}
         <div className="mb-8">
@@ -165,7 +177,7 @@ export default function Profile() {
 
         {/* Continue Button */}
         <div className="sticky bottom-0 bg-background/95 backdrop-blur-sm py-6 border-t border-border">
-          <EnhancedButton
+          <Button
             onClick={handleContinue}
             disabled={!allConfigured}
             size="lg"
@@ -173,15 +185,14 @@ export default function Profile() {
             aria-label={content.profile.continueButton.label}
           >
             {content.profile.continueButton.label}
-          </EnhancedButton>
+          </Button>
           {!allConfigured && (
             <p className="mt-3 text-center text-sm text-muted-foreground">
               {content.profile.validation.incomplete}
             </p>
           )}
         </div>
-      </div>
-
+      </main>
       <Footer />
     </div>
   );

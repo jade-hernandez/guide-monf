@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { EnhancedButton } from "@/components/ui/enhanced-button";
+import { Button } from "@/components/ui/button";
 import { content } from "@/config/content";
 import { medicalDisclaimer } from "@/config/disclaimers";
 import { Check, AlertTriangle } from "lucide-react";
@@ -20,13 +20,13 @@ export default function Landing() {
             <p className="mx-auto mb-8 max-w-2xl text-xl text-muted-foreground">
               {content.landing.hero.subtitle}
             </p>
-            <EnhancedButton
+            <Button
               size="lg"
               onClick={() => navigate("/profile")}
               className="shadow-lg hover:shadow-xl"
             >
               {content.landing.hero.cta}
-            </EnhancedButton>
+            </Button>
           </div>
         </div>
       </section>
@@ -127,13 +127,13 @@ export default function Landing() {
           <p className="mb-8 text-lg text-muted-foreground">
             {content.landing.ctaFooter.subtitle}
           </p>
-          <EnhancedButton
+          <Button
             size="lg"
             onClick={() => navigate("/profile")}
             className="shadow-lg hover:shadow-xl"
           >
             {content.landing.ctaFooter.cta}
-          </EnhancedButton>
+          </Button>
         </div>
       </section>
 

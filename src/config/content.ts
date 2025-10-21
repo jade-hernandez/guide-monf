@@ -3,7 +3,6 @@
  * Centralized content management for easy updates
  */
 
-// Todo: Maybe we should split this file into multiple files and collocate them in a "locales" folder or with the components that use them?
 export const content = {
   // ============================================================================
   // LANDING PAGE
@@ -229,6 +228,12 @@ export const content = {
       lastUpdated: "Dernière mise à jour : {{date}}",
       totalFoods: "{{count}} aliments dans la base de données",
     },
+
+    noProfilUser: {
+      title: "Oops !",
+      content: "Vous devez remplir votre profil avant d'explorer les aliments.",
+      cta: "Remplir mon profile",
+    },
   },
 
   // ============================================================================
@@ -239,6 +244,75 @@ export const content = {
     title: "404",
     subtitle: "Désolé, la page que vous recherchez n'existe pas.",
     cta: "Retour à l'accueil",
+  },
+
+  // ============================================================================
+  // FOOTER
+  // ============================================================================
+
+  footer: {
+    infoLegal: {
+      title: "Informations Légales",
+      legalLinkText: "Mentions Légales & Avertissements",
+      about: "À Propos",
+    },
+
+    dataSources: {
+      title: "Sources de Données",
+      monash: {
+        name: "Monash University",
+        description: "Base de données FODMAP 2024-2025",
+      },
+    },
+
+    contact: {
+      title: "Contact",
+      github: "Voir sur GitHub",
+    },
+
+    bottomBar: {
+      copyright:
+        "MonGuide FODMAP. Application éducative à des fins d'information uniquement.",
+      medicalDisclaimer:
+        "Ne remplace pas les conseils médicaux professionnels.",
+    },
+  },
+
+  // ============================================================================
+  // LEGAL PAGE
+  // ============================================================================
+
+  legal: {
+    mainContent: {
+      title: "Mentions Légales & Avertissements",
+      lastUpdated: "Dernière mise à jour : Décembre 2024",
+    },
+    emergencyContacts: {
+      title: "En cas d'urgence médicale",
+    },
+    acceptanceNotice: {
+      content:
+        "En utilisant cette application, vous acceptez ces conditions et reconnaissez avoir lu et compris ces avertissements.",
+    },
+  },
+
+  // ============================================================================
+  // ABOUT PAGE
+  // ============================================================================
+  about: {
+    mainContent: {
+      title: "À Propos de MonGuide FODMAP",
+    },
+    mission: {
+      title: "Notre Mission",
+      content:
+        "MonGuide FODMAP est une application éducative conçue pour aider les personnes souffrant du syndrome de l'intestin irritable (SII) à gérer leur alimentation de manière personnalisée. Contrairement aux listes génériques pauvre en FODMAP, cette application filtre les aliments en fonction des intolérances spécifiques de chaque utilisateur, identifiées lors de tests de réintroduction médicaux. Nous espérons améliorer la qualité de vie de nos utilisateurs.",
+    },
+    why: {
+      title: "Pourquoi ce Projet ?",
+      content:
+        "Après avoir complété le protocole FODMAP avec un professionnel de santé, j'ai passé des heures à croiser des listes génériques qui ne correspondaient pas à mes intolérances spécifiques. J'ai réalisé qu'il manquait un outil permettant de filtrer les aliments selon son profil personnel. MonGuide FODMAP résout ce problème en offrant une approche véritablement personnalisée.",
+    },
   },
 
   // ============================================================================
@@ -306,10 +380,8 @@ export const content = {
   },
 };
 
-// Todo:
-// Shouldn't these helpers be in a separate file?
 // ============================================================================
-// HELPER FUNCTIONS
+// HELPER FUNCTIONS : NOT USED INSIDE THE APP
 // ============================================================================
 
 /**

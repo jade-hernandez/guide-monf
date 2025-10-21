@@ -82,7 +82,7 @@ export const dataSourceNotice = {
   full: `Les données alimentaires de cette application sont basées sur les recherches de l'Université Monash (Australie), référence mondiale pour le régime FODMAP.
 
 • Source : Monash University FODMAP Database 2024-2025
-• Mise à jour : Décembre 2024
+• Mise à jour : Octobre 2025
 • Base de données : 110 aliments validés
 • Niveau de confiance : Élevé pour 95%+ des entrées
 
@@ -179,17 +179,19 @@ export const fullLegalText = `
 ## ${medicalDisclaimer.title}
 ${medicalDisclaimer.full}
 
-## ${dataProtectionNotice.title}
-${dataProtectionNotice.full}
 
 ## ${dietaryDisclaimer.title}
 ${dietaryDisclaimer.full}
 
+## ${dataSourceNotice.title}
+${dataSourceNotice.full}
+
 ## ${liabilityLimitation.title}
 ${liabilityLimitation.content}
 
-## ${dataSourceNotice.title}
-${dataSourceNotice.full}
+
+## ${dataProtectionNotice.title}
+${dataProtectionNotice.full}
 
 ## ${intellectualPropertyNotice.title}
 ${intellectualPropertyNotice.content}
@@ -197,11 +199,6 @@ ${intellectualPropertyNotice.content}
 ## ${modificationNotice.title}
 ${modificationNotice.content}
 
----
-
-**Dernière mise à jour** : Octobre 2025
-
-En utilisant cette application, vous acceptez ces conditions et reconnaissez avoir lu et compris ces avertissements.
 `;
 
 // ============================================================================

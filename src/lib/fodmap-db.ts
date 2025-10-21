@@ -8,13 +8,12 @@
 import type { Food, FoodDatabase, FODMAPType } from "@/types";
 
 // ============================================================================
-// BASE DE DONNÉES COMPLÈTE (110 aliments)
+// BASE DE DONNÉES COMPLÈTE
 // ============================================================================
 
 export const baseDonneesFodmap: FoodDatabase = {
   version: "1.0.0",
   lastUpdated: "2025-10-10",
-  totalFoods: 110, // Todo: Should we use a function to dynamically count this? Is it maintainable to calculate it manually? What are the costs of having JS calculate it at runtime?
   validationStatus: "Données Monash University 2024-2025",
   foods: [
     // ========================================================================
@@ -512,20 +511,6 @@ export const baseDonneesFodmap: FoodDatabase = {
       lastUpdated: "2024-12-01",
       source: "Monash University 2024",
     },
-    {
-      id: "pasteque",
-      name: "Pastèque",
-      category: "fruits",
-      limitGrams: 15,
-      fodmaps: [
-        { type: "fructose", isPrimary: true },
-        { type: "fructanes", isPrimary: false },
-        { type: "mannitol", isPrimary: false },
-      ],
-      confidence: "elevee",
-      lastUpdated: "2024-12-01",
-      source: "Monash University 2024",
-    },
 
     // ========================================================================
     // LÉGUMINEUSES (10 aliments)
@@ -644,7 +629,7 @@ export const baseDonneesFodmap: FoodDatabase = {
     },
 
     // ========================================================================
-    // FRUITS (20 aliments)
+    // FRUITS (21 aliments)
     // ========================================================================
     {
       id: "fraises",
@@ -808,6 +793,20 @@ export const baseDonneesFodmap: FoodDatabase = {
       category: "fruits",
       limitGrams: 50,
       fodmaps: [{ type: "fructose", isPrimary: true }],
+      confidence: "elevee",
+      lastUpdated: "2024-12-01",
+      source: "Monash University 2024",
+    },
+    {
+      id: "pasteque",
+      name: "Pastèque",
+      category: "fruits",
+      limitGrams: 15,
+      fodmaps: [
+        { type: "fructose", isPrimary: true },
+        { type: "fructanes", isPrimary: false },
+        { type: "mannitol", isPrimary: false },
+      ],
       confidence: "elevee",
       lastUpdated: "2024-12-01",
       source: "Monash University 2024",
@@ -1193,8 +1192,6 @@ export const baseDonneesFodmap: FoodDatabase = {
   ],
 };
 
-// Todo:
-// Shouldn't these helpers be in a separate file?
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
@@ -1260,7 +1257,7 @@ export function isFoodCompatible(
  */
 export function getDatabaseStats() {
   const stats = {
-    total: baseDonneesFodmap.totalFoods,
+    total: baseDonneesFodmap.foods.length,
     byCategory: {} as Record<string, number>,
     byFodmap: {} as Record<string, number>,
     byConfidence: {
