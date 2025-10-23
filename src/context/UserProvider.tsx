@@ -1,8 +1,8 @@
 import { useState, useEffect, ReactNode } from "react";
-import type { UserProfile, Food, FODMAPType } from "@/types";
+import type { Food, FODMAPType } from "@/types";
 import { baseDonneesFodmap } from "@/lib/fodmap-db";
 import { UserContext } from "./UserContext";
-import type { UserContextType } from "./UserContext";
+import type { UserContextType, UserProfile } from "./UserContext";
 
 const STORAGE_KEY = "mon_guide_fodmap_profile";
 

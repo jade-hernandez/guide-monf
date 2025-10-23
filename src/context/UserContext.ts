@@ -1,5 +1,18 @@
 import { createContext } from "react";
-import type { UserProfile, Food, FODMAPType } from "@/types";
+import type { Food, FODMAPType } from "@/types";
+
+export interface UserProfile {
+  fodmapIntolerances: {
+    fructanes: boolean; // true = user tolerates this FODMAP
+    galactanes: boolean; // false = user is intolerant to this FODMAP
+    lactose: boolean;
+    fructose: boolean;
+    mannitol: boolean;
+    sorbitol: boolean;
+  };
+  createdAt: string;
+  lastUpdated: string;
+}
 
 export interface UserContextType {
   profile: UserProfile | null;
