@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Search, Filter, ArrowLeft, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content } from "@/config/content";
@@ -65,21 +65,30 @@ export default function Explorer() {
     <div className="min-h-screen bg-background pb-8">
       <header className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4 ">
-            <Button
+          <div className="flex items-center ">
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate("/profile")}
               aria-label={content.common.buttons.back}
             >
               <ArrowLeft className="h-5 w-5" />
+            </Button> */}
+            <Button
+              asChild={true}
+              className="bg-transparent inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors border border-border"
+            >
+              <Link to="/profile">
+                <ArrowLeft className="h-4 w-4" />
+                Retour au profil
+              </Link>
             </Button>
-            <h1 className="text-2xl font-bold text-foreground">
+            {/* <h1 className="text-2xl font-bold text-foreground">
               {content.explorer.header.title}
-            </h1>
+            </h1> */}
           </div>
 
-          <div className="relative">
+          {/* <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <input
               type="search"
@@ -89,11 +98,23 @@ export default function Explorer() {
               className="w-full h-12 pl-10 pr-4 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               aria-label={content.explorer.search.ariaLabel}
             />
-          </div>
+          </div> */}
         </div>
       </header>
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        {/* Search Bar */}
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={content.explorer.search.placeholder}
+            className="w-full h-12 pl-10 pr-4 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            aria-label={content.explorer.search.ariaLabel}
+          />
+        </div>
         {/* Filters */}
         <div className="mb-6 space-y-4">
           {/* Compatible Toggle */}
