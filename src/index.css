@@ -2,53 +2,178 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ============================================================================
+   DESIGN SYSTEM - CSS VARIABLES
+   ============================================================================
+
+   All colors are defined in HSL format for better manipulation.
+   These variables align with src/styles/colors.ts
+
+   Structure: --{category}-{variant}: H S% L%
+
+   ============================================================================
 */
 
 @layer base {
   :root {
-    /* Background colors - Warm cream theme */
+    /* =======================================================================
+       BACKGROUND COLORS
+       ======================================================================= */
+
+    /* Main backgrounds */
     --background: 37 100% 99%; /* #FFFBF5 - Warm cream */
-    --foreground: 215 25% 15%; /* #1F2937 - Dark gray */
+    --background-white: 0 0% 100%; /* #FFFFFF - Pure white */
+    --background-gray: 210 17% 98%; /* #F9FAFB - Light gray */
+    --background-muted: 0 0% 96%; /* #F5F5F5 - Muted */
+    --background-surface: 0 0% 98%; /* #FAFAFA - Neutral surface */
+    --background-hover: 210 20% 96%; /* #F3F4F6 - Hover state */
+
+    /* Foreground/text */
+    --foreground: 215 25% 15%; /* #1F2937 - Primary text */
+
+    /* =======================================================================
+       CARD SURFACES
+       ======================================================================= */
 
     --card: 0 0% 100%; /* White cards */
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 215 25% 15%; /* Dark text on cards */
+
+    /* =======================================================================
+       POPOVER/DROPDOWN
+       ======================================================================= */
 
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Primary brand color - Soft teal/emerald */
-    --primary: 160 84% 39%; /* #10B981 - Emerald-500 */
-    --primary-foreground: 0 0% 100%;
+    /* =======================================================================
+       PRIMARY BRAND COLOR - Soft teal/emerald
+       ======================================================================= */
 
-    --secondary: 210 40% 96.1%;
+    --primary: 160 84% 39%; /* #10B981 - Emerald-500 */
+    --primary-50: 151 81% 96%; /* #ECFDF5 */
+    --primary-100: 149 80% 90%; /* #D1FAE5 */
+    --primary-200: 152 76% 80%; /* #A7F3D0 */
+    --primary-300: 156 72% 67%; /* #6EE7B7 */
+    --primary-400: 158 64% 52%; /* #34D399 */
+    --primary-500: 160 84% 39%; /* #10B981 - DEFAULT */
+    --primary-600: 161 94% 30%; /* #059669 */
+    --primary-700: 163 94% 24%; /* #047857 */
+    --primary-800: 165 91% 21%; /* #065F46 */
+    --primary-900: 166 91% 17%; /* #064E3B */
+
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary-light: 158 64% 52%; /* #34D399 - Lighter */
+    --primary-dark: 161 94% 30%; /* #059669 - Darker */
+    --primary-hover: 163 94% 24%; /* #047857 - Hover state */
+
+    /* =======================================================================
+       SECONDARY COLORS
+       ======================================================================= */
+
+    --secondary: 210 40% 96%;
     --secondary-foreground: 215 25% 15%;
 
-    --muted: 210 17% 98%;
-    --muted-foreground: 215 16% 47%;
+    /* =======================================================================
+       MUTED COLORS
+       ======================================================================= */
 
-    --accent: 160 84% 39%;
+    --muted: 210 17% 98%;
+    --muted-foreground: 215 16% 47%; /* #6B7280 - Gray-500 */
+
+    /* =======================================================================
+       ACCENT COLORS
+       ======================================================================= */
+
+    --accent: 160 84% 39%; /* Same as primary */
     --accent-foreground: 0 0% 100%;
 
-    /* Status colors */
-    --destructive: 0 84% 60%; /* #EF4444 - Red-500 */
-    --destructive-foreground: 0 0% 100%;
+    /* =======================================================================
+       STATUS COLORS
+       ======================================================================= */
 
+    /* Success/Safe - Green */
     --success: 142 71% 45%; /* #22C55E - Green-500 */
+    --success-light: 141 77% 73%; /* #86EFAC - Green-300 */
+    --success-dark: 142 76% 36%; /* #16A34A - Green-600 */
     --success-foreground: 0 0% 100%;
 
+    /* Error/Avoid - Red */
+    --error: 0 84% 60%; /* #EF4444 - Red-500 */
+    --error-light: 0 93% 82%; /* #FCA5A5 - Red-300 */
+    --error-dark: 0 72% 51%; /* #DC2626 - Red-600 */
+    --error-foreground: 0 0% 100%;
+
+    /* Destructive (alias for error) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Caution - Amber */
     --caution: 38 92% 50%; /* #F59E0B - Amber-500 */
+    --caution-light: 43 96% 65%; /* #FCD34D - Amber-300 */
+    --caution-dark: 32 95% 44%; /* #D97706 - Amber-600 */
     --caution-foreground: 0 0% 100%;
 
-    /* Borders and inputs */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 160 84% 39%;
+    /* Warning - Orange */
+    --warning: 25 95% 53%; /* #F97316 - Orange-500 */
+    --warning-light: 32 97% 72%; /* #FDBA74 - Orange-300 */
+    --warning-dark: 20 91% 48%; /* #EA580C - Orange-600 */
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.75rem;
+    /* Info - Blue */
+    --info: 221 83% 53%; /* #3B82F6 - Blue-500 */
+    --info-light: 213 97% 87%; /* #93C5FD - Blue-300 */
+    --info-dark: 224 76% 48%; /* #2563EB - Blue-600 */
+    --info-foreground: 0 0% 100%;
 
-    /* Sidebar colors */
+    /* =======================================================================
+       TEXT COLORS
+       ======================================================================= */
+
+    --text-primary: 215 25% 15%; /* #1F2937 - Gray-800 */
+    --text-secondary: 215 16% 47%; /* #6B7280 - Gray-500 */
+    --text-tertiary: 218 11% 65%; /* #9CA3AF - Gray-400 */
+    --text-disabled: 214 32% 91%; /* #D1D5DB - Gray-300 */
+    --text-inverse: 0 0% 100%; /* #FFFFFF - White */
+    --text-link: 160 84% 39%; /* Primary color */
+    --text-link-hover: 163 94% 24%; /* Primary hover */
+
+    /* =======================================================================
+       BORDER COLORS
+       ======================================================================= */
+
+    --border: 214 32% 91%; /* #E5E7EB - Gray-200 - Default */
+    --border-light: 210 20% 96%; /* #F3F4F6 - Gray-100 */
+    --border-dark: 214 32% 83%; /* #D1D5DB - Gray-300 */
+    --border-focus: 160 84% 39%; /* Primary - Focus state */
+    --border-hover: 214 32% 83%; /* Gray-300 */
+    --border-active: 160 84% 39%; /* Primary - Active */
+    --border-disabled: 210 20% 96%; /* Gray-100 */
+    --border-error: 0 84% 60%; /* Red-500 */
+    --border-success: 142 71% 45%; /* Green-500 */
+
+    /* =======================================================================
+       INPUT COLORS
+       ======================================================================= */
+
+    --input: 214 32% 91%; /* Same as border */
+    --input-foreground: 215 25% 15%;
+
+    /* =======================================================================
+       RING (FOCUS OUTLINE)
+       ======================================================================= */
+
+    --ring: 160 84% 39%; /* Primary color for focus rings */
+
+    /* =======================================================================
+       RADIUS
+       ======================================================================= */
+
+    --radius: 0.75rem; /* 12px - Default border radius */
+
+    /* =======================================================================
+       SIDEBAR COLORS
+       ======================================================================= */
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5% 26%;
     --sidebar-primary: 240 6% 10%;
@@ -57,10 +182,44 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 160 84% 39%;
+
+    /* =======================================================================
+       BADGE COLORS
+       ======================================================================= */
+
+    --badge-neutral-bg: 210 20% 96%; /* #F3F4F6 - Gray-100 */
+    --badge-neutral-text: 217 19% 27%; /* #374151 - Gray-700 */
+
+    --badge-primary-bg: 149 80% 90%; /* #D1FAE5 - Green-100 */
+    --badge-primary-text: 165 91% 21%; /* #065F46 - Green-800 */
+
+    --badge-info-bg: 214 95% 93%; /* #DBEAFE - Blue-100 */
+    --badge-info-text: 221 83% 33%; /* #1E3A8A - Blue-900 */
+
+    --badge-success-bg: 149 80% 90%; /* #D1FAE5 - Green-100 */
+    --badge-success-text: 165 91% 21%; /* #065F46 - Green-800 */
+
+    --badge-warning-bg: 48 96% 89%; /* #FEF3C7 - Amber-100 */
+    --badge-warning-text: 36 77% 28%; /* #92400E - Amber-800 */
+
+    --badge-danger-bg: 0 86% 93%; /* #FEE2E2 - Red-100 */
+    --badge-danger-text: 0 70% 35%; /* #991B1B - Red-800 */
   }
+
+  /* ==========================================================================
+     DARK MODE
+     ==========================================================================
+     Dark mode color overrides
+     ========================================================================== */
 
   .dark {
     --background: 222 84% 5%;
+    --background-white: 222 84% 8%;
+    --background-gray: 217 33% 18%;
+    --background-muted: 217 33% 15%;
+    --background-surface: 222 84% 5%;
+    --background-hover: 217 33% 18%;
+
     --foreground: 210 40% 98%;
 
     --card: 222 84% 5%;
@@ -69,6 +228,7 @@ All colors MUST be HSL.
     --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
 
+    /* Primary stays the same in dark mode */
     --primary: 160 84% 39%;
     --primary-foreground: 0 0% 100%;
 
@@ -81,19 +241,52 @@ All colors MUST be HSL.
     --accent: 217 33% 18%;
     --accent-foreground: 210 40% 98%;
 
+    /* Status colors adjusted for dark mode */
+    --success: 142 71% 45%;
+    --success-light: 141 77% 73%;
+    --success-dark: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --error: 0 63% 31%;
+    --error-light: 0 93% 82%;
+    --error-dark: 0 72% 51%;
+    --error-foreground: 210 40% 98%;
+
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --success: 142 71% 45%;
-    --success-foreground: 0 0% 100%;
-
     --caution: 38 92% 50%;
+    --caution-light: 43 96% 65%;
+    --caution-dark: 32 95% 44%;
     --caution-foreground: 0 0% 100%;
 
+    --warning: 25 95% 53%;
+    --warning-light: 32 97% 72%;
+    --warning-dark: 20 91% 48%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 221 83% 53%;
+    --info-light: 213 97% 87%;
+    --info-dark: 224 76% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Text colors for dark mode */
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 65%;
+    --text-tertiary: 218 11% 65%;
+    --text-disabled: 217 33% 18%;
+    --text-inverse: 215 25% 15%;
+
+    /* Borders for dark mode */
     --border: 217 33% 18%;
+    --border-light: 222 84% 8%;
+    --border-dark: 217 33% 25%;
+    --border-focus: 160 84% 39%;
+
     --input: 217 33% 18%;
     --ring: 160 84% 39%;
 
+    /* Sidebar for dark mode */
     --sidebar-background: 240 6% 10%;
     --sidebar-foreground: 240 5% 96%;
     --sidebar-primary: 160 84% 39%;
@@ -102,8 +295,31 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5% 96%;
     --sidebar-border: 240 4% 16%;
     --sidebar-ring: 160 84% 39%;
+
+    /* Badge colors for dark mode */
+    --badge-neutral-bg: 217 33% 18%;
+    --badge-neutral-text: 210 20% 96%;
+
+    --badge-primary-bg: 165 91% 21%;
+    --badge-primary-text: 149 80% 90%;
+
+    --badge-info-bg: 221 83% 33%;
+    --badge-info-text: 214 95% 93%;
+
+    --badge-success-bg: 165 91% 21%;
+    --badge-success-text: 149 80% 90%;
+
+    --badge-warning-bg: 36 77% 28%;
+    --badge-warning-text: 48 96% 89%;
+
+    --badge-danger-bg: 0 70% 35%;
+    --badge-danger-text: 0 86% 93%;
   }
 }
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
 
 @layer base {
   * {
@@ -112,5 +328,8 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 }
