@@ -1,0 +1,60 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "jsxSingleQuote": true,
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": [
+    "^(react|react-dom)(.*)$",
+    "^(next|next/.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@repo/(.*)$",
+    "^@/__tests__",
+    "^@/tests/(.*)$",
+    "^@/application",
+    "^@/di",
+    "^@/infrastructure",
+    "^@/interface-adapters",
+    "^@/lib",
+    "^@/entities",
+    "^@/config/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/contexts/(.*)$",
+    "^@/stores/(.*)$",
+    "^@/providers/(.*)$",
+    "^@/services/(.*)$",
+    "^@/utils/(.*)$",
+    "^@/components/ui/(.*)$",
+    "^@/components/(.*)$",
+    "^@/types/(.*)$",
+    "^@/styles/(.*)$",
+    "^[.]/types/(.*)$",
+    "^[../]",
+    "^[./]"
+  ],
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "proseWrap": "preserve",
+  "overrides": [
+    {
+      "files": "*.{yml,yaml,json}",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "always"
+      }
+    }
+  ]
+}
