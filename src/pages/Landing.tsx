@@ -73,13 +73,14 @@ export default function Landing() {
 
   return (
     <div className='min-h-screen bg-background'>
-      {/* Hero Section - Enhanced with animations */}
-      <section className='from-primary-100 via-background-cream to-primary-50 relative overflow-hidden bg-gradient-to-br'>
+      <main>
+        {/* Hero Section - Enhanced with animations */}
+        <section className='relative overflow-hidden bg-gradient-to-br from-primary-100 via-background-cream to-primary-50'>
         {/* Decorative background elements - Animated blobs */}
         <div className='absolute inset-0 overflow-hidden'>
-          <div className='animate-blob absolute -right-20 -top-20 h-96 w-96 rounded-full bg-emerald-300 opacity-40 mix-blend-multiply blur-3xl'></div>
-          <div className='animate-blob animation-delay-2000 absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-emerald-400 opacity-40 mix-blend-multiply blur-3xl'></div>
-          <div className='animate-blob animation-delay-4000 bg-primary-500 absolute left-[calc(50%-12rem)] top-[calc(50%-12rem)] h-96 w-96 rounded-full opacity-30 mix-blend-multiply blur-3xl'></div>
+          <div className='absolute -right-20 -top-20 h-96 w-96 animate-blob rounded-full bg-emerald-300 opacity-40 mix-blend-multiply blur-3xl'></div>
+          <div className='absolute -bottom-20 -left-20 h-96 w-96 animate-blob rounded-full bg-emerald-400 opacity-40 mix-blend-multiply blur-3xl animation-delay-2000'></div>
+          <div className='absolute left-[calc(50%-12rem)] top-[calc(50%-12rem)] h-96 w-96 animate-blob rounded-full bg-primary-500 opacity-30 mix-blend-multiply blur-3xl animation-delay-4000'></div>
         </div>
 
         <div className='relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-32'>
@@ -94,13 +95,13 @@ export default function Landing() {
               variants={scaleIn}
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className='bg-primary-100 text-primary-900 border-primary-300 mb-6 inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-semibold shadow-sm'
+              className='mb-6 inline-flex items-center gap-2 rounded-full border-2 border-primary-300 bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-900 shadow-sm'
             >
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
               >
-                <Sparkles className='text-primary-700 h-4 w-4' />
+                <Sparkles className='h-4 w-4 text-primary-700' />
               </motion.div>
               Votre guide alimentaire personnalisé
             </motion.div>
@@ -134,7 +135,7 @@ export default function Landing() {
                 <Button
                   size='lg'
                   onClick={() => navigate('/profile')}
-                  className='bg-primary-600 hover:bg-primary-700 h-auto px-8 py-6 text-lg font-semibold text-white shadow-xl transition-all duration-200'
+                  className='h-auto bg-primary-600 px-8 py-6 text-lg font-semibold text-white shadow-xl transition-all duration-200 hover:bg-primary-700'
                 >
                   {content.landing.hero.cta}
                 </Button>
@@ -148,7 +149,7 @@ export default function Landing() {
                 }}
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className='text-primary-800 hover:text-primary-900 text-lg font-semibold underline underline-offset-4 transition-all'
+                className='text-lg font-semibold text-primary-800 underline underline-offset-4 transition-all hover:text-primary-900'
               >
                 En savoir plus →
               </motion.button>
@@ -166,7 +167,7 @@ export default function Landing() {
                     variants={staggerItem}
                     whileHover={{ y: -2, scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                    className='border-border-light flex items-center gap-2 rounded-full border bg-white/60 px-4 py-2 backdrop-blur-sm'
+                    className='flex items-center gap-2 rounded-full border border-border-light bg-white/60 px-4 py-2 backdrop-blur-sm'
                   >
                     <div className='h-2 w-2 animate-pulse rounded-full bg-success'></div>
                     <span>{text}</span>
@@ -192,7 +193,7 @@ export default function Landing() {
             <motion.div
               whileHover={{ rotate: 360, scale: 1.1 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className='bg-primary-100 text-primary-700 border-primary-200 mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2'
+              className='mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-primary-200 bg-primary-100 text-primary-700'
             >
               <Search className='h-8 w-8' />
             </motion.div>
@@ -215,7 +216,7 @@ export default function Landing() {
                 variants={staggerItem}
                 whileHover={{ x: 4, boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.1)' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className='hover:border-primary-300 border-border-light rounded-2xl border bg-gray-50 p-6 transition-all sm:p-8'
+                className='rounded-2xl border border-border-light bg-gray-50 p-6 transition-all hover:border-primary-300 sm:p-8'
               >
                 <p className='text-lg leading-relaxed text-gray-800'>{paragraph}</p>
               </motion.div>
@@ -288,7 +289,7 @@ export default function Landing() {
       </section>
 
       {/* How It Works - Card animations */}
-      <section className='from-primary-50 bg-gradient-to-br via-emerald-50 to-background py-20 sm:py-28'>
+      <section className='bg-gradient-to-br from-primary-50 via-emerald-50 to-background py-20 sm:py-28'>
         <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           {/* Section header */}
           <motion.div
@@ -328,20 +329,20 @@ export default function Landing() {
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.3 + idx * 0.2 }}
-                    className='from-primary-300 to-primary-200 absolute left-full top-7 -mr-8 hidden h-1 w-8 origin-left bg-gradient-to-r md:block'
+                    className='absolute left-full top-7 -mr-8 hidden h-1 w-8 origin-left bg-gradient-to-r from-primary-300 to-primary-200 md:block'
                   />
                 )}
 
                 {/* Card */}
                 <motion.div
-                  className='hover:border-primary-300 relative h-full rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-md transition-all duration-200'
+                  className='relative h-full rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-md transition-all duration-200 hover:border-primary-300'
                   whileHover={{ boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.15)' }}
                 >
                   {/* Number badge */}
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className='from-primary-600 to-primary-700 mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-bold text-white shadow-lg'
+                    className='mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 text-2xl font-bold text-white shadow-lg'
                   >
                     {step.number}
                   </motion.div>
@@ -371,7 +372,7 @@ export default function Landing() {
                 size='lg'
                 onClick={() => navigate('/profile')}
                 variant='outline'
-                className='border-primary-600 text-primary-700 hover:bg-primary-600 border-2 font-semibold shadow-md transition-all hover:text-white'
+                className='border-2 border-primary-600 font-semibold text-primary-700 shadow-md transition-all hover:bg-primary-600 hover:text-white'
               >
                 Commencer maintenant
               </Button>
@@ -394,7 +395,7 @@ export default function Landing() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className='text-success-dark mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-success/30 bg-success/20'
+              className='mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-success/30 bg-success/20 text-success-dark'
             >
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
@@ -478,7 +479,7 @@ export default function Landing() {
       </section>
 
       {/* CTA Footer - Final animated push */}
-      <section className='from-primary-100 to-primary-50 bg-gradient-to-br via-emerald-100 py-20 text-center sm:py-28'>
+      <section className='bg-gradient-to-br from-primary-100 via-emerald-100 to-primary-50 py-20 text-center sm:py-28'>
         <motion.div
           initial='hidden'
           whileInView='visible'
@@ -507,7 +508,7 @@ export default function Landing() {
             <Button
               size='lg'
               onClick={() => navigate('/profile')}
-              className='hover:shadow-3xl bg-primary-600 hover:bg-primary-700 h-auto px-10 py-7 text-lg font-bold text-white shadow-2xl transition-all'
+              className='hover:shadow-3xl h-auto bg-primary-600 px-10 py-7 text-lg font-bold text-white shadow-2xl transition-all hover:bg-primary-700'
             >
               {content.landing.ctaFooter.cta}
             </Button>
@@ -518,6 +519,7 @@ export default function Landing() {
           </motion.p>
         </motion.div>
       </section>
+      </main>
 
       <Footer />
     </div>

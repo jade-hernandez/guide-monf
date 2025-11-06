@@ -102,7 +102,7 @@ export default function Explorer() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         {/* Search Bar */}
         <div className="relative mb-4">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -173,7 +173,7 @@ export default function Explorer() {
             </p>
           </div>
         )}
-      </div>
+      </main>
 
       <Footer />
     </div>
