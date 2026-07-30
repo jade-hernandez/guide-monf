@@ -1,29 +1,31 @@
-import { useState, useEffect, ReactNode } from "react";
-import type { Food, FODMAPType } from "@/types";
-import { baseDonneesFodmap } from "@/lib/fodmap-db";
-import { UserContext } from "./UserContext";
-import type { UserContextType, UserProfile } from "./UserContext";
+import { type ReactNode, useEffect, useState } from 'react';
 
-const STORAGE_KEY = "mon_guide_fodmap_profile";
+import { baseDonneesFodmap } from '../lib/fodmap-db';
+import type { FODMAPType, Food } from '../types';
+import type { UserContextType, UserProfile } from './UserContext';
+import { UserContext } from './UserContext';
+
+const STORAGE_KEY = 'mon_guide_fodmap_profile';
 
 export function UserProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        setProfile(parsed);
+    const loadProfile = async () => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setProfile(parsed);
+        }
+      } catch (error) {
+        console.warn('Impossible de charger le profil depuis localStorage (navigation privée ?)');
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.warn(
-        "Impossible de charger le profil depuis localStorage (navigation privée ?)"
-      );
-    } finally {
-      setIsLoading(false);
-    }
+    };
+    loadProfile();
   }, []);
 
   const updateProfile = (newProfile: UserProfile) => {
@@ -31,9 +33,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newProfile));
     } catch (error) {
-      console.warn(
-        "Impossible d’enregistrer le profil dans localStorage (navigation privée ?)"
-      );
+      console.warn('Impossible d’enregistrer le profil dans localStorage (navigation privée ?)');
     }
   };
 
@@ -42,7 +42,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch (error) {
-      console.warn("Impossible de supprimer le profil de localStorage");
+      console.warn('Impossible de supprimer le profil de localStorage');
     }
   };
 
@@ -69,7 +69,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   };
 
   const getCompatibleFoods = (): Food[] => {
-    return baseDonneesFodmap.foods.filter((food) => isCompatible(food));
+    return baseDonneesFodmap.foods.filter((food: Food) => isCompatible(food));
   };
 
   const value: UserContextType = {

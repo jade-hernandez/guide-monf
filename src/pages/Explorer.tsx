@@ -1,25 +1,25 @@
-import { useState, useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Search, Filter, ArrowLeft, Check, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { content } from "@/config/content";
-import { useUser } from "@/hooks/use-user";
-import { baseDonneesFodmap } from "@/lib/fodmap-db";
-import type { FoodCategory } from "@/types";
-import { Footer } from "@/components/Footer";
-import { cn } from "@/lib/utils";
-import { categories } from "@/config/food-categories";
-import { FoodCard } from "@/components/FoodCard";
-import { NoProfileUser } from "@/components/NoProfileUser";
-import { ExplorerSkeleton } from "@/components/ExplorerSkeleton";
+import { useMemo, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { ArrowLeft, Filter, Search } from 'lucide-react';
+
+import { ExplorerSkeleton } from '../components/ExplorerSkeleton';
+import { FoodCard } from '../components/FoodCard';
+import { Footer } from '../components/Footer';
+import { NoProfileUser } from '../components/NoProfileUser';
+import { Button } from '../components/ui/button';
+import { content } from '../config/content';
+import { categories } from '../config/food-categories';
+import { useUser } from '../hooks/use-user';
+import { baseDonneesFodmap } from '../lib/fodmap-db';
+import { cn } from '../lib/utils';
+import type { FoodCategory } from '../types';
 
 export default function Explorer() {
   const navigate = useNavigate();
   const { profile, isLoading, isCompatible } = useUser();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<
-    Set<FoodCategory>
-  >(new Set());
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
   const [showCompatibleOnly, setShowCompatibleOnly] = useState(false);
 
   const filteredFoods = useMemo(() => {
@@ -62,10 +62,10 @@ export default function Explorer() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-8">
-      <header className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ">
+    <div className='min-h-screen bg-background pb-8'>
+      <header className='sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm'>
+        <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
+          <div className='flex items-center'>
             {/* <Button
               variant="ghost"
               size="icon"
@@ -76,10 +76,10 @@ export default function Explorer() {
             </Button> */}
             <Button
               asChild={true}
-              className="bg-transparent inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors border border-border"
+              className='inline-flex items-center gap-2 border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground'
             >
-              <Link to="/profile">
-                <ArrowLeft className="h-4 w-4" />
+              <Link to='/profile'>
+                <ArrowLeft className='h-4 w-4' />
                 Retour au profil
               </Link>
             </Button>
@@ -102,49 +102,49 @@ export default function Explorer() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <main className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
         {/* Search Bar */}
-        <div className="relative mb-4">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <div className='relative mb-4'>
+          <Search className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground' />
           <input
-            type="search"
+            type='search'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={content.explorer.search.placeholder}
-            className="w-full h-12 pl-10 pr-4 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className='h-12 w-full rounded-xl border border-border bg-card pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary'
             aria-label={content.explorer.search.ariaLabel}
           />
         </div>
         {/* Filters */}
-        <div className="mb-6 space-y-4">
+        <div className='mb-6 space-y-4'>
           {/* Compatible Toggle */}
           <button
             onClick={() => setShowCompatibleOnly(!showCompatibleOnly)}
             className={cn(
-              "inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all min-h-[44px]",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+              'inline-flex min-h-[44px] items-center gap-2 rounded-lg px-4 py-2 font-medium transition-all',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
               showCompatibleOnly
-                ? "bg-success text-success-foreground"
-                : "bg-muted text-foreground hover:bg-muted/80"
+                ? 'bg-success text-success-foreground'
+                : 'bg-muted text-foreground hover:bg-muted/80'
             )}
             aria-pressed={showCompatibleOnly}
           >
-            <Filter className="h-5 w-5" />
+            <Filter className='h-5 w-5' />
             <span>{content.explorer.filters.safeForMe.label}</span>
           </button>
 
           {/* Category Chips */}
-          <div className="flex flex-wrap gap-2">
+          <div className='flex flex-wrap gap-2'>
             {categories.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => toggleCategory(value)}
                 className={cn(
-                  "px-3 py-1.5 rounded-full text-sm font-medium transition-all min-h-[40px]",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                  'min-h-[40px] rounded-full px-3 py-1.5 text-sm font-medium transition-all',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
                   selectedCategories.has(value)
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-foreground hover:bg-muted/80"
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-foreground hover:bg-muted/80'
                 )}
                 aria-pressed={selectedCategories.has(value)}
               >
@@ -155,20 +155,20 @@ export default function Explorer() {
         </div>
 
         {/* Results Count */}
-        <p className="mb-4 text-sm text-muted-foreground">
+        <p className='mb-4 text-sm text-muted-foreground'>
           {filteredFoods.length} aliment(s) trouvé(s)
         </p>
 
         {/* Food Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {filteredFoods.map((food) => (
             <FoodCard key={food.id} food={food} />
           ))}
         </div>
 
         {filteredFoods.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-lg text-muted-foreground">
+          <div className='py-12 text-center'>
+            <p className='text-lg text-muted-foreground'>
               {content.explorer.emptyStates.noResults}
             </p>
           </div>

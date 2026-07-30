@@ -3,24 +3,19 @@
 // ============================================================================
 
 export type FODMAPType =
-  | "fructanes"
-  | "galactanes"
-  | "lactose"
-  | "fructose"
-  | "mannitol"
-  | "sorbitol";
+  'fructanes' | 'galactanes' | 'lactose' | 'fructose' | 'mannitol' | 'sorbitol';
 
 export type FoodCategory =
-  | "cereales"
-  | "legumes"
-  | "legumineuses"
-  | "fruits"
-  | "produits-laitiers"
-  | "edulcorants"
-  | "alternatives-vegetales"
-  | "noix-graines";
+  | 'cereales'
+  | 'legumes'
+  | 'legumineuses'
+  | 'fruits'
+  | 'produits-laitiers'
+  | 'edulcorants'
+  | 'alternatives-vegetales'
+  | 'noix-graines';
 
-export type ConfidenceLevel = "elevee" | "moyenne" | "faible";
+export type ConfidenceLevel = 'elevee' | 'moyenne' | 'faible';
 
 // ============================================================================
 // FOOD DATA STRUCTURES

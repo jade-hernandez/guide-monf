@@ -8,7 +8,7 @@
 // ============================================================================
 
 export const medicalDisclaimer = {
-  title: "Avertissement Médical",
+  title: 'Avertissement Médical',
 
   full: `Cette application est fournie à des fins d'information et d'éducation uniquement. Les informations contenues dans cette application ne constituent pas des conseils médicaux professionnels, un diagnostic ou un traitement médical.
 
@@ -26,7 +26,7 @@ En cas d'urgence médicale, contactez immédiatement les services d'urgence.`,
 // ============================================================================
 
 export const dataProtectionNotice = {
-  title: "Protection des Données Personnelles",
+  title: 'Protection des Données Personnelles',
 
   full: `Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vos données de santé sont protégées par des mesures de sécurité renforcées.
 
@@ -42,7 +42,7 @@ Les données collectées sont utilisées uniquement pour les fonctionnalités de
 // ============================================================================
 
 export const dietaryDisclaimer = {
-  title: "Avertissement Alimentaire",
+  title: 'Avertissement Alimentaire',
 
   full: `Le régime pauvre en FODMAP doit être suivi sous supervision médicale appropriée. Cette application fournit des informations générales qui peuvent ne pas convenir à votre situation personnelle.
 
@@ -61,7 +61,7 @@ Les utilisateurs assument la responsabilité de leurs choix alimentaires basés 
 // ============================================================================
 
 export const userQualificationNotice = {
-  title: "💡 Bon à Savoir",
+  title: '💡 Bon à Savoir',
 
   content: `Cette application fonctionne uniquement pour les personnes qui ont déjà effectué des tests de réintroduction FODMAP avec un professionnel de santé et connaissent leurs intolérances spécifiques.
 
@@ -77,7 +77,7 @@ Si vous n'avez pas encore identifié vos intolérances :
 // ============================================================================
 
 export const dataSourceNotice = {
-  title: "Source des Données",
+  title: 'Source des Données',
 
   full: `Les données alimentaires de cette application sont basées sur les recherches de l'Université Monash (Australie), référence mondiale pour le régime FODMAP.
 
@@ -96,7 +96,7 @@ Les données sont fournies "telles quelles" à des fins éducatives. L'exactitud
 // ============================================================================
 
 export const liabilityLimitation = {
-  title: "Limitation de Responsabilité",
+  title: 'Limitation de Responsabilité',
 
   content: `L'éditeur de cette application ne peut être tenu responsable de tout dommage direct, indirect, accessoire ou consécutif résultant de :
 
@@ -114,7 +114,7 @@ L'utilisation de cette application se fait à vos propres risques. Consultez tou
 // ============================================================================
 
 export const intellectualPropertyNotice = {
-  title: "Propriété Intellectuelle",
+  title: 'Propriété Intellectuelle',
 
   content: `Les contenus de cette application (textes, données, interface) sont protégés par les droits d'auteur et les lois sur la propriété intellectuelle.
 
@@ -130,7 +130,7 @@ export const intellectualPropertyNotice = {
 // ============================================================================
 
 export const modificationNotice = {
-  title: "Modification des Conditions",
+  title: 'Modification des Conditions',
 
   content: `Ces conditions et disclaimers peuvent être modifiés à tout moment pour refléter :
 
@@ -150,21 +150,21 @@ export const pageDisclaimers = {
   landing: {
     title: medicalDisclaimer.title,
     content: medicalDisclaimer.full,
-    placement: "before-cta",
+    placement: 'before-cta',
     dismissible: false,
   },
 
   profile: {
     title: userQualificationNotice.title,
     content: userQualificationNotice.content,
-    placement: "bottom",
+    placement: 'bottom',
     dismissible: false,
   },
 
   explorer: {
-    title: "ℹ️ Informations Importantes",
+    title: 'ℹ️ Informations Importantes',
     content: `Les recommandations sont basées sur votre profil et les données de l'Université Monash 2024-2025. Les tolérances individuelles peuvent varier. En cas de doute, consultez votre diététicien.`,
-    placement: "banner",
+    placement: 'banner',
     dismissible: true,
   },
 };
@@ -220,7 +220,7 @@ export const consentText = {
 /**
  * Get disclaimer for specific page
  */
-export function getPageDisclaimer(page: "landing" | "profile" | "explorer") {
+export function getPageDisclaimer(page: 'landing' | 'profile' | 'explorer') {
   return pageDisclaimers[page];
 }
 
@@ -229,7 +229,7 @@ export function getPageDisclaimer(page: "landing" | "profile" | "explorer") {
  */
 export function shouldShowDisclaimer(): boolean {
   try {
-    const seen = localStorage.getItem("disclaimer_accepted");
+    const seen = localStorage.getItem('disclaimer_accepted');
     return !seen;
   } catch {
     return true; // Show by default if localStorage unavailable
@@ -241,7 +241,7 @@ export function shouldShowDisclaimer(): boolean {
  */
 export function acceptDisclaimer(): boolean {
   try {
-    localStorage.setItem("disclaimer_accepted", new Date().toISOString());
+    localStorage.setItem('disclaimer_accepted', new Date().toISOString());
     return true;
   } catch {
     return false;
@@ -252,10 +252,10 @@ export function acceptDisclaimer(): boolean {
  * Get formatted date for legal text
  */
 export function getLastUpdateDate(): string {
-  return new Date("2024-12-01").toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return new Date('2024-12-01').toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 }
 
@@ -264,15 +264,15 @@ export function getLastUpdateDate(): string {
  */
 export const emergencyContacts = {
   samu: {
-    number: "15",
+    number: '15',
     description: "Service d'Aide Médicale Urgente",
   },
   pompiers: {
-    number: "18",
-    description: "Sapeurs-Pompiers",
+    number: '18',
+    description: 'Sapeurs-Pompiers',
   },
   urgences: {
-    number: "112",
+    number: '112',
     description: "Numéro d'urgence européen",
   },
 };

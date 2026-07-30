@@ -1,5 +1,6 @@
-import { createContext } from "react";
-import type { Food, FODMAPType } from "@/types";
+import { createContext } from 'react';
+
+import type { FODMAPType, Food } from '../types';
 
 export interface UserProfile {
   fodmapIntolerances: {
@@ -25,6 +26,4 @@ export interface UserContextType {
   hasProfile: () => boolean;
 }
 
-export const UserContext = createContext<UserContextType | undefined>(
-  undefined
-);
+export const UserContext = createContext<UserContextType | undefined>(undefined);

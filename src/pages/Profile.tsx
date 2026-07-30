@@ -1,20 +1,17 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { content } from "@/config/content";
-import { useUser } from "@/hooks/use-user";
-import type { FODMAPType } from "@/types";
-import { Footer } from "@/components/Footer";
-import { ArrowLeft, Check, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { ArrowLeft, Check, X } from 'lucide-react';
+
+import { Footer } from '../components/Footer';
+import { Button } from '../components/ui/button';
+import { content } from '../config/content';
+import { useUser } from '../hooks/use-user';
+import { cn } from '../lib/utils';
+import type { FODMAPType } from '../types';
 
 const fodmapTypes = content.profile.fodmaps.map(
-  (fodmap: {
-    type: string;
-    name: string;
-    description: string;
-    examples: string;
-  }) => ({
+  (fodmap: { type: string; name: string; description: string; examples: string }) => ({
     type: fodmap.type as FODMAPType,
     info: fodmap,
   })
@@ -24,9 +21,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const { profile, updateProfile } = useUser();
 
-  const [selections, setSelections] = useState<
-    Record<FODMAPType, boolean | null>
-  >(
+  const [selections, setSelections] = useState<Record<FODMAPType, boolean | null>>(
     profile
       ? profile.fodmapIntolerances
       : {
@@ -43,9 +38,7 @@ export default function Profile() {
     setSelections((prev) => ({ ...prev, [type]: tolerates }));
   };
 
-  const configuredCount = Object.values(selections).filter(
-    (v) => v !== null
-  ).length;
+  const configuredCount = Object.values(selections).filter((v) => v !== null).length;
   const allConfigured = configuredCount === 6;
 
   const handleContinue = () => {
@@ -58,109 +51,103 @@ export default function Profile() {
     };
 
     updateProfile(newProfile);
-    navigate("/explorer");
+    navigate('/explorer');
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className='flex min-h-screen flex-col bg-background'>
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-card/80 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center">
+      <header className='sticky top-0 z-10 border-b border-border bg-card/80 backdrop-blur-sm'>
+        <div className='container mx-auto flex items-center px-4 py-4'>
           <Button
             asChild={true}
-            className="bg-transparent inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors border border-border"
+            className='inline-flex items-center gap-2 border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground'
           >
-            <Link to="/">
-              <ArrowLeft className="h-4 w-4" />
+            <Link to='/'>
+              <ArrowLeft className='h-4 w-4' />
               Retour à l'accueil
             </Link>
           </Button>
         </div>
       </header>
 
-      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className=" flex flex-col mx-auto p-6 sm:px-6 lg:px-8 justify-center  ">
-          <h1 className=" py-4 text-3xl font-bold text-foreground text-center">
+      <main className='mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8'>
+        <div className='mx-auto flex flex-col justify-center p-6 sm:px-6 lg:px-8'>
+          <h1 className='py-4 text-center text-3xl font-bold text-foreground'>
             {content.profile.header.title}
           </h1>
-          <p className="text-lg text-muted-foreground text-center">
+          <p className='text-center text-lg text-muted-foreground'>
             {content.profile.header.subtitle}
           </p>
         </div>
 
         {/* Progress */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-foreground">
+        <div className='mb-8'>
+          <div className='mb-2 flex items-center justify-between'>
+            <span className='text-sm font-medium text-foreground'>
               {content.profile.progress.label}
             </span>
-            <span className="text-sm font-semibold text-primary">
-              {configuredCount}/6
-            </span>
+            <span className='text-sm font-semibold text-primary'>{configuredCount}/6</span>
           </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div className='h-2 overflow-hidden rounded-full bg-muted'>
             <div
-              className="h-full bg-primary transition-all duration-300"
+              className='h-full bg-primary transition-all duration-300'
               style={{ width: `${(configuredCount / 6) * 100}%` }}
             />
           </div>
         </div>
 
         {/* Instructions */}
-        <div className="mb-8 rounded-xl bg-card p-6 border border-border">
-          <p className="text-foreground leading-relaxed">
-            {content.profile.disclaimer.content}
-          </p>
+        <div className='mb-8 rounded-xl border border-border bg-card p-6'>
+          <p className='leading-relaxed text-foreground'>{content.profile.disclaimer.content}</p>
         </div>
 
         {/* FODMAP Cards */}
-        <div className="space-y-4 mb-8">
+        <div className='mb-8 space-y-4'>
           {fodmapTypes.map(({ type, info }) => (
             <div
               key={type}
-              className="rounded-xl bg-card border border-border p-6 shadow-sm hover:shadow-md transition-shadow"
+              className='rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md'
             >
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                {info.name}
-              </h3>
-              <p className="text-muted-foreground mb-4">{info.description}</p>
-              <p className="text-sm text-muted-foreground mb-4">
-                <span className="font-semibold">Exemples:</span> {info.examples}
+              <h3 className='mb-2 text-xl font-bold text-foreground'>{info.name}</h3>
+              <p className='mb-4 text-muted-foreground'>{info.description}</p>
+              <p className='mb-4 text-sm text-muted-foreground'>
+                <span className='font-semibold'>Exemples:</span> {info.examples}
               </p>
 
               {/* Toggle Buttons */}
               <div
-                role="group"
+                role='group'
                 aria-label={`Configuration pour ${info.name}`}
-                className="grid grid-cols-2 gap-3"
+                className='grid grid-cols-2 gap-3'
               >
                 <button
                   onClick={() => handleToggle(type, true)}
                   className={cn(
-                    "flex items-center justify-center gap-2 rounded-lg px-4 py-3 font-semibold transition-all min-h-[44px]",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                    'flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-4 py-3 font-semibold transition-all',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
                     selections[type] === true
-                      ? "bg-success text-success-foreground shadow-md scale-105"
-                      : "bg-muted text-foreground hover:bg-muted/80"
+                      ? 'scale-105 bg-success text-success-foreground shadow-md'
+                      : 'bg-muted text-foreground hover:bg-muted/80'
                   )}
                   aria-pressed={selections[type] === true}
                 >
-                  <Check className="h-5 w-5" />
+                  <Check className='h-5 w-5' />
                   <span>{content.profile.toggleButtons.tolerate}</span>
                 </button>
 
                 <button
                   onClick={() => handleToggle(type, false)}
                   className={cn(
-                    "flex items-center justify-center gap-2 rounded-lg px-4 py-3 font-semibold transition-all min-h-[44px]",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                    'flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-4 py-3 font-semibold transition-all',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
                     selections[type] === false
-                      ? "bg-destructive text-destructive-foreground shadow-md scale-105"
-                      : "bg-muted text-foreground hover:bg-muted/80"
+                      ? 'scale-105 bg-destructive text-destructive-foreground shadow-md'
+                      : 'bg-muted text-foreground hover:bg-muted/80'
                   )}
                   aria-pressed={selections[type] === false}
                 >
-                  <X className="h-5 w-5" />
+                  <X className='h-5 w-5' />
                   <span>{content.profile.toggleButtons.avoid}</span>
                 </button>
               </div>
@@ -169,18 +156,18 @@ export default function Profile() {
         </div>
 
         {/* Continue Button */}
-        <div className="sticky bottom-0 bg-background/95 backdrop-blur-sm py-6 border-t border-border">
+        <div className='sticky bottom-0 border-t border-border bg-background/95 py-6 backdrop-blur-sm'>
           <Button
             onClick={handleContinue}
             disabled={!allConfigured}
-            size="lg"
-            className="w-full"
+            size='lg'
+            className='w-full'
             aria-label={content.profile.continueButton.label}
           >
             {content.profile.continueButton.label}
           </Button>
           {!allConfigured && (
-            <p className="mt-3 text-center text-sm text-muted-foreground">
+            <p className='mt-3 text-center text-sm text-muted-foreground'>
               {content.profile.validation.incomplete}
             </p>
           )}
