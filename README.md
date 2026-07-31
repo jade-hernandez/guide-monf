@@ -14,7 +14,7 @@ user's specific, individually-tested FODMAP intolerances.
 
 - **Personalized Profile**: Configure your specific FODMAP intolerances (fructanes, galactanes,
   lactose, fructose, mannitol, sorbitol)
-- **Food Explorer**: Browse and search 110 foods with real-time compatibility filtering
+- **Food Explorer**: Browse and search 104 foods with real-time compatibility filtering
 - **Smart Filtering**: See only foods that match your tolerance profile
 - **Detailed Food Cards**: View safe portion sizes, FODMAP content, and category information
 - **Offline-First**: Profile saved locally in your browser for privacy and speed

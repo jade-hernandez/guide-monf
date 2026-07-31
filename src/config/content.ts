@@ -161,7 +161,7 @@ export const content = {
       placeholder: 'Rechercher un aliment... (ex: fraises, pâtes, lait)',
       ariaLabel: 'Rechercher des aliments par nom',
       clearButton: 'Effacer la recherche',
-      noResults: 'Aucun aliment trouvé dans notre base actuelle (110 aliments)',
+      noResults: 'Aucun aliment trouvé dans notre base actuelle (104 aliments)',
       noResultsHint: "Consultez l'application Monash pour une base de données complète",
       resultsCount: '{{count}} aliment(s) trouvé(s)',
     },

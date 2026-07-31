@@ -83,12 +83,12 @@ export const dataSourceNotice = {
 
 • Source : Monash University FODMAP Database 2024-2025
 • Mise à jour : Octobre 2025
-• Base de données : 110 aliments validés
+• Base de données : 104 aliments référencés
 • Niveau de confiance : Élevé pour 95%+ des entrées
 
 Les données sont fournies "telles quelles" à des fins éducatives. L'exactitude des informations dépend de la qualité des données source et des variations naturelles dans la composition des aliments.`,
 
-  short: `Basé sur les données de l'Université Monash 2024-2025. 110 aliments validés avec un niveau de confiance élevé.`,
+  short: `Basé sur les données de l'Université Monash 2024-2025. 104 aliments référencés avec un niveau de confiance élevé.`,
 };
 
 // ============================================================================
