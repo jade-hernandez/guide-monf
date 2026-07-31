@@ -128,6 +128,7 @@ export default function Explorer() {
                 : 'bg-muted text-foreground hover:bg-muted/80'
             )}
             aria-pressed={showCompatibleOnly}
+            aria-label={content.explorer.filters.safeForMe.ariaLabel}
           >
             <Filter className='h-5 w-5' />
             <span>{content.explorer.filters.safeForMe.label}</span>

@@ -169,8 +169,9 @@ export const content = {
     filters: {
       title: 'Filtres',
       safeForMe: {
-        label: 'Compatible pour moi',
-        ariaLabel: 'Afficher uniquement les aliments compatibles avec mon profil',
+        label: 'Sans FODMAP évité détecté',
+        ariaLabel:
+          'Afficher uniquement les aliments sans FODMAP marqué comme étant à éviter dans mon profil enregistré',
       },
       categories: {
         all: 'Toutes catégories',
@@ -186,11 +187,15 @@ export const content = {
     },
 
     foodCard: {
-      compatible: 'Compatible',
-      avoid: 'Éviter',
+      compatible: 'Aucun FODMAP évité détecté',
+      compatibleAria:
+        "D'après votre profil enregistré, aucun FODMAP marqué comme étant à éviter n'est détecté dans cet aliment",
+      avoid: 'FODMAP évité détecté',
+      avoidAria:
+        "D'après votre profil enregistré, cet aliment contient au moins un FODMAP marqué comme étant à éviter",
       limit: '{{grams}}g',
       contains: 'Contient',
-      safeUpTo: "Sûr jusqu'à {{grams}}g",
+      referencePortion: 'Portion de référence',
       confidence: {
         elevee: 'Confiance élevée',
         moyenne: 'Confiance moyenne',
@@ -209,7 +214,8 @@ export const content = {
     emptyStates: {
       noFoods: 'Aucun aliment disponible',
       noResults: 'Aucun aliment ne correspond à votre recherche',
-      noCompatibleFoods: 'Aucun aliment compatible trouvé. Essayez de modifier vos filtres.',
+      noCompatibleFoods:
+        'Aucun aliment sans FODMAP évité détecté. Essayez de modifier vos filtres.',
       configureProfile:
         "Veuillez d'abord configurer votre profil pour voir des recommandations personnalisées.",
     },
