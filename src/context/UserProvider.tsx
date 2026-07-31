@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useState } from 'react';
 
 import { baseDonneesFodmap } from '../lib/fodmap-db';
+import { parseStoredProfile, serializeStoredProfile } from '../lib/profile-storage';
 import type { FODMAPType, Food } from '../types';
 import type { UserContextType, UserProfile } from './UserContext';
 import { UserContext } from './UserContext';
@@ -16,8 +17,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
-          const parsed = JSON.parse(stored);
-          setProfile(parsed);
+          const parsed = parseStoredProfile(stored);
+          if (parsed) {
+            setProfile(parsed.profile);
+
+            if (parsed.isLegacy) {
+              localStorage.setItem(STORAGE_KEY, serializeStoredProfile(parsed.profile));
+            }
+          }
         }
       } catch (error) {
         console.warn('Impossible de charger le profil depuis localStorage (navigation privée ?)');
@@ -31,7 +38,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const updateProfile = (newProfile: UserProfile) => {
     setProfile(newProfile);
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newProfile));
+      localStorage.setItem(STORAGE_KEY, serializeStoredProfile(newProfile));
     } catch (error) {
       console.warn('Impossible d’enregistrer le profil dans localStorage (navigation privée ?)');
     }
