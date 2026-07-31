@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { ArrowLeft, Filter, Search } from 'lucide-react';
+import { ArrowLeft, Filter, Info, Search } from 'lucide-react';
 
 import { ExplorerSkeleton } from '../components/ExplorerSkeleton';
 import { FoodCard } from '../components/FoodCard';
@@ -153,6 +153,14 @@ export default function Explorer() {
               </button>
             ))}
           </div>
+        </div>
+
+        <div
+          className='mb-4 flex items-start gap-2 rounded-lg border border-border bg-card p-3 text-sm text-muted-foreground'
+          role='note'
+        >
+          <Info className='mt-0.5 h-4 w-4 shrink-0' aria-hidden='true' />
+          <p className='leading-relaxed'>{content.explorer.banner.info}</p>
         </div>
 
         {/* Results Count */}

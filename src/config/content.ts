@@ -221,7 +221,7 @@ export const content = {
     },
 
     banner: {
-      info: "ℹ️ Les recommandations sont basées sur votre profil et les données de l'Université Monash 2024-2025. Les tolérances individuelles peuvent varier. En cas de doute, consultez votre diététicien.",
+      info: 'Les résultats indiquent si les FODMAPs enregistrés pour chaque aliment correspondent à ceux marqués « à éviter » dans votre profil sauvegardé. Les grammes affichés sont une portion de référence du jeu de données actuel, pas une garantie de tolérance. Les réactions individuelles peuvent varier.',
       dismiss: 'Fermer',
     },
 
