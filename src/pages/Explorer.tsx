@@ -11,35 +11,30 @@ import { Button } from '../components/ui/button';
 import { content } from '../config/content';
 import { categories } from '../config/food-categories';
 import { useUser } from '../hooks/use-user';
+import { getSavedAvoidedFodmapTypes, selectExplorerFoods } from '../lib/compatibility';
 import { baseDonneesFodmap } from '../lib/fodmap-db';
 import { cn } from '../lib/utils';
 import type { FoodCategory } from '../types';
 
 export default function Explorer() {
   const navigate = useNavigate();
-  const { profile, isLoading, isCompatible } = useUser();
+  const { profile, isLoading } = useUser();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
   const [showCompatibleOnly, setShowCompatibleOnly] = useState(false);
 
   const filteredFoods = useMemo(() => {
-    let foods = baseDonneesFodmap.foods;
+    const avoidedFodmaps =
+      showCompatibleOnly && profile
+        ? getSavedAvoidedFodmapTypes(profile.fodmapIntolerances)
+        : null;
 
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      foods = foods.filter((food) => food.name.toLowerCase().includes(query));
-    }
-
-    if (selectedCategories.size > 0) {
-      foods = foods.filter((food) => selectedCategories.has(food.category));
-    }
-
-    if (showCompatibleOnly) {
-      foods = foods.filter((food) => isCompatible(food));
-    }
-
-    return foods;
-  }, [searchQuery, selectedCategories, showCompatibleOnly, isCompatible]);
+    return selectExplorerFoods(baseDonneesFodmap.foods, {
+      query: searchQuery,
+      selectedCategories,
+      avoidedFodmaps,
+    });
+  }, [searchQuery, selectedCategories, showCompatibleOnly, profile]);
 
   const toggleCategory = (category: FoodCategory) => {
     setSelectedCategories((prev) => {

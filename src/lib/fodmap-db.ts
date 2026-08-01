@@ -1212,16 +1212,6 @@ export function getFoodsByFodmap(fodmapType: FODMAPType): Food[] {
 }
 
 /**
- * Get compatible foods based on user intolerances
- * A food is INCOMPATIBLE if it contains ANY FODMAP the user is intolerant to
- */
-export function getCompatibleFoods(intolerances: FODMAPType[]): Food[] {
-  return baseDonneesFodmap.foods.filter(
-    (food) => !food.fodmaps.some((fodmap) => intolerances.includes(fodmap.type))
-  );
-}
-
-/**
  * Search foods by name, category, or FODMAP type
  */
 export function searchFoods(query: string): Food[] {
@@ -1237,13 +1227,6 @@ export function searchFoods(query: string): Food[] {
       food.category.toLowerCase().includes(normalized) ||
       food.fodmaps.some((fodmap) => fodmap.type.toLowerCase().includes(normalized))
   );
-}
-
-/**
- * Check if a food is compatible with user's profile
- */
-export function isFoodCompatible(food: Food, intolerances: FODMAPType[]): boolean {
-  return !food.fodmaps.some((fodmap) => intolerances.includes(fodmap.type));
 }
 
 /**

@@ -1,5 +1,9 @@
 import { type ReactNode, useEffect, useState } from 'react';
 
+import {
+  foodPassesSavedAvoidedFodmapFilter,
+  getSavedAvoidedFodmapTypes,
+} from '../lib/compatibility';
 import { baseDonneesFodmap } from '../lib/fodmap-db';
 import { parseStoredProfile, serializeStoredProfile } from '../lib/profile-storage';
 import type { FODMAPType, Food } from '../types';
@@ -58,23 +62,11 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const getIntolerances = (): FODMAPType[] => {
     if (!profile) return [];
 
-    const intolerances: FODMAPType[] = [];
-    Object.entries(profile.fodmapIntolerances).forEach(([key, tolerates]) => {
-      if (!tolerates) {
-        intolerances.push(key as FODMAPType);
-      }
-    });
-
-    return intolerances;
+    return getSavedAvoidedFodmapTypes(profile.fodmapIntolerances);
   };
 
   const isCompatible = (food: Food): boolean => {
-    if (!profile) return true;
-
-    const intolerances = getIntolerances();
-    if (intolerances.length === 0) return true;
-
-    return !food.fodmaps.some((fodmap) => intolerances.includes(fodmap.type));
+    return foodPassesSavedAvoidedFodmapFilter(food, getIntolerances());
   };
 
   const getCompatibleFoods = (): Food[] => {
