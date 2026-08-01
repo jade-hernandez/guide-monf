@@ -144,7 +144,8 @@ export const content = {
     validation: {
       incomplete: 'Veuillez configurer tous les FODMAPs avant de continuer',
       saved: 'Profil sauvegardé avec succès',
-      error: 'Erreur lors de la sauvegarde du profil',
+      saveFailed:
+        "Impossible d’enregistrer votre profil dans ce navigateur. Vos choix restent affichés ; vous pouvez réessayer.",
     },
   },
 

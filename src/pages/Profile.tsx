@@ -21,6 +21,7 @@ const fodmapTypes = content.profile.fodmaps.map(
 function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null }) {
   const navigate = useNavigate();
   const { updateProfile } = useUser();
+  const [saveError, setSaveError] = useState(false);
 
   const [selections, setSelections] = useState<Record<FODMAPType, boolean | null>>(() =>
     initialProfile
@@ -36,6 +37,7 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
   );
 
   const handleToggle = (type: FODMAPType, tolerates: boolean) => {
+    setSaveError(false);
     setSelections((prev) => ({ ...prev, [type]: tolerates }));
   };
 
@@ -51,7 +53,13 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
       lastUpdated: new Date().toISOString(),
     };
 
-    updateProfile(newProfile);
+    const saved = updateProfile(newProfile);
+    if (!saved) {
+      setSaveError(true);
+      return;
+    }
+
+    setSaveError(false);
     navigate('/explorer');
   };
 
@@ -158,6 +166,14 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
 
         {/* Continue Button */}
         <div className='sticky bottom-0 border-t border-border bg-background/95 py-6 backdrop-blur-sm'>
+          {saveError && (
+            <p
+              className='mb-3 rounded-lg border border-destructive/20 bg-destructive/10 px-4 py-3 text-sm text-destructive'
+              role='alert'
+            >
+              {content.profile.validation.saveFailed}
+            </p>
+          )}
           <Button
             onClick={handleContinue}
             disabled={!allConfigured}

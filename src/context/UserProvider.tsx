@@ -35,12 +35,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
     loadProfile();
   }, []);
 
-  const updateProfile = (newProfile: UserProfile) => {
-    setProfile(newProfile);
+  const updateProfile = (newProfile: UserProfile): boolean => {
     try {
       localStorage.setItem(STORAGE_KEY, serializeStoredProfile(newProfile));
+      setProfile(newProfile);
+      return true;
     } catch (error) {
       console.warn('Impossible d’enregistrer le profil dans localStorage (navigation privée ?)');
+      return false;
     }
   };
 

@@ -18,7 +18,7 @@ export interface UserProfile {
 export interface UserContextType {
   profile: UserProfile | null;
   isLoading: boolean;
-  updateProfile: (profile: UserProfile) => void;
+  updateProfile: (profile: UserProfile) => boolean;
   clearProfile: () => void;
   isCompatible: (food: Food) => boolean;
   getCompatibleFoods: () => Food[];
