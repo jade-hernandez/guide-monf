@@ -6,6 +6,7 @@ import { ArrowLeft, Check, X } from 'lucide-react';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/ui/button';
 import { content } from '../config/content';
+import type { UserProfile } from '../context/UserContext';
 import { useUser } from '../hooks/use-user';
 import { cn } from '../lib/utils';
 import type { FODMAPType } from '../types';
@@ -17,13 +18,13 @@ const fodmapTypes = content.profile.fodmaps.map(
   })
 );
 
-export default function Profile() {
+function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null }) {
   const navigate = useNavigate();
-  const { profile, updateProfile } = useUser();
+  const { updateProfile } = useUser();
 
-  const [selections, setSelections] = useState<Record<FODMAPType, boolean | null>>(
-    profile
-      ? profile.fodmapIntolerances
+  const [selections, setSelections] = useState<Record<FODMAPType, boolean | null>>(() =>
+    initialProfile
+      ? { ...initialProfile.fodmapIntolerances }
       : {
           fructanes: null,
           galactanes: null,
@@ -46,7 +47,7 @@ export default function Profile() {
 
     const newProfile = {
       fodmapIntolerances: selections as Record<FODMAPType, boolean>,
-      createdAt: profile?.createdAt || new Date().toISOString(),
+      createdAt: initialProfile?.createdAt || new Date().toISOString(),
       lastUpdated: new Date().toISOString(),
     };
 
@@ -176,4 +177,20 @@ export default function Profile() {
       <Footer />
     </div>
   );
+}
+
+export default function Profile() {
+  const { profile, isLoading } = useUser();
+
+  if (isLoading) {
+    return (
+      <div className='flex min-h-screen items-center justify-center bg-background px-4'>
+        <p className='text-center text-muted-foreground' role='status'>
+          {content.common.loading.profile}
+        </p>
+      </div>
+    );
+  }
+
+  return <ProfileEditor initialProfile={profile} />;
 }
