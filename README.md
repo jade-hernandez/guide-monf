@@ -33,22 +33,26 @@ user's specific, individually-tested FODMAP intolerances.
 
 ### Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 20.19 or newer
+- pnpm
 
 ### Installation
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
+
+# Run lint, type checks, tests, and the production build
+pnpm quality
 
 # Build for production
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 ```
 
 The app will be available at `http://localhost:8080`

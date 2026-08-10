@@ -10,6 +10,7 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "vitest run",
+    "quality": "pnpm lint && pnpm check-types && pnpm test && pnpm build",
     "preview": "vite preview",
     "check-types": "tsc --noEmit"
   },
