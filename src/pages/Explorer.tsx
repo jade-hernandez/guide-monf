@@ -159,7 +159,12 @@ export default function Explorer() {
         </div>
 
         {/* Results Count */}
-        <p className='mb-4 text-sm text-muted-foreground'>
+        <p
+          className='mb-4 text-sm text-muted-foreground'
+          role='status'
+          aria-live='polite'
+          aria-atomic='true'
+        >
           {filteredFoods.length} aliment(s) trouvé(s)
         </p>
 
