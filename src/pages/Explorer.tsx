@@ -60,7 +60,7 @@ export default function Explorer() {
     <div className='min-h-screen bg-background pb-8'>
       <header className='sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm'>
         <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
-          <div className='flex items-center'>
+          <div className='flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4'>
             {/* <Button
               variant="ghost"
               size="icon"
@@ -71,16 +71,16 @@ export default function Explorer() {
             </Button> */}
             <Button
               asChild={true}
-              className='inline-flex items-center gap-2 border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground'
+              className='inline-flex shrink-0 items-center gap-2 border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground'
             >
               <Link to='/profile'>
                 <ArrowLeft className='h-4 w-4' />
                 Retour au profil
               </Link>
             </Button>
-            {/* <h1 className="text-2xl font-bold text-foreground">
+            <h1 className='text-2xl font-bold text-foreground'>
               {content.explorer.header.title}
-            </h1> */}
+            </h1>
           </div>
 
           {/* <div className="relative">
