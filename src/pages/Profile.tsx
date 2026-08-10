@@ -119,7 +119,7 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
         </div>
 
         {/* FODMAP Cards */}
-        <div className='mb-8 space-y-4'>
+        <div className={cn('space-y-4', saveError ? 'mb-52' : 'mb-36')}>
           {fodmapTypes.map(({ type, info }) => (
             <div
               key={type}
@@ -172,7 +172,7 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
         </div>
 
         {/* Continue Button */}
-        <div className='sticky bottom-0 border-t border-border bg-background/95 py-6 backdrop-blur-sm'>
+        <div className='sticky bottom-0 border-t border-border bg-background/95 py-4 backdrop-blur-sm'>
           {saveError && (
             <p
               className='mb-3 rounded-lg border border-destructive/20 bg-destructive/10 px-4 py-3 text-sm text-destructive'
