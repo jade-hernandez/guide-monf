@@ -98,7 +98,14 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
             </span>
             <span className='text-sm font-semibold text-primary'>{configuredCount}/6</span>
           </div>
-          <div className='h-2 overflow-hidden rounded-full bg-muted'>
+          <div
+            className='h-2 overflow-hidden rounded-full bg-muted'
+            role='progressbar'
+            aria-label={content.profile.progress.label}
+            aria-valuemin={0}
+            aria-valuemax={6}
+            aria-valuenow={configuredCount}
+          >
             <div
               className='h-full bg-primary transition-all duration-300'
               style={{ width: `${(configuredCount / 6) * 100}%` }}
