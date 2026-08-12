@@ -16,10 +16,10 @@ export const colors = {
 
   primary: {
     // ✅ EXISTING - Keep for backward compatibility
-    DEFAULT: '#10B981', // Emerald-500 - Main brand color
+    DEFAULT: '#047857', // Emerald-700 - Accessible main brand color
     light: '#34D399', // Emerald-400 - Lighter variant
-    dark: '#059669', // Emerald-600 - Darker variant
-    hover: '#047857', // Emerald-700 - Hover state
+    dark: '#065F46', // Emerald-800 - Darker variant
+    hover: '#065F46', // Emerald-800 - Hover state
 
     // ➕ NEW - Full color scale for more flexibility
     50: '#ECFDF5', // Very light teal
@@ -27,9 +27,9 @@ export const colors = {
     200: '#A7F3D0', // Lighter teal
     300: '#6EE7B7', // Light-medium teal
     400: '#34D399', // Medium teal (same as light)
-    500: '#10B981', // Base teal (same as DEFAULT)
-    600: '#059669', // Medium-dark teal (same as dark)
-    700: '#047857', // Dark teal (same as hover)
+    500: '#10B981', // Standard Emerald-500 scale value
+    600: '#059669', // Medium-dark teal
+    700: '#047857', // Dark teal (same as DEFAULT)
     800: '#065F46', // Very dark teal
     900: '#064E3B', // Deepest teal
   },
@@ -60,14 +60,14 @@ export const colors = {
 
   status: {
     // ✅ EXISTING - Safe (Green) - FODMAP safe foods
-    safe: '#22C55E', // Green-500
+    safe: '#166534', // Green-800
     safeLight: '#86EFAC', // Green-300
-    safeDark: '#16A34A', // Green-600
+    safeDark: '#14532D', // Green-900
 
     // ✅ EXISTING - Avoid (Red) - FODMAP foods to avoid
-    avoid: '#EF4444', // Red-500
+    avoid: '#B91C1C', // Red-700
     avoidLight: '#FCA5A5', // Red-300
-    avoidDark: '#DC2626', // Red-600
+    avoidDark: '#991B1B', // Red-800
 
     // ✅ EXISTING - Caution (Amber) - Moderate FODMAP foods
     caution: '#F59E0B', // Amber-500
@@ -85,14 +85,14 @@ export const colors = {
     warningDark: '#EA580C', // Orange-600
 
     // ➕ NEW - Success (semantic alias for "safe")
-    success: '#22C55E', // Same as safe
+    success: '#166534', // Same as safe
     successLight: '#86EFAC', // Same as safeLight
-    successDark: '#16A34A', // Same as safeDark
+    successDark: '#14532D', // Same as safeDark
 
     // ➕ NEW - Error (semantic alias for "avoid")
-    error: '#EF4444', // Same as avoid
+    error: '#B91C1C', // Same as avoid
     errorLight: '#FCA5A5', // Same as avoidLight
-    errorDark: '#DC2626', // Same as avoidDark
+    errorDark: '#991B1B', // Same as avoidDark
   },
 
   // ==========================================================================
@@ -110,8 +110,8 @@ export const colors = {
     // ➕ NEW - Additional text variants
     disabled: '#D1D5DB', // Gray-300 - Disabled state
     placeholder: '#9CA3AF', // Gray-400 - Placeholder text (same as tertiary)
-    link: '#10B981', // Primary color - Link text
-    linkHover: '#047857', // Primary hover - Link hover state
+    link: '#047857', // Primary color - Link text
+    linkHover: '#065F46', // Primary hover - Link hover state
     muted: '#6B7280', // Gray-500 - Muted text (same as secondary)
     onPrimary: '#FFFFFF', // White text on primary background
     onDark: '#FFFFFF', // White text on dark backgrounds
@@ -127,14 +127,14 @@ export const colors = {
     DEFAULT: '#E5E7EB', // Gray-200 - Default borders
     light: '#F3F4F6', // Gray-100 - Subtle borders
     dark: '#D1D5DB', // Gray-300 - Prominent borders
-    focus: '#10B981', // Primary - Focus state borders
+    focus: '#047857', // Primary - Focus state borders
 
     // ➕ NEW - Interactive border states
     hover: '#D1D5DB', // Gray-300 - Border on hover
-    active: '#10B981', // Primary - Active/selected border
+    active: '#047857', // Primary - Active/selected border
     disabled: '#F3F4F6', // Gray-100 - Disabled state border
-    error: '#EF4444', // Red-500 - Error state border
-    success: '#22C55E', // Green-500 - Success state border
+    error: '#B91C1C', // Red-700 - Error state border
+    success: '#166534', // Green-800 - Success state border
     warning: '#F97316', // Orange-500 - Warning state border
   },
 
@@ -207,9 +207,9 @@ export const colors = {
   interactive: {
     // Primary button states
     primary: {
-      bg: '#10B981', // Default background
-      bgHover: '#047857', // Hover background
-      bgActive: '#065F46', // Active/pressed background
+      bg: '#047857', // Default background
+      bgHover: '#065F46', // Hover background
+      bgActive: '#064E3B', // Active/pressed background
       bgDisabled: '#D1FAE5', // Disabled background
       text: '#FFFFFF', // Text color
       textDisabled: '#9CA3AF', // Disabled text color
@@ -230,10 +230,10 @@ export const colors = {
       bg: 'transparent', // Default background
       bgHover: '#F0FDF4', // Hover background (very light green)
       bgActive: '#DCFCE7', // Active/pressed background
-      border: '#10B981', // Border color
-      borderHover: '#047857', // Border hover
-      text: '#10B981', // Text color
-      textHover: '#047857', // Text hover
+      border: '#047857', // Border color
+      borderHover: '#065F46', // Border hover
+      text: '#047857', // Text color
+      textHover: '#065F46', // Text hover
     },
 
     // Ghost/text button states
@@ -241,8 +241,8 @@ export const colors = {
       bg: 'transparent', // Default background
       bgHover: '#F0FDF4', // Hover background
       bgActive: '#DCFCE7', // Active/pressed background
-      text: '#10B981', // Text color
-      textHover: '#047857', // Text hover
+      text: '#047857', // Text color
+      textHover: '#065F46', // Text hover
     },
   },
 

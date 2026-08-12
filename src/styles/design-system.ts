@@ -197,7 +197,7 @@ export const components = {
     borderRadius: borderRadius.md,
     focus: {
       border: colors.border.focus,
-      ring: '0 0 0 3px rgba(16, 185, 129, 0.1)',
+      ring: '0 0 0 3px rgba(4, 120, 87, 0.18)',
     },
   },
 } as const;
