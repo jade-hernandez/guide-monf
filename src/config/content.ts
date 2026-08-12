@@ -215,6 +215,9 @@ export const content = {
     emptyStates: {
       noFoods: 'Aucun aliment disponible',
       noResults: 'Aucun aliment ne correspond à votre recherche',
+      searchContext: 'Recherche active :',
+      filterContext: 'Filtres actifs :',
+      resetFilters: 'Réinitialiser les filtres',
       noCompatibleFoods:
         'Aucun aliment sans FODMAP évité détecté. Essayez de modifier vos filtres.',
       configureProfile:

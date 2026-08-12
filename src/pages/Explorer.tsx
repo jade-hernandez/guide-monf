@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { ArrowLeft, Filter, Info, Search } from 'lucide-react';
+import { ArrowLeft, Filter, Info, RotateCcw, Search, X } from 'lucide-react';
 
 import { ExplorerSkeleton } from '../components/ExplorerSkeleton';
 import { FoodCard } from '../components/FoodCard';
@@ -22,6 +22,16 @@ export default function Explorer() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
   const [showCompatibleOnly, setShowCompatibleOnly] = useState(false);
+
+  const trimmedSearchQuery = searchQuery.trim();
+  const activeFilterLabels = [
+    ...(showCompatibleOnly ? [content.explorer.filters.safeForMe.label] : []),
+    ...categories
+      .filter(({ value }) => selectedCategories.has(value))
+      .map(({ label }) => label),
+  ];
+  const hasActiveSearch = trimmedSearchQuery.length > 0;
+  const hasActiveFilters = activeFilterLabels.length > 0;
 
   const filteredFoods = useMemo(() => {
     const avoidedFodmaps =
@@ -46,6 +56,15 @@ export default function Explorer() {
       }
       return next;
     });
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+  };
+
+  const resetFilters = () => {
+    setSelectedCategories(new Set());
+    setShowCompatibleOnly(false);
   };
 
   if (isLoading) {
@@ -180,6 +199,48 @@ export default function Explorer() {
             <p className='text-lg text-muted-foreground'>
               {content.explorer.emptyStates.noResults}
             </p>
+            <div className='mt-4 space-y-2 text-sm text-muted-foreground'>
+              {hasActiveSearch && (
+                <p>
+                  {content.explorer.emptyStates.searchContext}{' '}
+                  <span className='font-medium text-foreground'>« {trimmedSearchQuery} »</span>
+                </p>
+              )}
+              {hasActiveFilters && (
+                <p>
+                  {content.explorer.emptyStates.filterContext}{' '}
+                  <span className='font-medium text-foreground'>
+                    {activeFilterLabels.join(', ')}
+                  </span>
+                </p>
+              )}
+            </div>
+            {(hasActiveSearch || hasActiveFilters) && (
+              <div className='mt-6 flex flex-col justify-center gap-3 sm:flex-row'>
+                {hasActiveSearch && (
+                  <Button
+                    type='button'
+                    variant='outline'
+                    className='w-full gap-2 sm:w-auto'
+                    onClick={clearSearch}
+                  >
+                    <X className='h-4 w-4' aria-hidden='true' />
+                    {content.explorer.search.clearButton}
+                  </Button>
+                )}
+                {hasActiveFilters && (
+                  <Button
+                    type='button'
+                    variant='outline'
+                    className='w-full gap-2 sm:w-auto'
+                    onClick={resetFilters}
+                  >
+                    <RotateCcw className='h-4 w-4' aria-hidden='true' />
+                    {content.explorer.emptyStates.resetFilters}
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
         )}
       </main>
