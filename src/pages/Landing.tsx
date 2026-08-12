@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { AlertTriangle, Check, Heart, Search, Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { MotionConfig, motion, useReducedMotion } from 'motion/react';
 
 import { Footer } from '../components/Footer';
 import { Button } from '../components/ui/button';
@@ -68,9 +68,10 @@ const staggerItem = {
 
 export default function Landing() {
   const navigate = useNavigate();
+  const shouldReduceMotion = useReducedMotion();
 
-  return (
-    <div className='min-h-screen bg-background'>
+  const landingPage = (
+    <div className='landing-page min-h-screen bg-background'>
       <main>
         {/* Hero Section - Enhanced with animations */}
         <section className='relative overflow-hidden bg-gradient-to-br from-primary-100 via-background-cream to-primary-50'>
@@ -142,7 +143,7 @@ export default function Landing() {
                 <motion.button
                   onClick={() => {
                     document.getElementById('what-are-fodmaps')?.scrollIntoView({
-                      behavior: 'smooth',
+                      behavior: shouldReduceMotion ? 'auto' : 'smooth',
                     });
                   }}
                   whileHover={{ x: 5 }}
@@ -522,4 +523,6 @@ export default function Landing() {
       <Footer />
     </div>
   );
+
+  return <MotionConfig reducedMotion='user'>{landingPage}</MotionConfig>;
 }
