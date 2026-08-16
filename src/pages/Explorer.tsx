@@ -76,7 +76,7 @@ export default function Explorer() {
   }
 
   return (
-    <div className='min-h-screen bg-background pb-8'>
+    <main className='min-h-screen bg-background pb-8'>
       <header className='sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm'>
         <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
           <div className='flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4'>
@@ -116,7 +116,7 @@ export default function Explorer() {
         </div>
       </header>
 
-      <main className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
         {/* Search Bar */}
         <div className='relative mb-4'>
           <Search className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground' />
@@ -243,9 +243,9 @@ export default function Explorer() {
             )}
           </div>
         )}
-      </main>
+      </div>
 
       <Footer />
-    </div>
+    </main>
   );
 }

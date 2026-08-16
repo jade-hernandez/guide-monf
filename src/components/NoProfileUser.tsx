@@ -6,7 +6,7 @@ export function NoProfileUser() {
   const navigate = useNavigate();
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center'>
+    <main className='flex min-h-screen flex-col items-center justify-center'>
       <h1 className='text-2xl font-bold text-foreground'>Oops!</h1>
       <p className='mt-2 text-muted-foreground'>
         Vous devez remplir votre profile avant d'explorer les aliments.
@@ -14,6 +14,6 @@ export function NoProfileUser() {
       <Button variant='destructive' className='mt-4' onClick={() => navigate('/profile')}>
         Remplir mon profile
       </Button>
-    </div>
+    </main>
   );
 }
