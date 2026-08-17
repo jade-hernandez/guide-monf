@@ -346,6 +346,13 @@ export const content = {
       storageError: 'Impossible de sauvegarder les données (navigation privée ?)',
       invalidData: 'Données invalides',
       notFound: 'Non trouvé',
+      route: {
+        title: "La page n'a pas pu s'afficher",
+        message:
+          "Une erreur inattendue est survenue. Vous pouvez recharger la page ou revenir à l'accueil.",
+        reload: 'Recharger la page',
+        home: "Retour à l'accueil",
+      },
     },
 
     confirmation: {
