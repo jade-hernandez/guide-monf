@@ -1,10 +1,22 @@
 # Dataset provenance and licensing evidence record
 
-Date: 2026-07-22
+Date: 2026-07-22 MGF-020 clarification: 2026-07-23
 
 Scope: the 104 food records currently committed in `src/lib/fodmap-db.ts`
 
-Status for MGF-020: **blocked pending source and rights evidence**
+Status for MGF-020: **methodology can proceed with explicit evidence limits**
+
+## Owner clarification recorded for MGF-020
+
+The project owner states that the local dataset was assembled from publicly accessible online FODMAP
+information during the learning project. This statement is sufficient to describe the owner's
+account when it is attributed as such. It does not supply the missing source-by-source acquisition
+record, transformation history, independent clinical validation, or reuse-rights evidence documented
+below.
+
+MGF-020 therefore separates this unverified origin claim from repository-verified engineering facts.
+It does not present the dataset as official Monash University data or imply affiliation,
+endorsement, accuracy, permission, or guaranteed tolerance.
 
 ## Purpose and scope
 
@@ -15,15 +27,16 @@ to reuse the data. No external food source was consulted for this review.
 ## Evidence reviewed
 
 - Current dataset and schema: `src/lib/fodmap-db.ts` and `src/types/index.ts`.
-- Repository and public claims: `README.md`, `src/config/content.ts`,
-  `src/config/disclaimers.ts`, `src/components/Footer.tsx`, `src/pages/Landing.tsx`,
-  `src/pages/About.tsx`, and `src/pages/Legal.tsx`.
-- Package and licensing surface: `package.json`, the complete tracked-file list, and all Git objects.
+- Repository and public claims: `README.md`, `src/config/content.ts`, `src/config/disclaimers.ts`,
+  `src/components/Footer.tsx`, `src/pages/Landing.tsx`, `src/pages/About.tsx`, and
+  `src/pages/Legal.tsx`.
+- Package and licensing surface: `package.json`, the complete tracked-file list, and all Git
+  objects.
 - File history, blame, and patches for the dataset and source claims. Important commits are:
   - `ad458e1f658aa481b7d3904fe2c884da8cb066de`: first dataset commit;
   - `6453e94591fa6f16b73cb897d3c073800078c69b`: changed global version/update metadata;
-  - `d3f1b7de46ca79bf41d9d1cab51774d3556e8cd7`: removed the incorrect declared total,
-    moved one existing record in array order, and added README source/license statements;
+  - `d3f1b7de46ca79bf41d9d1cab51774d3556e8cd7`: removed the incorrect declared total, moved one
+    existing record in array order, and added README source/license statements;
   - `4e9720139d278dcfd6f17b86ded66a869afc3446`: added the footer/legal/about surfaces;
   - `82b3ccdb31ad8102d941c631dc28adbd44962e3b`: corrected public count copy to 104.
 
@@ -79,50 +92,54 @@ console.log({
   declared total and moved the existing `pasteque` record into the fruit section; its record values
   remained unchanged.
 - A comparison of records sorted by ID across `ad458e1`, `6453e94`, `d3f1b7d`, `4dce65b`, and the
-  current commit found no record-value changes. This history shows what Git changed; it does not show
-  how the original values were obtained.
+  current commit found no record-value changes. This history shows what Git changed; it does not
+  show how the original values were obtained.
 
 ## Observable schema and transformations
 
 Each food has a French display name, category, numeric gram value, one or more FODMAP tags with an
-`isPrimary` flag, a confidence label, a date string, and a free-text source string. The database adds
-global `version`, `lastUpdated`, and `validationStatus` strings. The repository contains runtime
-filtering and display code, but no import, normalization, unit-conversion, deduplication, or
+`isPrimary` flag, a confidence label, a date string, and a free-text source string. The database
+adds global `version`, `lastUpdated`, and `validationStatus` strings. The repository contains
+runtime filtering and display code, but no import, normalization, unit-conversion, deduplication, or
 generation script for the food records.
 
 The committed history demonstrates later formatting, metadata, ordering, count, and helper-code
 changes. It does not document an original extraction, field mapping, calculation, manual review, or
 reason for the gram values, tags, primary flags, confidence labels, or dates.
 
-## Claims not substantiated by committed evidence
+## Claims present before MGF-020 and not substantiated by committed evidence
 
-The following are repository claims, not independently supported conclusions:
+Before MGF-020, the following were repository claims rather than independently supported
+conclusions:
 
 - `README.md` says all food information is based on a 2024-2025 Monash University database and calls
   it the “gold standard”.
 - `src/lib/fodmap-db.ts` labels the database and every record with Monash source strings and uses
   `validationStatus: "Données Monash University 2024-2025"`.
-- `src/config/content.ts`, `src/config/disclaimers.ts`, `src/pages/Landing.tsx`, and the footer repeat
-  Monash-based/source wording. `src/pages/Legal.tsx` renders the disclaimer claims; `About.tsx` adds
-  no dataset citation beyond the shared footer.
+- `src/config/content.ts`, `src/config/disclaimers.ts`, `src/pages/Landing.tsx`, and the footer
+  repeat Monash-based/source wording. `src/pages/Legal.tsx` renders the disclaimer claims;
+  `About.tsx` adds no dataset citation beyond the shared footer.
 - `src/config/disclaimers.ts` calls the data derived from “public sources”, says personal use is
   allowed, and says commercial use needs written authorization.
 - `README.md` says the project is for educational and personal use and that food data is attributed
   to Monash University.
 
-No committed source artifact or history entry demonstrates the accuracy of these statements. A
-source string inside a record cannot verify itself.
+MGF-020 removes these unsupported public claims and replaces them with limitations-first wording.
+The source strings remain inside the food records because this documentation ticket preserves
+dataset values. No committed source artifact or history entry demonstrates the accuracy of the
+former claims, and a source string inside a record cannot verify itself.
 
 ## Provenance and extraction-date status
 
 **Unresolved.** There is no committed source snapshot/export, per-record citation, acquisition URL,
-access receipt, extraction date, author note, generated-data script, or transformation log. The
-generic footer link points to `https://www.monashfodmap.com/`, not to evidence for these 104 records.
+access receipt, extraction date, author note, generated-data script, or transformation log. Before
+MGF-020, a generic footer link pointed to `https://www.monashfodmap.com/`; MGF-020 labels a public
+Monash food-list link as background reading rather than evidence for these 104 records.
 
 Neither the record date `2024-12-01`, the original global date `2024-12-01`, the later global date
 `2025-10-10`, nor the phrases “2024” and “2024-2025” establish an extraction date. The metadata
-change in `6453e94` occurred without record-value changes, so Git does not explain what that new date
-means.
+change in `6453e94` occurred without record-value changes, so Git does not explain what that new
+date means.
 
 ## Licensing and permitted-use status
 
@@ -137,10 +154,10 @@ itself.
 
 ## Attribution status
 
-The application names Monash University, attaches the same generic source string to every record,
-and links to a general Monash FODMAP website in the footer. This confirms that attribution text is
-present. It does not establish that Monash supplied these values, that the attribution wording is
-required or sufficient, or that attribution cures an otherwise missing permission.
+Every record retains the same generic Monash source string, and the application links to a public
+Monash food list as explicitly independent background reading. Neither the internal strings nor the
+external link establish that Monash supplied these values, that attribution is required or
+sufficient, or that attribution cures an otherwise missing permission.
 
 ## Unresolved owner questions
 
@@ -149,18 +166,19 @@ required or sufficient, or that attribution cures an otherwise missing permissio
    can its location, checksum, access date, and custodian be recorded?
 3. How were `limitGrams`, tags, `isPrimary`, confidence, and date fields mapped or calculated? Were
    any values translated, rounded, combined, inferred, or manually edited?
-4. What do version `1.0.0`, global date `2025-10-10`, record date `2024-12-01`, and confidence labels
-   mean, and who approved them?
-5. What terms or written permission applied when the data was acquired, and do they permit repository
-   storage, transformation, redistribution, and public display? What attribution is required?
+4. What do version `1.0.0`, global date `2025-10-10`, record date `2024-12-01`, and confidence
+   labels mean, and who approved them?
+5. What terms or written permission applied when the data was acquired, and do they permit
+   repository storage, transformation, redistribution, and public display? What attribution is
+   required?
 6. Who can license the project code, and under which terms should the repository be distributed?
 
 ## Publishing consequences and MGF-020
 
-The current repository is **not enough to unblock MGF-020** if that work is expected to publish a
-methodology with verified provenance, extraction date, transformation history, and permitted-use
-status. Public/README claims should not be upgraded or presented as verified on this evidence alone;
-this ticket intentionally does not edit them.
+The current repository is not enough to publish a methodology with verified provenance, extraction
+date, transformation history, or permitted-use status. It is enough to publish a limitations-first
+methodology that attributes the owner's account, states these evidence gaps, and keeps them separate
+from verified engineering facts.
 
 Minimum missing evidence:
 

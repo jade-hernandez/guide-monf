@@ -7,6 +7,7 @@ import About from './pages/About';
 import Explorer from './pages/Explorer';
 import Landing from './pages/Landing';
 import Legal from './pages/Legal';
+import Methodology from './pages/Methodology';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path='/explorer' element={<Explorer />} />
           <Route path='/legal' element={<Legal />} />
           <Route path='/about' element={<About />} />
+          <Route path='/methodology' element={<Methodology />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </RouteErrorBoundary>

@@ -47,9 +47,9 @@ export const content = {
         },
         {
           number: 3,
-          title: 'Mangez en confiance',
+          title: 'Interprétez le résultat',
           description:
-            'Faites vos courses et préparez vos repas en sachant exactement quels aliments sont compatibles avec vos intolérances.',
+            'Utilisez la comparaison comme un repère lié à votre profil, sans la confondre avec une garantie de tolérance personnelle.',
         },
       ],
     },
@@ -67,7 +67,7 @@ export const content = {
     disclaimer: {
       title: 'Avertissement Important',
       content:
-        "Cette application est fournie à des fins d'information et d'éducation uniquement. Elle ne remplace pas les conseils médicaux professionnels, un diagnostic ou un traitement. Consultez toujours votre médecin ou un diététicien qualifié avant de modifier votre régime alimentaire. Les données sont basées sur les recherches de l'Université Monash 2024-2025.",
+        "MonGuide FODMAP est un projet portfolio éducatif, pas un produit clinique. Il ne remplace pas les conseils médicaux professionnels, un diagnostic ou un traitement et ne garantit aucune tolérance. Le jeu local de 104 aliments n'a pas fait l'objet d'une validation clinique indépendante pour ce projet.",
     },
   },
 
@@ -145,7 +145,7 @@ export const content = {
       incomplete: 'Veuillez configurer tous les FODMAPs avant de continuer',
       saved: 'Profil sauvegardé avec succès',
       saveFailed:
-        "Impossible d’enregistrer votre profil dans ce navigateur. Vos choix restent affichés ; vous pouvez réessayer.",
+        'Impossible d’enregistrer votre profil dans ce navigateur. Vos choix restent affichés ; vous pouvez réessayer.',
     },
   },
 
@@ -163,7 +163,7 @@ export const content = {
       ariaLabel: 'Rechercher des aliments par nom',
       clearButton: 'Effacer la recherche',
       noResults: 'Aucun aliment trouvé dans notre base actuelle (104 aliments)',
-      noResultsHint: "Consultez l'application Monash pour une base de données complète",
+      noResultsHint: 'Modifiez votre recherche ou vos filtres pour afficher d’autres résultats',
       resultsCount: '{{count}} aliment(s) trouvé(s)',
     },
 
@@ -230,7 +230,7 @@ export const content = {
     },
 
     footer: {
-      dataSource: 'Source : Université Monash 2024-2025',
+      dataSource: 'Jeu de référence local : provenance détaillée non conservée',
       lastUpdated: 'Dernière mise à jour : {{date}}',
       totalFoods: '{{count}} aliments dans la base de données',
     },
@@ -261,13 +261,14 @@ export const content = {
       title: 'Informations Légales',
       legalLinkText: 'Mentions Légales & Avertissements',
       about: 'À Propos',
+      methodology: 'Méthodologie & Limites',
     },
 
     dataSources: {
-      title: 'Sources de Données',
+      title: 'Pour Aller Plus Loin',
       monash: {
-        name: 'Monash University',
-        description: 'Base de données FODMAP 2024-2025',
+        name: 'Informations FODMAP générales (Monash)',
+        description: 'Lecture complémentaire indépendante du jeu local',
       },
     },
 
@@ -289,7 +290,7 @@ export const content = {
   legal: {
     mainContent: {
       title: 'Mentions Légales & Avertissements',
-      lastUpdated: 'Dernière mise à jour : Décembre 2024',
+      lastUpdated: 'Dernière mise à jour : Juillet 2026',
     },
     emergencyContacts: {
       title: "En cas d'urgence médicale",
@@ -375,7 +376,7 @@ export const content = {
     defaultTitle: 'MonGuide FODMAP',
     titleTemplate: '%s | MonGuide FODMAP',
     description:
-      'Guide alimentaire FODMAP personnalisé selon vos intolérances. Trouvez facilement quels aliments vous pouvez manger en toute sécurité.',
+      'Projet éducatif FODMAP : comparez un profil enregistré avec les étiquettes d’un jeu de référence local, sans garantie de tolérance.',
     keywords: [
       'FODMAP',
       'SII',

@@ -1,6 +1,6 @@
 /**
  * Legal disclaimers and notices in French
- * Based on French health app regulations (HAS, RGPD, ANSM)
+ * Educational-project disclaimers and notices.
  */
 
 // ============================================================================
@@ -26,15 +26,15 @@ En cas d'urgence médicale, contactez immédiatement les services d'urgence.`,
 // ============================================================================
 
 export const dataProtectionNotice = {
-  title: 'Protection des Données Personnelles',
+  title: 'Stockage du Profil',
 
-  full: `Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vos données de santé sont protégées par des mesures de sécurité renforcées.
+  full: `Le profil contient les six réponses binaires FODMAP ainsi que ses dates de création et de mise à jour. Il est enregistré dans le stockage local du navigateur, sans création de compte.
 
-Vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données personnelles. Pour exercer ces droits, vous pouvez supprimer votre profil directement dans l'application.
+Le code de persistance du profil ne l'envoie pas à un serveur applicatif. Il vérifie la forme des données avant de les restaurer. Le profil peut être modifié dans le formulaire ou supprimé en effaçant les données de ce site dans le navigateur.
 
-Les données collectées sont utilisées uniquement pour les fonctionnalités de l'application et sont stockées localement sur votre appareil. Aucune donnée n'est transmise à des serveurs externes ou partagée avec des tiers.`,
+Ce stockage dépend du navigateur : le profil peut être indisponible en navigation privée, si le stockage est bloqué ou après l'effacement des données du site.`,
 
-  short: `Vos données sont stockées localement sur votre appareil. Aucune donnée n'est transmise à des serveurs externes.`,
+  short: `Votre profil est stocké localement dans ce navigateur, sans compte. Il peut disparaître si les données du site sont effacées ou si le stockage est indisponible.`,
 };
 
 // ============================================================================
@@ -77,18 +77,18 @@ Si vous n'avez pas encore identifié vos intolérances :
 // ============================================================================
 
 export const dataSourceNotice = {
-  title: 'Source des Données',
+  title: 'Jeu de Données et Provenance',
 
-  full: `Les données alimentaires de cette application sont basées sur les recherches de l'Université Monash (Australie), référence mondiale pour le régime FODMAP.
+  full: `Le jeu de référence local contient 104 aliments. Selon le propriétaire du projet, il a été assemblé à partir d'informations FODMAP accessibles publiquement en ligne.
 
-• Source : Monash University FODMAP Database 2024-2025
-• Mise à jour : Octobre 2025
-• Base de données : 104 aliments référencés
-• Niveau de confiance : Élevé pour 95%+ des entrées
+• Le relevé source par source de l'acquisition et des transformations n'a pas été conservé
+• Les entrées n'ont pas été validées cliniquement de façon indépendante pour ce projet
+• Les portions affichées sont des références du jeu local, pas des seuils de tolérance personnels
+• Les mentions de source présentes dans les enregistrements ne constituent pas une preuve de provenance, d'exactitude ou de droit de réutilisation
 
-Les données sont fournies "telles quelles" à des fins éducatives. L'exactitude des informations dépend de la qualité des données source et des variations naturelles dans la composition des aliments.`,
+Ce jeu ne doit pas être présenté comme un jeu de données officiel de Monash University. Le projet n'est ni affilié, ni approuvé, ni certifié par Monash University et ne revendique aucune autorisation de réutilisation de sa part.`,
 
-  short: `Basé sur les données de l'Université Monash 2024-2025. 104 aliments référencés avec un niveau de confiance élevé.`,
+  short: `Jeu éducatif local de 104 aliments. La provenance source par source n'a pas été conservée et les entrées n'ont pas été validées cliniquement de façon indépendante pour ce projet.`,
 };
 
 // ============================================================================
@@ -116,13 +116,9 @@ L'utilisation de cette application se fait à vos propres risques. Consultez tou
 export const intellectualPropertyNotice = {
   title: 'Propriété Intellectuelle',
 
-  content: `Les contenus de cette application (textes, données, interface) sont protégés par les droits d'auteur et les lois sur la propriété intellectuelle.
+  content: `Le dépôt ne contient pas de preuve établissant les droits de réutilisation du jeu de données ni de licence générale pour le code.
 
-• Les données FODMAP sont dérivées de sources publiques (Monash University)
-• L'interface et le code de l'application sont protégés
-• Toute reproduction non autorisée est interdite
-• L'utilisation personnelle est autorisée
-• L'utilisation commerciale nécessite une autorisation écrite`,
+La présence d'informations accessibles publiquement ou d'une attribution ne signifie pas qu'elles sont libres de réutilisation. Toute publication ou réutilisation doit faire l'objet d'une vérification distincte des droits applicables.`,
 };
 
 // ============================================================================
@@ -163,7 +159,7 @@ export const pageDisclaimers = {
 
   explorer: {
     title: 'ℹ️ Informations Importantes',
-    content: `Les recommandations sont basées sur votre profil et les données de l'Université Monash 2024-2025. Les tolérances individuelles peuvent varier. En cas de doute, consultez votre diététicien.`,
+    content: `Les résultats comparent les étiquettes FODMAP du jeu local avec votre profil enregistré. Ils ne constituent pas une recommandation médicale ni une garantie de tolérance. En cas de doute, consultez un professionnel de santé qualifié.`,
     placement: 'banner',
     dismissible: true,
   },

@@ -25,7 +25,7 @@ export default function Legal() {
       </header>
 
       {/* Main Content */}
-      <main className='container mx-auto max-w-4xl flex-1 px-4 py-8'>
+      <main className='container mx-auto max-w-3xl flex-1 px-4 py-8'>
         <div className='space-y-8'>
           {/* Title */}
           <div>

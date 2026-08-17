@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Database, FileText, Github, Info, Linkedin } from 'lucide-react';
+import { BookOpen, Database, FileText, Github, Info, Linkedin } from 'lucide-react';
 
 import { content } from '../config/content';
 
@@ -27,10 +27,17 @@ export const Footer = () => {
                 <Info className='h-4 w-4' />
                 {content.footer.infoLegal.about}
               </Link>
+              <Link
+                to='/methodology'
+                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
+              >
+                <BookOpen className='h-4 w-4' />
+                {content.footer.infoLegal.methodology}
+              </Link>
             </nav>
           </div>
 
-          {/* Data Sources */}
+          {/* Educational resource */}
           <div className='space-y-3'>
             <h3 className='font-semibold text-foreground'>{content.footer.dataSources.title}</h3>
             <div className='space-y-1 text-muted-foreground'>
@@ -38,7 +45,7 @@ export const Footer = () => {
                 <Database className='mt-0.5 h-4 w-4 flex-shrink-0' />
                 <div>
                   <a
-                    href='https://www.monashfodmap.com/'
+                    href='https://www.monashfodmap.com/about-fodmap-and-ibs/high-and-low-fodmap-foods/'
                     target='_blank'
                     rel='noopener noreferrer'
                     className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
@@ -78,7 +85,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='mt-8 border-t border-border pt-6 text-center text-xs text-muted-foreground'>
-          <p>{content.footer.bottomBar.copyright} &copy; 2025</p>
+          <p>{content.footer.bottomBar.copyright} &copy; 2026</p>
           <p className='mt-1'>{content.footer.bottomBar.medicalDisclaimer}</p>
         </div>
       </div>

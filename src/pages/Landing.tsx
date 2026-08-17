@@ -159,20 +159,18 @@ export default function Landing() {
                 variants={staggerContainer}
                 className='mt-12 flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-600'
               >
-                {['Basé sur la recherche Monash', '100% gratuit', 'Aucune publicité'].map(
-                  (text, idx) => (
-                    <motion.div
-                      key={idx}
-                      variants={staggerItem}
-                      whileHover={{ y: -2, scale: 1.05 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                      className='flex items-center gap-2 rounded-full border border-border-light bg-white/60 px-4 py-2 backdrop-blur-sm'
-                    >
-                      <div className='h-2 w-2 animate-pulse rounded-full bg-success'></div>
-                      <span>{text}</span>
-                    </motion.div>
-                  )
-                )}
+                {['Projet éducatif', '100% gratuit', 'Aucune publicité'].map((text, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={staggerItem}
+                    whileHover={{ y: -2, scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    className='flex items-center gap-2 rounded-full border border-border-light bg-white/60 px-4 py-2 backdrop-blur-sm'
+                  >
+                    <div className='h-2 w-2 animate-pulse rounded-full bg-success'></div>
+                    <span>{text}</span>
+                  </motion.div>
+                ))}
               </motion.div>
             </motion.div>
           </div>

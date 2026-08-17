@@ -7,6 +7,7 @@ const routeTitles: Record<string, string> = {
   '/explorer': 'Explorateur | MonGuide FODMAP',
   '/legal': 'Mentions légales | MonGuide FODMAP',
   '/about': 'À propos | MonGuide FODMAP',
+  '/methodology': 'Méthodologie et limites | MonGuide FODMAP',
 };
 
 const notFoundTitle = 'Page introuvable | MonGuide FODMAP';

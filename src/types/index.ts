@@ -30,11 +30,11 @@ export interface Food {
   id: string; // Unique identifier (kebab-case, e.g., "fraises")
   name: string; // Display name in French (e.g., "Fraises")
   category: FoodCategory;
-  limitGrams: number; // Safe portion size in grams
+  limitGrams: number; // Reference portion recorded in grams
   fodmaps: FODMAPEntry[]; // Which FODMAPs are present in this food
   confidence: ConfidenceLevel; // Data confidence level
   lastUpdated: string; // ISO date string (YYYY-MM-DD)
-  source: string; // Data source (e.g., "Monash University 2024")
+  source: string; // Free-text source label; not independently verified provenance
   notes?: string; // Optional additional information
 }
 
