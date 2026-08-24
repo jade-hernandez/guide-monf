@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 
 import { Footer } from '../components/Footer';
+import { SiteHeader } from '../components/SiteHeader';
 
 const fodmapTypes = ['Fructanes', 'Galactanes', 'Lactose', 'Fructose', 'Mannitol', 'Sorbitol'];
 
@@ -41,29 +42,28 @@ const auditedImprovements = [
 export default function Methodology() {
   return (
     <div className='flex min-h-screen flex-col bg-background'>
-      <header className='sticky top-0 z-10 border-b border-border bg-card/90 backdrop-blur-sm'>
-        <div className='container mx-auto px-4 py-4'>
-          <Link
-            to='/'
-            className='inline-flex min-h-[44px] items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
-          >
-            <ArrowLeft className='h-4 w-4' aria-hidden='true' />
-            Retour à l’accueil
-          </Link>
-        </div>
-      </header>
+      <SiteHeader>
+        <Link
+          to='/'
+          className='inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+          aria-label='Retour à l’accueil'
+        >
+          <ArrowLeft className='h-4 w-4' aria-hidden='true' />
+          <span className='sr-only sm:not-sr-only'>Accueil</span>
+        </Link>
+      </SiteHeader>
 
       <main className='flex-1'>
-        <section className='border-b border-border bg-primary/5'>
-          <div className='mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16'>
-            <div className='mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-3 py-1.5 text-sm font-semibold text-primary'>
+        <section className='bg-primary-900 text-white'>
+          <div className='mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20'>
+            <div className='mb-5 inline-flex items-center gap-2 rounded-md border border-primary-700 bg-primary-800 px-3 py-1.5 text-sm font-semibold text-primary-100'>
               <GraduationCap className='h-4 w-4' aria-hidden='true' />
               Projet portfolio éducatif
             </div>
-            <h1 className='max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl'>
+            <h1 className='font-editorial max-w-3xl text-5xl font-semibold leading-tight text-white sm:text-6xl'>
               Méthodologie et limites
             </h1>
-            <p className='mt-5 max-w-3xl text-lg leading-8 text-muted-foreground'>
+            <p className='mt-6 max-w-3xl text-lg leading-8 text-primary-100'>
               MonGuide FODMAP est le projet frontend junior de Jade, réalisé à la fin de son
               parcours d’apprentissage en autodidacte. Il montre comment elle a conçu, testé et
               audité une interface responsable autour d’un sujet sensible. Ce n’est pas un produit
@@ -72,10 +72,10 @@ export default function Methodology() {
           </div>
         </section>
 
-        <div className='mx-auto max-w-4xl space-y-12 px-4 py-10 sm:px-6 sm:py-14'>
+        <div className='mx-auto max-w-5xl space-y-14 px-4 py-12 sm:px-6 sm:py-16'>
           <section
             aria-labelledby='non-medical-title'
-            className='rounded-xl border border-caution/40 bg-caution/10 p-6 sm:p-8'
+            className='border-l-2 border-caution bg-caution/10 p-6 sm:p-8'
           >
             <div className='flex items-start gap-4'>
               <ShieldAlert className='mt-1 h-6 w-6 shrink-0 text-caution' aria-hidden='true' />
@@ -96,7 +96,10 @@ export default function Methodology() {
           <section aria-labelledby='comparison-title'>
             <div className='mb-5 flex items-center gap-3'>
               <Binary className='h-6 w-6 text-primary' aria-hidden='true' />
-              <h2 id='comparison-title' className='text-2xl font-bold text-foreground'>
+              <h2
+                id='comparison-title'
+                className='font-editorial text-3xl font-semibold text-foreground'
+              >
                 Comment fonctionne la comparaison
               </h2>
             </div>
@@ -109,7 +112,7 @@ export default function Methodology() {
                 {fodmapTypes.map((type) => (
                   <li
                     key={type}
-                    className='rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-foreground'
+                    className='rounded-md border border-border bg-card px-3 py-1 text-sm font-medium text-foreground'
                   >
                     {type}
                   </li>
@@ -137,12 +140,15 @@ export default function Methodology() {
           <section aria-labelledby='evidence-title'>
             <div className='mb-5 flex items-center gap-3'>
               <Database className='h-6 w-6 text-primary' aria-hidden='true' />
-              <h2 id='evidence-title' className='text-2xl font-bold text-foreground'>
+              <h2
+                id='evidence-title'
+                className='font-editorial text-3xl font-semibold text-foreground'
+              >
                 Ce qui est vérifié, et ce qui ne l’est pas
               </h2>
             </div>
             <div className='grid gap-5 md:grid-cols-2'>
-              <article className='rounded-xl border border-success/30 bg-success/5 p-6'>
+              <article className='rounded-lg border border-success/30 bg-success/5 p-6'>
                 <div className='flex items-center gap-3'>
                   <CheckCircle2 className='h-5 w-5 text-success' aria-hidden='true' />
                   <h3 className='text-lg font-semibold text-foreground'>
@@ -168,7 +174,7 @@ export default function Methodology() {
                 </ul>
               </article>
 
-              <article className='rounded-xl border border-caution/40 bg-caution/10 p-6'>
+              <article className='rounded-lg border border-caution/40 bg-caution/10 p-6'>
                 <div className='flex items-center gap-3'>
                   <ShieldAlert className='h-5 w-5 text-caution' aria-hidden='true' />
                   <h3 className='text-lg font-semibold text-foreground'>
@@ -195,7 +201,10 @@ export default function Methodology() {
           </section>
 
           <section aria-labelledby='persistence-title'>
-            <h2 id='persistence-title' className='text-2xl font-bold text-foreground'>
+            <h2
+              id='persistence-title'
+              className='font-editorial text-3xl font-semibold text-foreground'
+            >
               Persistance du profil
             </h2>
             <p className='mt-4 max-w-3xl leading-7 text-muted-foreground'>
@@ -207,12 +216,15 @@ export default function Methodology() {
           </section>
 
           <section aria-labelledby='learning-title'>
-            <h2 id='learning-title' className='text-2xl font-bold text-foreground'>
+            <h2
+              id='learning-title'
+              className='font-editorial text-3xl font-semibold text-foreground'
+            >
               Ce que Jade a appris et amélioré
             </h2>
             <div className='mt-5 grid gap-4 sm:grid-cols-2'>
               {auditedImprovements.map((item) => (
-                <article key={item.title} className='rounded-xl border border-border bg-card p-5'>
+                <article key={item.title} className='rounded-lg border border-border bg-card p-5'>
                   <h3 className='font-semibold text-foreground'>{item.title}</h3>
                   <p className='mt-2 leading-7 text-muted-foreground'>{item.description}</p>
                 </article>
@@ -223,7 +235,10 @@ export default function Methodology() {
           <section aria-labelledby='further-reading-title'>
             <div className='mb-4 flex items-center gap-3'>
               <BookOpen className='h-6 w-6 text-primary' aria-hidden='true' />
-              <h2 id='further-reading-title' className='text-2xl font-bold text-foreground'>
+              <h2
+                id='further-reading-title'
+                className='font-editorial text-3xl font-semibold text-foreground'
+              >
                 Limites et lecture complémentaire
               </h2>
             </div>
