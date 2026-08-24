@@ -1,92 +1,55 @@
 import { Link } from 'react-router-dom';
 
-import { BookOpen, Database, FileText, Github, Info, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 import { content } from '../config/content';
 
 export const Footer = () => {
   return (
-    <footer className='mt-auto border-t border-border bg-card/50 backdrop-blur-sm'>
-      <div className='container mx-auto px-4 py-8'>
-        <div className='flex flex-col justify-around gap-6 text-sm md:flex-row'>
-          {/* Legal & Info */}
-          <div className='space-y-3'>
-            <h3 className='font-semibold text-foreground'>{content.footer.infoLegal.title}</h3>
-            <nav className='flex flex-col space-y-2'>
-              <Link
-                to='/legal'
-                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-              >
-                <FileText className='h-4 w-4' />
-                {content.footer.infoLegal.legalLinkText}
-              </Link>
-              <Link
-                to='/about'
-                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-              >
-                <Info className='h-4 w-4' />
-                {content.footer.infoLegal.about}
-              </Link>
-              <Link
-                to='/methodology'
-                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-              >
-                <BookOpen className='h-4 w-4' />
-                {content.footer.infoLegal.methodology}
-              </Link>
-            </nav>
+    <footer className='mt-auto border-t border-border bg-card'>
+      <div className='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8'>
+        <div className='flex flex-col justify-between gap-6 md:flex-row md:items-start'>
+          <div className='max-w-sm'>
+            <p className='font-editorial text-2xl font-semibold text-foreground'>MonGuide FODMAP</p>
+            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+              Projet éducatif à des fins d’information uniquement. Ne remplace pas les conseils
+              médicaux professionnels.
+            </p>
           </div>
 
-          {/* Educational resource */}
-          <div className='space-y-3'>
-            <h3 className='font-semibold text-foreground'>{content.footer.dataSources.title}</h3>
-            <div className='space-y-1 text-muted-foreground'>
-              <div className='flex items-start gap-2'>
-                <Database className='mt-0.5 h-4 w-4 flex-shrink-0' />
-                <div>
-                  <a
-                    href='https://www.monashfodmap.com/about-fodmap-and-ibs/high-and-low-fodmap-foods/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-                  >
-                    {content.footer.dataSources.monash.name}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className='space-y-3'>
-            <h3 className='font-semibold text-foreground'>{content.footer.contact.title}</h3>
-            <div className='space-y-2 text-muted-foreground'>
-              <a
-                href='https://www.linkedin.com/in/hernandez-jade/'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-              >
-                <Linkedin className='h-4 w-4' />
-                LinkedIn
-              </a>
-              <a
-                href='https://github.com/jade-hernandez/guide-monf'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground'
-              >
-                <Github className='h-4 w-4' />
-                {content.footer.contact.github}
-              </a>
-            </div>
+          <div className='flex flex-wrap gap-x-6 gap-y-3 text-sm'>
+            <Link to='/methodology' className='text-muted-foreground hover:text-foreground'>
+              Méthodologie
+            </Link>
+            <Link to='/legal' className='text-muted-foreground hover:text-foreground'>
+              Mentions légales
+            </Link>
+            <Link to='/about' className='text-muted-foreground hover:text-foreground'>
+              À propos
+            </Link>
+            <a
+              href='https://www.linkedin.com/in/hernandez-jade/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center gap-2 text-muted-foreground hover:text-foreground'
+            >
+              <Linkedin className='h-4 w-4' aria-hidden='true' />
+              LinkedIn
+            </a>
+            <a
+              href='https://github.com/jade-hernandez/guide-monf'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center gap-2 text-muted-foreground hover:text-foreground'
+            >
+              <Github className='h-4 w-4' aria-hidden='true' />
+              GitHub
+            </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className='mt-8 border-t border-border pt-6 text-center text-xs text-muted-foreground'>
+        <div className='mt-8 border-t border-border pt-5 text-xs text-muted-foreground'>
           <p>{content.footer.bottomBar.copyright} &copy; 2026</p>
-          <p className='mt-1'>{content.footer.bottomBar.medicalDisclaimer}</p>
         </div>
       </div>
     </footer>
