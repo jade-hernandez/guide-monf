@@ -91,7 +91,7 @@ export default function Landing() {
 
             <figure className='overflow-hidden rounded-lg border border-border bg-card shadow-lg'>
               <img
-                src='/assets/explorer-preview.png'
+                src='/assets/explorer-preview.jpg'
                 alt='Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
                 className='h-28 w-full object-cover object-top sm:h-80 lg:h-[31rem]'
                 width='1440'
