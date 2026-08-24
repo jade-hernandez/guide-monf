@@ -101,7 +101,7 @@ export default function Landing() {
                 <img
                   src='/assets/explorer-preview.jpg'
                   alt='Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
-                  className='h-64 w-full object-cover object-top sm:h-80 lg:h-[31rem]'
+                  className='h-72 w-full object-cover object-bottom sm:h-80 sm:object-top lg:h-[31rem]'
                   width='1440'
                   height='900'
                 />
