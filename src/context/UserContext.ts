@@ -21,7 +21,6 @@ export interface UserContextType {
   updateProfile: (profile: UserProfile) => boolean;
   clearProfile: () => void;
   isCompatible: (food: Food) => boolean;
-  getCompatibleFoods: () => Food[];
   getIntolerances: () => FODMAPType[];
   hasProfile: () => boolean;
 }

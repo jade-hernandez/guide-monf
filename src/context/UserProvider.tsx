@@ -4,7 +4,6 @@ import {
   foodPassesSavedAvoidedFodmapFilter,
   getSavedAvoidedFodmapTypes,
 } from '../lib/compatibility';
-import { baseDonneesFodmap } from '../lib/fodmap-db';
 import { parseStoredProfile, serializeStoredProfile } from '../lib/profile-storage';
 import type { FODMAPType, Food } from '../types';
 import type { UserContextType, UserProfile } from './UserContext';
@@ -69,17 +68,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
     return foodPassesSavedAvoidedFodmapFilter(food, getIntolerances());
   };
 
-  const getCompatibleFoods = (): Food[] => {
-    return baseDonneesFodmap.foods.filter((food: Food) => isCompatible(food));
-  };
-
   const value: UserContextType = {
     profile,
     isLoading,
     updateProfile,
     clearProfile,
     isCompatible,
-    getCompatibleFoods,
     getIntolerances,
     hasProfile: () => !!profile,
   };

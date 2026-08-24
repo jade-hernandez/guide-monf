@@ -96,7 +96,6 @@ const createUserContext = (overrides: Partial<UserContextType> = {}): UserContex
   updateProfile: vi.fn(() => true),
   clearProfile: vi.fn(),
   isCompatible: vi.fn(() => true),
-  getCompatibleFoods: vi.fn(() => []),
   getIntolerances: vi.fn((): FODMAPType[] => ['fructose']),
   hasProfile: vi.fn(() => true),
   ...overrides,

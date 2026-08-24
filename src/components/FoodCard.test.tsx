@@ -32,7 +32,6 @@ const createUserContext = (compatible: boolean): UserContextType => ({
   updateProfile: vi.fn(() => true),
   clearProfile: vi.fn(),
   isCompatible: vi.fn(() => compatible),
-  getCompatibleFoods: vi.fn(() => []),
   getIntolerances: vi.fn(() => []),
   hasProfile: vi.fn(() => false),
 });
