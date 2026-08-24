@@ -84,4 +84,22 @@ describe('Landing workflow', () => {
 
     expect(destination?.scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto' });
   });
+
+  it('uses responsive Explorer preview art direction while preserving the approved fallback asset', () => {
+    const { container } = renderLanding();
+
+    const preview = screen.getByAltText(
+      'Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
+    );
+    const picture = preview.closest('picture');
+    const mobileSource = picture?.querySelector('source');
+
+    expect(picture).toBeTruthy();
+    expect(mobileSource?.getAttribute('media')).toBe('(max-width: 639px)');
+    expect(mobileSource?.getAttribute('srcset')).toBe('/assets/explorer-preview-mobile.webp');
+    expect(preview.getAttribute('src')).toBe('/assets/explorer-preview.jpg');
+    expect(container.querySelector('figcaption')?.textContent).toContain(
+      'Une comparaison relative au profil enregistré, jamais une promesse de tolérance.'
+    );
+  });
 });

@@ -90,13 +90,22 @@ export default function Landing() {
             </div>
 
             <figure className='overflow-hidden rounded-lg border border-border bg-card shadow-lg'>
-              <img
-                src='/assets/explorer-preview.jpg'
-                alt='Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
-                className='h-28 w-full object-cover object-top sm:h-80 lg:h-[31rem]'
-                width='1440'
-                height='900'
-              />
+              <picture>
+                <source
+                  media='(max-width: 639px)'
+                  srcSet='/assets/explorer-preview-mobile.webp'
+                  type='image/webp'
+                  width='390'
+                  height='844'
+                />
+                <img
+                  src='/assets/explorer-preview.jpg'
+                  alt='Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
+                  className='h-64 w-full object-cover object-top sm:h-80 lg:h-[31rem]'
+                  width='1440'
+                  height='900'
+                />
+              </picture>
               <figcaption className='hidden border-t border-border px-4 py-3 text-xs leading-5 text-muted-foreground sm:block'>
                 Une comparaison relative au profil enregistré, jamais une promesse de tolérance.
               </figcaption>
