@@ -1,4 +1,4 @@
-import { Info, TriangleAlert } from 'lucide-react';
+import { CircleCheck, TriangleAlert } from 'lucide-react';
 
 import { content } from '../config/content';
 import { categories } from '../config/food-categories';
@@ -11,14 +11,18 @@ export function FoodCard({ food }: { food: Food }) {
   const compatible = isCompatible(food);
 
   return (
-    <div className='rounded-xl border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md'>
-      {/* Header with profile result badge */}
+    <article className='flex min-h-52 flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/40'>
       <div className='mb-3 flex items-start justify-between gap-2'>
-        <h3 className='text-lg font-bold text-foreground'>{food.name}</h3>
+        <div>
+          <p className='mb-1 text-xs font-medium uppercase text-muted-foreground'>
+            {categories.find((c) => c.value === food.category)?.label}
+          </p>
+          <h2 className='text-lg font-semibold text-foreground'>{food.name}</h2>
+        </div>
         <div
           className={cn(
-            'flex max-w-36 shrink-0 items-center justify-center gap-1 rounded-full px-2 py-1 text-center text-xs font-semibold leading-tight',
-            compatible ? 'bg-muted text-muted-foreground' : 'bg-primary/10 text-primary'
+            'flex max-w-36 shrink-0 items-center justify-center gap-1 rounded-md px-2 py-1 text-center text-xs font-semibold leading-tight',
+            compatible ? 'bg-success/10 text-success-dark' : 'bg-caution/15 text-caution-dark'
           )}
           aria-label={
             compatible
@@ -27,7 +31,7 @@ export function FoodCard({ food }: { food: Food }) {
           }
         >
           {compatible ? (
-            <Info className='h-3 w-3 shrink-0' />
+            <CircleCheck className='h-3 w-3 shrink-0' />
           ) : (
             <TriangleAlert className='h-3 w-3 shrink-0' />
           )}
@@ -37,27 +41,20 @@ export function FoodCard({ food }: { food: Food }) {
         </div>
       </div>
 
-      {/* Category */}
-      <p className='mb-2 text-sm text-muted-foreground'>
-        {categories.find((c) => c.value === food.category)?.label}
-      </p>
-
-      {/* Reference portion */}
-      <p className='mb-3 text-sm font-medium text-foreground'>
-        {content.explorer.foodCard.referencePortion} : {food.limitGrams}g
-      </p>
-
-      {/* FODMAP badges */}
-      <div className='flex flex-wrap gap-1.5'>
+      <div className='mb-4 flex flex-wrap gap-1.5'>
         {food.fodmaps.map((fodmap, idx) => (
           <span
             key={idx}
-            className='rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary'
+            className='rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground'
           >
             {content.explorer.foodCard.fodmapTypes[fodmap.type]}
           </span>
         ))}
       </div>
-    </div>
+
+      <p className='mt-auto border-t border-border pt-3 text-sm text-muted-foreground'>
+        {content.explorer.foodCard.referencePortion} : {food.limitGrams}g
+      </p>
+    </article>
   );
 }

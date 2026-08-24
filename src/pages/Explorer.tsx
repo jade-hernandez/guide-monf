@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ArrowLeft, Filter, Info, RotateCcw, Search, X } from 'lucide-react';
 
@@ -7,6 +7,7 @@ import { ExplorerSkeleton } from '../components/ExplorerSkeleton';
 import { FoodCard } from '../components/FoodCard';
 import { Footer } from '../components/Footer';
 import { NoProfileUser } from '../components/NoProfileUser';
+import { SiteHeader } from '../components/SiteHeader';
 import { Button } from '../components/ui/button';
 import { content } from '../config/content';
 import { categories } from '../config/food-categories';
@@ -17,7 +18,6 @@ import { cn } from '../lib/utils';
 import type { FoodCategory } from '../types';
 
 export default function Explorer() {
-  const navigate = useNavigate();
   const { profile, isLoading } = useUser();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
@@ -26,18 +26,14 @@ export default function Explorer() {
   const trimmedSearchQuery = searchQuery.trim();
   const activeFilterLabels = [
     ...(showCompatibleOnly ? [content.explorer.filters.safeForMe.label] : []),
-    ...categories
-      .filter(({ value }) => selectedCategories.has(value))
-      .map(({ label }) => label),
+    ...categories.filter(({ value }) => selectedCategories.has(value)).map(({ label }) => label),
   ];
   const hasActiveSearch = trimmedSearchQuery.length > 0;
   const hasActiveFilters = activeFilterLabels.length > 0;
 
   const filteredFoods = useMemo(() => {
     const avoidedFodmaps =
-      showCompatibleOnly && profile
-        ? getSavedAvoidedFodmapTypes(profile.fodmapIntolerances)
-        : null;
+      showCompatibleOnly && profile ? getSavedAvoidedFodmapTypes(profile.fodmapIntolerances) : null;
 
     return selectExplorerFoods(baseDonneesFodmap.foods, {
       query: searchQuery,
@@ -76,110 +72,93 @@ export default function Explorer() {
   }
 
   return (
-    <main className='min-h-screen bg-background pb-8'>
-      <header className='sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm'>
-        <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
-          <div className='flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4'>
-            {/* <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => navigate("/profile")}
-              aria-label={content.common.buttons.back}
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button> */}
-            <Button
-              asChild={true}
-              className='inline-flex shrink-0 items-center gap-2 border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground'
-            >
-              <Link to='/profile'>
-                <ArrowLeft className='h-4 w-4' />
-                Retour au profil
-              </Link>
-            </Button>
-            <h1 className='text-2xl font-bold text-foreground'>
+    <div className='flex min-h-screen flex-col bg-background'>
+      <SiteHeader>
+        <Link
+          to='/profile'
+          className='inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+          aria-label='Modifier le profil'
+        >
+          <ArrowLeft className='h-4 w-4' aria-hidden='true' />
+          <span className='sr-only sm:not-sr-only'>Modifier le profil</span>
+        </Link>
+      </SiteHeader>
+
+      <main className='mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8'>
+        <div className='mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end'>
+          <div>
+            <p className='mb-2 text-sm font-semibold uppercase text-primary'>104 aliments</p>
+            <h1 className='font-editorial text-4xl font-semibold text-foreground sm:text-5xl'>
               {content.explorer.header.title}
             </h1>
           </div>
+          <p className='max-w-md text-sm leading-6 text-muted-foreground'>
+            Comparez le jeu local à votre profil enregistré. Les résultats sont des repères, pas une
+            garantie de tolérance.
+          </p>
+        </div>
 
-          {/* <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <section aria-label='Recherche et filtres' className='border-y border-border py-5'>
+          <div className='relative'>
+            <Search className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground' />
             <input
-              type="search"
+              type='search'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={content.explorer.search.placeholder}
-              className="w-full h-12 pl-10 pr-4 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className='h-12 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary'
               aria-label={content.explorer.search.ariaLabel}
             />
-          </div> */}
-        </div>
-      </header>
-
-      <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
-        {/* Search Bar */}
-        <div className='relative mb-4'>
-          <Search className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground' />
-          <input
-            type='search'
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={content.explorer.search.placeholder}
-            className='h-12 w-full rounded-xl border border-border bg-card pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary'
-            aria-label={content.explorer.search.ariaLabel}
-          />
-        </div>
-        {/* Filters */}
-        <div className='mb-6 space-y-4'>
-          {/* Compatible Toggle */}
-          <button
-            onClick={() => setShowCompatibleOnly(!showCompatibleOnly)}
-            className={cn(
-              'inline-flex min-h-[44px] items-center gap-2 rounded-lg px-4 py-2 font-medium transition-all',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-              showCompatibleOnly
-                ? 'bg-success text-success-foreground'
-                : 'bg-muted text-foreground hover:bg-muted/80'
-            )}
-            aria-pressed={showCompatibleOnly}
-            aria-label={content.explorer.filters.safeForMe.ariaLabel}
-          >
-            <Filter className='h-5 w-5' />
-            <span>{content.explorer.filters.safeForMe.label}</span>
-          </button>
-
-          {/* Category Chips */}
-          <div className='flex flex-wrap gap-2'>
-            {categories.map(({ value, label }) => (
-              <button
-                key={value}
-                onClick={() => toggleCategory(value)}
-                className={cn(
-                  'min-h-[40px] rounded-full px-3 py-1.5 text-sm font-medium transition-all',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-                  selectedCategories.has(value)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-foreground hover:bg-muted/80'
-                )}
-                aria-pressed={selectedCategories.has(value)}
-              >
-                {label}
-              </button>
-            ))}
           </div>
-        </div>
+
+          <div className='mt-4 flex flex-col gap-4 lg:flex-row lg:items-start'>
+            <button
+              onClick={() => setShowCompatibleOnly(!showCompatibleOnly)}
+              className={cn(
+                'inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
+                showCompatibleOnly
+                  ? 'border-success bg-success text-success-foreground'
+                  : 'border-border bg-card text-foreground hover:border-success/50'
+              )}
+              aria-pressed={showCompatibleOnly}
+              aria-label={content.explorer.filters.safeForMe.ariaLabel}
+            >
+              <Filter className='h-5 w-5' />
+              <span>{content.explorer.filters.safeForMe.label}</span>
+            </button>
+
+            <div className='flex flex-wrap gap-2'>
+              {categories.map(({ value, label }) => (
+                <button
+                  key={value}
+                  onClick={() => toggleCategory(value)}
+                  className={cn(
+                    'min-h-[40px] rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
+                    selectedCategories.has(value)
+                      ? 'border-primary bg-primary text-primary-foreground'
+                      : 'border-border bg-card text-foreground hover:border-primary/40'
+                  )}
+                  aria-pressed={selectedCategories.has(value)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <div
-          className='mb-4 flex items-start gap-2 rounded-lg border border-border bg-card p-3 text-sm text-muted-foreground'
+          className='my-6 flex items-start gap-3 border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm text-muted-foreground'
           role='note'
         >
           <Info className='mt-0.5 h-4 w-4 shrink-0' aria-hidden='true' />
           <p className='leading-relaxed'>{content.explorer.banner.info}</p>
         </div>
 
-        {/* Results Count */}
         <p
-          className='mb-4 text-sm text-muted-foreground'
+          className='mb-4 text-sm font-medium text-foreground'
           role='status'
           aria-live='polite'
           aria-atomic='true'
@@ -187,8 +166,7 @@ export default function Explorer() {
           {filteredFoods.length} aliment(s) trouvé(s)
         </p>
 
-        {/* Food Grid */}
-        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {filteredFoods.map((food) => (
             <FoodCard key={food.id} food={food} />
           ))}
@@ -243,9 +221,8 @@ export default function Explorer() {
             )}
           </div>
         )}
-      </div>
-
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
