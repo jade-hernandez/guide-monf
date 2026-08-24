@@ -191,7 +191,7 @@ export default function Landing() {
             <h2 className='mt-5 text-2xl font-semibold text-foreground'>
               {content.landing.disclaimer.title}
             </h2>
-            <p className='mt-4 leading-7 text-muted-foreground'>
+            <p className='mt-4 leading-7 text-foreground'>
               {content.landing.disclaimer.content}
             </p>
             <Link
