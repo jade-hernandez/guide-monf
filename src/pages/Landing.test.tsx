@@ -98,7 +98,7 @@ describe('Landing workflow', () => {
     expect(mobileSource?.getAttribute('media')).toBe('(max-width: 639px)');
     expect(mobileSource?.getAttribute('srcset')).toBe('/assets/explorer-preview-mobile.webp');
     expect(preview.getAttribute('src')).toBe('/assets/explorer-preview.jpg');
-    expect(preview.getAttribute('class')).toContain('h-72');
+    expect(preview.getAttribute('class')).toContain('h-64');
     expect(preview.getAttribute('class')).toContain('object-bottom');
     expect(preview.getAttribute('class')).toContain('sm:object-top');
     expect(container.querySelector('figcaption')?.textContent).toContain(
