@@ -9,7 +9,7 @@ import { Footer } from '../components/Footer';
 import { NoProfileUser } from '../components/NoProfileUser';
 import { SiteHeader } from '../components/SiteHeader';
 import { Button } from '../components/ui/button';
-import { content } from '../config/content';
+import { content, replacePlaceholders } from '../config/content';
 import { categories } from '../config/food-categories';
 import { useUser } from '../hooks/use-user';
 import { getSavedAvoidedFodmapTypes, selectExplorerFoods } from '../lib/compatibility';
@@ -17,11 +17,14 @@ import { baseDonneesFodmap } from '../lib/fodmap-db';
 import { cn } from '../lib/utils';
 import type { FoodCategory } from '../types';
 
+const EXPLORER_PAGE_SIZE = 16;
+
 export default function Explorer() {
   const { profile, isLoading } = useUser();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<Set<FoodCategory>>(new Set());
   const [showCompatibleOnly, setShowCompatibleOnly] = useState(false);
+  const [visibleLimit, setVisibleLimit] = useState(EXPLORER_PAGE_SIZE);
 
   const trimmedSearchQuery = searchQuery.trim();
   const activeFilterLabels = [
@@ -42,6 +45,19 @@ export default function Explorer() {
     });
   }, [searchQuery, selectedCategories, showCompatibleOnly, profile]);
 
+  const visibleFoods = filteredFoods.slice(0, visibleLimit);
+  const visibleFoodCount = visibleFoods.length;
+  const hasMoreFoods = visibleFoodCount < filteredFoods.length;
+
+  const resetVisibleLimit = () => {
+    setVisibleLimit(EXPLORER_PAGE_SIZE);
+  };
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    resetVisibleLimit();
+  };
+
   const toggleCategory = (category: FoodCategory) => {
     setSelectedCategories((prev) => {
       const next = new Set(prev);
@@ -52,15 +68,27 @@ export default function Explorer() {
       }
       return next;
     });
+    resetVisibleLimit();
+  };
+
+  const toggleCompatibleOnly = () => {
+    setShowCompatibleOnly((current) => !current);
+    resetVisibleLimit();
   };
 
   const clearSearch = () => {
     setSearchQuery('');
+    resetVisibleLimit();
   };
 
   const resetFilters = () => {
     setSelectedCategories(new Set());
     setShowCompatibleOnly(false);
+    resetVisibleLimit();
+  };
+
+  const showMoreFoods = () => {
+    setVisibleLimit((current) => current + EXPLORER_PAGE_SIZE);
   };
 
   if (isLoading) {
@@ -107,7 +135,7 @@ export default function Explorer() {
             <input
               type='search'
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               placeholder={content.explorer.search.placeholder}
               className='h-12 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary'
               aria-label={content.explorer.search.ariaLabel}
@@ -116,7 +144,7 @@ export default function Explorer() {
 
           <div className='mt-4 flex flex-col gap-4 lg:flex-row lg:items-start'>
             <button
-              onClick={() => setShowCompatibleOnly(!showCompatibleOnly)}
+              onClick={toggleCompatibleOnly}
               className={cn(
                 'inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
@@ -166,14 +194,28 @@ export default function Explorer() {
           aria-live='polite'
           aria-atomic='true'
         >
-          {filteredFoods.length} aliment(s) trouvé(s)
+          {replacePlaceholders(content.explorer.search.resultsCount, {
+            count: filteredFoods.length,
+          })}
+          {filteredFoods.length > 0 &&
+            `, ${replacePlaceholders(content.explorer.search.visibleCount, {
+              visible: visibleFoodCount,
+            })}`}
         </p>
 
         <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-          {filteredFoods.map((food) => (
+          {visibleFoods.map((food) => (
             <FoodCard key={food.id} food={food} />
           ))}
         </div>
+
+        {hasMoreFoods && (
+          <div className='mt-8 flex justify-center'>
+            <Button type='button' variant='outline' onClick={showMoreFoods}>
+              {content.explorer.search.loadMore}
+            </Button>
+          </div>
+        )}
 
         {filteredFoods.length === 0 && (
           <div className='py-12 text-center'>

@@ -165,6 +165,8 @@ export const content = {
       noResults: 'Aucun aliment trouvé dans notre base actuelle (104 aliments)',
       noResultsHint: 'Modifiez votre recherche ou vos filtres pour afficher d’autres résultats',
       resultsCount: '{{count}} aliment(s) trouvé(s)',
+      visibleCount: '{{visible}} affiché(s)',
+      loadMore: 'Afficher plus',
     },
 
     filters: {
@@ -392,7 +394,7 @@ export const content = {
 };
 
 // ============================================================================
-// HELPER FUNCTIONS : NOT USED INSIDE THE APP
+// HELPER FUNCTIONS
 // ============================================================================
 
 /**
