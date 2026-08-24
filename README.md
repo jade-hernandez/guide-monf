@@ -36,6 +36,8 @@ binary FODMAP profile.
 - Node.js 20.19 or newer
 - pnpm
 
+This repository uses pnpm exclusively; `pnpm-lock.yaml` is the authoritative dependency lockfile.
+
 ### Installation
 
 ```bash
