@@ -16,7 +16,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const loadProfile = async () => {
+    const loadProfile = () => {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
