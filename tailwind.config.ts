@@ -148,52 +148,12 @@ export default {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        // Hero background blob animation - with rotation
-        blob: {
-          '0%': {
-            transform: 'translate(0px, 0px) scale(1) rotate(0deg)',
-          },
-          '33%': {
-            transform: 'translate(30px, -50px) scale(1.1) rotate(120deg)',
-          },
-          '66%': {
-            transform: 'translate(-20px, 20px) scale(0.9) rotate(240deg)',
-          },
-          '100%': {
-            transform: 'translate(0px, 0px) scale(1) rotate(360deg)',
-          },
-        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        // Blob animation with 5 second duration and smooth easing
-        blob: 'blob 5s ease-in-out infinite',
-      },
-      // Animation delay utilities
-      animationDelay: {
-        '2000': '2s',
-        '4000': '4s',
       },
     },
   },
-  plugins: [
-    tailwindcssAnimate,
-    // Plugin to add animation-delay utilities
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function ({ matchUtilities, theme }: any) {
-      matchUtilities(
-        {
-          'animation-delay': (value: string) => {
-            return {
-              'animation-delay': value,
-            };
-          },
-        },
-        {
-          values: theme('animationDelay'),
-        }
-      );
-    },
-  ],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

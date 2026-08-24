@@ -5,6 +5,7 @@ export const typography = {
   // Font families
   fontFamily: {
     base: "system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
+    editorial: "'Source Serif 4 Display', Georgia, serif",
     mono: "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace",
   },
 
@@ -39,7 +40,6 @@ export const typography = {
 
   // Letter spacing
   letterSpacing: {
-    tight: '-0.025em',
     normal: '0',
     wide: '0.025em',
   },

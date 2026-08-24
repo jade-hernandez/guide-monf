@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Source Serif 4 Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/source-serif-4-display-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4 Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/source-serif-4-display-semibold.woff2') format('woff2');
+}
+
 /* ============================================================================
    DESIGN SYSTEM - CSS VARIABLES
    ============================================================================
@@ -21,7 +37,7 @@
        ======================================================================= */
 
     /* Main backgrounds */
-    --background: 37 100% 99%; /* #FFFBF5 - Warm cream */
+    --background: 45 33% 98%; /* #FAF9F6 - Warm neutral */
     --background-white: 0 0% 100%; /* #FFFFFF - Pure white */
     --background-gray: 210 17% 98%; /* #F9FAFB - Light gray */
     --background-muted: 0 0% 96%; /* #F5F5F5 - Muted */
@@ -29,7 +45,9 @@
     --background-hover: 210 20% 96%; /* #F3F4F6 - Hover state */
 
     /* Foreground/text */
-    --foreground: 215 25% 15%; /* #1F2937 - Primary text */
+    --foreground: 164 25% 12%; /* #17241F - Primary text */
+    --display: 'Source Serif 4 Display', Georgia, serif;
+    --body: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
     /* =======================================================================
        CARD SURFACES
@@ -168,7 +186,7 @@
        RADIUS
        ======================================================================= */
 
-    --radius: 0.75rem; /* 12px - Default border radius */
+    --radius: 0.5rem; /* 8px - Default border radius */
 
     /* =======================================================================
        SIDEBAR COLORS
@@ -322,13 +340,6 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .landing-page .animate-blob,
-  .landing-page .animate-pulse {
-    animation: none;
-  }
-}
-
 .route-heading:focus {
   outline: none;
 }
@@ -344,8 +355,21 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--body);
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  .font-editorial {
+    font-family: var(--display);
+    letter-spacing: 0;
   }
 }
