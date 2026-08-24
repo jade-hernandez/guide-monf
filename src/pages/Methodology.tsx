@@ -253,10 +253,13 @@ export default function Methodology() {
                   href='https://www.monashfodmap.com/about-fodmap-and-ibs/high-and-low-fodmap-foods/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center gap-1 font-medium text-primary underline underline-offset-4 hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+                  className='inline font-medium text-primary underline underline-offset-4 hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
                 >
                   liste publique d’exemples de Monash University
-                  <ExternalLink className='h-4 w-4' aria-hidden='true' />
+                  <ExternalLink
+                    className='ml-1 inline-block h-4 w-4 align-text-bottom'
+                    aria-hidden='true'
+                  />
                 </a>
                 . Ce lien est proposé comme lecture complémentaire, pas comme preuve de provenance
                 des 104 enregistrements.

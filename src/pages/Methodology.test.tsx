@@ -59,6 +59,8 @@ describe('Methodology page', () => {
     expect(link.getAttribute('href')).toBe(
       'https://www.monashfodmap.com/about-fodmap-and-ibs/high-and-low-fodmap-foods/'
     );
+    expect(link.textContent).toContain('liste publique d’exemples de Monash University');
+    expect(link.querySelectorAll('svg')).toHaveLength(1);
     expect(screen.getByText(/pas comme preuve de provenance/)).toBeTruthy();
     expect(screen.getByText(/n’est ni affilié, ni approuvé, ni certifié/)).toBeTruthy();
   });
