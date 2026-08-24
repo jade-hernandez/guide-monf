@@ -31,9 +31,9 @@ export function FoodCard({ food }: { food: Food }) {
           }
         >
           {compatible ? (
-            <CircleCheck className='h-3 w-3 shrink-0' />
+            <CircleCheck className='h-3 w-3 shrink-0' aria-hidden='true' />
           ) : (
-            <TriangleAlert className='h-3 w-3 shrink-0' />
+            <TriangleAlert className='h-3 w-3 shrink-0' aria-hidden='true' />
           )}
           <span>
             {compatible ? content.explorer.foodCard.compatible : content.explorer.foodCard.avoid}

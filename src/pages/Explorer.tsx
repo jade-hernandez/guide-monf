@@ -100,7 +100,10 @@ export default function Explorer() {
 
         <section aria-label='Recherche et filtres' className='border-y border-border py-5'>
           <div className='relative'>
-            <Search className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground' />
+            <Search
+              className='absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground'
+              aria-hidden='true'
+            />
             <input
               type='search'
               value={searchQuery}
@@ -124,7 +127,7 @@ export default function Explorer() {
               aria-pressed={showCompatibleOnly}
               aria-label={content.explorer.filters.safeForMe.ariaLabel}
             >
-              <Filter className='h-5 w-5' />
+              <Filter className='h-5 w-5' aria-hidden='true' />
               <span>{content.explorer.filters.safeForMe.label}</span>
             </button>
 

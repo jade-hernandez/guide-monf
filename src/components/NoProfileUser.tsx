@@ -5,6 +5,7 @@ import { ArrowRight, SearchX } from 'lucide-react';
 import { Footer } from '../components/Footer';
 import { SiteHeader } from '../components/SiteHeader';
 import { Button } from '../components/ui/button';
+import { content } from '../config/content';
 
 export function NoProfileUser() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export function NoProfileUser() {
           FODMAP que vous avez marquées comme étant à éviter.
         </p>
         <Button className='mt-8 gap-2' size='lg' onClick={() => navigate('/profile')}>
-          Remplir mon profile
+          {content.explorer.noProfilUser.cta}
           <ArrowRight className='h-5 w-5' aria-hidden='true' />
         </Button>
       </main>

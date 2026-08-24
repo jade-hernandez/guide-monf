@@ -238,7 +238,7 @@ export const content = {
     noProfilUser: {
       title: 'Oops !',
       content: "Vous devez remplir votre profil avant d'explorer les aliments.",
-      cta: 'Remplir mon profile',
+      cta: 'Remplir mon profil',
     },
   },
 
@@ -311,12 +311,12 @@ export const content = {
     mission: {
       title: 'Notre Mission',
       content:
-        "MonGuide FODMAP est une application éducative conçue pour aider les personnes souffrant du syndrome de l'intestin irritable (SII) à gérer leur alimentation de manière personnalisée. Contrairement aux listes génériques pauvre en FODMAP, cette application filtre les aliments en fonction des intolérances spécifiques de chaque utilisateur, identifiées lors de tests de réintroduction médicaux. Nous espérons améliorer la qualité de vie de nos utilisateurs.",
+        "MonGuide FODMAP est un projet frontend éducatif qui compare six réponses déclarées à un jeu local de 104 aliments. Il s'adresse aux personnes qui connaissent déjà leurs résultats de réintroduction et rend cette comparaison plus facile à consulter, sans mesurer ni garantir une tolérance individuelle.",
     },
     why: {
       title: 'Pourquoi ce Projet ?',
       content:
-        "Après avoir complété le protocole FODMAP avec un professionnel de santé, j'ai passé des heures à croiser des listes génériques qui ne correspondaient pas à mes intolérances spécifiques. J'ai réalisé qu'il manquait un outil permettant de filtrer les aliments selon son profil personnel. MonGuide FODMAP résout ce problème en offrant une approche véritablement personnalisée.",
+        "Après avoir complété le protocole FODMAP avec un professionnel de santé, j'ai passé des heures à croiser des listes génériques avec mes résultats de réintroduction. MonGuide FODMAP explore une façon plus lisible d'effectuer cette comparaison tout en gardant visibles les portions de référence, les limites du jeu de données et l'absence de garantie individuelle.",
     },
   },
 

@@ -199,7 +199,7 @@ describe('Explorer workflow', () => {
     );
 
     renderExplorer();
-    fireEvent.click(screen.getByRole('button', { name: 'Remplir mon profile' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Remplir mon profil' }));
 
     expect(screen.getByRole('heading', { name: 'Profil cible' })).toBeTruthy();
   });
