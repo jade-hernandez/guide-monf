@@ -159,7 +159,7 @@ export const content = {
     },
 
     search: {
-      placeholder: 'Rechercher un aliment... (ex: fraises, pâtes, lait)',
+      placeholder: 'Rechercher un aliment…',
       ariaLabel: 'Rechercher des aliments par nom',
       clearButton: 'Effacer la recherche',
       noResults: 'Aucun aliment trouvé dans notre base actuelle (104 aliments)',
