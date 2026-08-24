@@ -306,15 +306,15 @@ export const content = {
   // ============================================================================
   about: {
     mainContent: {
-      title: 'À Propos de MonGuide FODMAP',
+      title: 'À propos de MonGuide FODMAP',
     },
     mission: {
-      title: 'Notre Mission',
+      title: 'Mon intention',
       content:
         "MonGuide FODMAP est un projet frontend éducatif qui compare six réponses déclarées à un jeu local de 104 aliments. Il s'adresse aux personnes qui connaissent déjà leurs résultats de réintroduction et rend cette comparaison plus facile à consulter, sans mesurer ni garantir une tolérance individuelle.",
     },
     why: {
-      title: 'Pourquoi ce Projet ?',
+      title: 'Pourquoi ce projet ?',
       content:
         "Après avoir complété le protocole FODMAP avec un professionnel de santé, j'ai passé des heures à croiser des listes génériques avec mes résultats de réintroduction. MonGuide FODMAP explore une façon plus lisible d'effectuer cette comparaison tout en gardant visibles les portions de référence, les limites du jeu de données et l'absence de garantie individuelle.",
     },

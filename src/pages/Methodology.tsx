@@ -20,22 +20,22 @@ const auditedImprovements = [
   {
     title: 'Modélisation des données',
     description:
-      'Jade a appris à distinguer les réponses du profil, les familles FODMAP enregistrées sur chaque aliment et les métadonnées qui ne participent pas à la comparaison.',
+      'J’ai appris à distinguer les réponses du profil, les familles FODMAP enregistrées sur chaque aliment et les métadonnées qui ne participent pas à la comparaison.',
   },
   {
     title: 'État et persistance',
     description:
-      'Le profil est enregistré dans le stockage local du navigateur, relu au chargement, validé avant utilisation et restauré dans le formulaire.',
+      'J’ai versionné le stockage local du profil, validé les données au chargement et restauré les réponses dans le formulaire.',
   },
   {
     title: 'Accessibilité',
     description:
-      'L’audit a conduit à améliorer les contrastes, le mouvement réduit, la progression du profil, les annonces de résultats, les états vides et le focus après un changement de page.',
+      'J’ai amélioré les contrastes, le mouvement réduit, la progression du profil, les annonces de résultats, les états vides et le focus après un changement de page.',
   },
   {
     title: 'Tests et communication',
     description:
-      'Des tests couvrent la structure des 104 enregistrements, les 64 combinaisons du profil binaire, la persistance et les états d’erreur. Le vocabulaire a aussi été rendu relatif au profil et moins affirmatif.',
+      'J’ai ajouté des tests pour les 104 enregistrements, les 64 profils binaires, la persistance et les états d’erreur. J’ai aussi rendu le vocabulaire relatif au profil et moins affirmatif.',
   },
 ];
 
@@ -64,10 +64,9 @@ export default function Methodology() {
               Méthodologie et limites
             </h1>
             <p className='mt-6 max-w-3xl text-lg leading-8 text-primary-100'>
-              MonGuide FODMAP est le projet frontend junior de Jade, réalisé à la fin de son
-              parcours d’apprentissage en autodidacte. Il montre comment elle a conçu, testé et
-              audité une interface responsable autour d’un sujet sensible. Ce n’est pas un produit
-              clinique.
+              J’ai réalisé MonGuide FODMAP à la fin de mon parcours d’apprentissage frontend en
+              autodidacte. Ce projet montre comment j’ai conçu, testé et audité une interface
+              responsable autour d’un sujet sensible. Ce n’est pas un produit clinique.
             </p>
           </div>
         </section>
@@ -183,8 +182,8 @@ export default function Methodology() {
                 </div>
                 <div className='mt-4 space-y-3 leading-7 text-muted-foreground'>
                   <p>
-                    Selon le propriétaire du projet, le jeu local a été assemblé à partir
-                    d’informations FODMAP accessibles publiquement en ligne.
+                    J’ai assemblé le jeu local à partir d’informations FODMAP accessibles
+                    publiquement en ligne.
                   </p>
                   <p>
                     Le relevé source par source de l’acquisition et des transformations n’a pas été
@@ -220,7 +219,7 @@ export default function Methodology() {
               id='learning-title'
               className='font-editorial text-3xl font-semibold text-foreground'
             >
-              Ce que Jade a appris et amélioré
+              Ce que j’ai appris et amélioré
             </h2>
             <div className='mt-5 grid gap-4 sm:grid-cols-2'>
               {auditedImprovements.map((item) => (

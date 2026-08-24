@@ -22,8 +22,10 @@ describe('Methodology page', () => {
     expect(screen.getByRole('heading', { name: 'Preuves d’ingénierie vérifiées' })).toBeTruthy();
     expect(screen.getByRole('heading', { name: 'Origine des données non vérifiée' })).toBeTruthy();
     expect(screen.getByText(/104 enregistrements et 104 identifiants uniques/)).toBeTruthy();
-    expect(screen.getByText(/Selon le propriétaire du projet/)).toBeTruthy();
+    expect(screen.getByText(/J’ai assemblé le jeu local/)).toBeTruthy();
     expect(screen.getByText(/n’ont pas été validées cliniquement/)).toBeTruthy();
+    expect(screen.getByText(/J’ai réalisé MonGuide FODMAP/)).toBeTruthy();
+    expect(screen.queryByText(/projet frontend junior de Jade/)).toBeNull();
   });
 
   it('documents the binary comparison and non-medical limitations', () => {
