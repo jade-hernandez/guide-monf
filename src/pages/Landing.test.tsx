@@ -92,12 +92,21 @@ describe('Landing workflow', () => {
       'Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
     );
     const picture = preview.closest('picture');
-    const mobileSource = picture?.querySelector('source');
+    const [mobileSource, avifSource, webpSource] = picture?.querySelectorAll('source') ?? [];
 
     expect(picture).toBeTruthy();
     expect(mobileSource?.getAttribute('media')).toBe('(max-width: 639px)');
     expect(mobileSource?.getAttribute('srcset')).toBe('/assets/explorer-preview-mobile.webp');
+    expect(avifSource?.getAttribute('type')).toBe('image/avif');
+    expect(avifSource?.getAttribute('srcset')).toContain('explorer-preview.w1440.avif 1440w');
+    expect(webpSource?.getAttribute('type')).toBe('image/webp');
+    expect(webpSource?.getAttribute('srcset')).toContain('explorer-preview.w1440.webp 1440w');
+    expect(webpSource?.getAttribute('sizes')).toContain('(min-width: 1280px) 718px');
     expect(preview.getAttribute('src')).toBe('/assets/explorer-preview.jpg');
+    expect(preview.getAttribute('width')).toBe('1440');
+    expect(preview.getAttribute('height')).toBe('900');
+    expect(preview.getAttribute('loading')).toBe('eager');
+    expect(preview.getAttribute('fetchpriority')).toBe('high');
     expect(preview.getAttribute('class')).toContain('h-64');
     expect(preview.getAttribute('class')).toContain('object-bottom');
     expect(preview.getAttribute('class')).toContain('sm:object-top');

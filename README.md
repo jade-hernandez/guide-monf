@@ -59,6 +59,21 @@ pnpm preview
 
 The app will be available at `http://localhost:8080`
 
+### Lighthouse desktop measurement
+
+Run Lighthouse against a production preview. `--preset=desktop` is required: setting only the form
+factor or viewport leaves Lighthouse's default mobile throttling in place.
+
+```bash
+pnpm build
+pnpm preview --host 127.0.0.1 --port 4173
+pnpm dlx lighthouse@13.0.1 http://127.0.0.1:4173/ \
+  --preset=desktop \
+  --only-categories=performance,accessibility,best-practices,seo \
+  --output=json --output=html \
+  --output-path=/tmp/mon-guide-fodmap-lighthouse-desktop
+```
+
 ## Usage
 
 1. **Create Your Profile**: Navigate to the Profile page and configure which FODMAPs you tolerate or

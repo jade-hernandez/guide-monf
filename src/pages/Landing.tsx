@@ -8,6 +8,15 @@ import { SiteHeader } from '../components/SiteHeader';
 import { Button } from '../components/ui/button';
 import { content } from '../config/content';
 
+const desktopHeroSizes =
+  '(min-width: 1280px) 718px, (min-width: 1024px) 59vw, (min-width: 640px) calc(100vw - 3rem), 100vw';
+
+const desktopHeroAvifSrcSet =
+  '/assets/explorer-preview.w640.avif 640w, /assets/explorer-preview.w960.avif 960w, /assets/explorer-preview.w1280.avif 1280w, /assets/explorer-preview.w1440.avif 1440w';
+
+const desktopHeroWebpSrcSet =
+  '/assets/explorer-preview.w640.webp 640w, /assets/explorer-preview.w960.webp 960w, /assets/explorer-preview.w1280.webp 1280w, /assets/explorer-preview.w1440.webp 1440w';
+
 export default function Landing() {
   const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
@@ -95,15 +104,18 @@ export default function Landing() {
                   media='(max-width: 639px)'
                   srcSet='/assets/explorer-preview-mobile.webp'
                   type='image/webp'
-                  width='390'
-                  height='844'
                 />
+                <source srcSet={desktopHeroAvifSrcSet} sizes={desktopHeroSizes} type='image/avif' />
+                <source srcSet={desktopHeroWebpSrcSet} sizes={desktopHeroSizes} type='image/webp' />
                 <img
                   src='/assets/explorer-preview.jpg'
                   alt='Explorateur MonGuide FODMAP affichant la recherche, les filtres et des cartes aliments'
                   className='h-64 w-full object-cover object-bottom sm:h-80 sm:object-top lg:h-[31rem]'
                   width='1440'
                   height='900'
+                  loading='eager'
+                  fetchPriority='high'
+                  decoding='async'
                 />
               </picture>
               <figcaption className='hidden border-t border-border px-4 py-3 text-xs leading-5 text-muted-foreground sm:block'>
@@ -191,9 +203,7 @@ export default function Landing() {
             <h2 className='mt-5 text-2xl font-semibold text-foreground'>
               {content.landing.disclaimer.title}
             </h2>
-            <p className='mt-4 leading-7 text-foreground'>
-              {content.landing.disclaimer.content}
-            </p>
+            <p className='mt-4 leading-7 text-foreground'>{content.landing.disclaimer.content}</p>
             <Link
               to='/methodology'
               className='mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4'
