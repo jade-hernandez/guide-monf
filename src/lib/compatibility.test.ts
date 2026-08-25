@@ -151,20 +151,20 @@ describe('selectExplorerFoods', () => {
     expect(foodIds(selected)).toEqual(['bread', 'apple', 'banana', 'milk', 'pear']);
   });
 
-  it('matches food names case-insensitively without trimming non-empty queries', () => {
+  it('matches food names case-insensitively after trimming non-empty queries', () => {
     const caseInsensitive = selectExplorerFoods(foods, {
       query: 'lAiT',
       selectedCategories: noCategories,
       avoidedFodmaps: null,
     });
-    const leadingSpace = selectExplorerFoods(foods, {
-      query: ' lait',
+    const paddedQuery = selectExplorerFoods(foods, {
+      query: ' lait ',
       selectedCategories: noCategories,
       avoidedFodmaps: null,
     });
 
     expect(foodIds(caseInsensitive)).toEqual(['milk']);
-    expect(leadingSpace).toEqual([]);
+    expect(foodIds(paddedQuery)).toEqual(['milk']);
   });
 
   it('filters selected categories while preserving input order', () => {

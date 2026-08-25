@@ -242,6 +242,15 @@ describe('Explorer workflow', () => {
     expect(screen.getByText('Avoine')).toBeTruthy();
   });
 
+  it('matches a padded search input with its visible food result', () => {
+    renderExplorer();
+
+    fireEvent.change(getSearch(), { target: { value: ' avoine ' } });
+
+    expect(screen.getByRole('status').textContent).toContain('1 aliment(s) trouvé(s)');
+    expect(screen.getByText('Avoine')).toBeTruthy();
+  });
+
   it('clears only the search while preserving active filters', () => {
     renderExplorer();
 

@@ -38,8 +38,10 @@ export function selectExplorerFoods(
 ): Food[] {
   let selectedFoods = foods;
 
-  if (query.trim()) {
-    const normalizedQuery = query.toLowerCase();
+  const trimmedQuery = query.trim();
+
+  if (trimmedQuery) {
+    const normalizedQuery = trimmedQuery.toLowerCase();
     selectedFoods = selectedFoods.filter((food) =>
       food.name.toLowerCase().includes(normalizedQuery)
     );
