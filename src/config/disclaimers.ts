@@ -135,7 +135,7 @@ export const modificationNotice = {
 • Les améliorations de l'application
 • Les nouvelles fonctionnalités
 
-Les utilisateurs seront informés des changements significatifs via l'application. La version en vigueur est toujours accessible dans les paramètres de l'application.`,
+Les changements significatifs sont indiqués par la date de dernière mise à jour affichée sur cette page. Le texte en vigueur est consultable en revenant sur cette page.`,
 };
 
 // ============================================================================

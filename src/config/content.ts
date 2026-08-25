@@ -292,7 +292,7 @@ export const content = {
   legal: {
     mainContent: {
       title: 'Mentions Légales & Avertissements',
-      lastUpdated: 'Dernière mise à jour : Juillet 2026',
+      lastUpdated: 'Dernière mise à jour : 30 juillet 2026',
     },
     emergencyContacts: {
       title: "En cas d'urgence médicale",
