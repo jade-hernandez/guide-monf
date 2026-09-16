@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ArrowRight, Check, Info, ShieldCheck } from 'lucide-react';
-import { useReducedMotion } from 'motion/react';
 
 import { Footer } from '../components/Footer';
 import { SiteHeader } from '../components/SiteHeader';
@@ -19,15 +18,14 @@ const desktopHeroWebpSrcSet =
 
 export default function Landing() {
   const navigate = useNavigate();
-  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className='landing-page flex min-h-screen flex-col bg-background'>
+    <div className='flex min-h-screen flex-col bg-background'>
       <SiteHeader>
         <nav className='flex items-center gap-2 sm:gap-5' aria-label='Navigation principale'>
           <Link
             to='/methodology'
-            className='hidden min-h-[44px] items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:inline-flex'
+            className='hidden min-h-[40px] items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:inline-flex rounded-lg px-3'
           >
             Méthodologie
           </Link>
@@ -62,25 +60,20 @@ export default function Landing() {
                   de réintroduction. Il ne formule aucun diagnostic et ne garantit aucune tolérance.
                 </span>
               </p>
-
               <div className='mt-6 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:items-center sm:gap-3'>
                 <Button size='lg' onClick={() => navigate('/profile')} className='gap-2'>
                   {content.landing.hero.cta}
                   <ArrowRight className='h-5 w-5' aria-hidden='true' />
                 </Button>
-                <button
-                  type='button'
-                  onClick={() => {
-                    document.getElementById('what-are-fodmaps')?.scrollIntoView({
-                      behavior: shouldReduceMotion ? 'auto' : 'smooth',
-                    });
-                  }}
-                  className='min-h-[44px] px-3 text-left text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
-                >
+                <Button
+                type='button'
+                variant='link'
+                onClick={() => document.getElementById('what-are-fodmaps')?.scrollIntoView()}
+                className="min-h-[54px] px-3 text-left"
+              >
                   En savoir plus
-                </button>
+                </Button>
               </div>
-
               <ul className='mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground sm:mt-8'>
                 {['Sans compte', '104 aliments', 'Profil enregistré localement'].map((item) => (
                   <li
@@ -97,7 +90,6 @@ export default function Landing() {
                 ))}
               </ul>
             </div>
-
             <figure className='overflow-hidden rounded-lg border border-border bg-card shadow-lg'>
               <picture>
                 <source
@@ -197,7 +189,6 @@ export default function Landing() {
               ))}
             </ul>
           </div>
-
           <div className='border-l-2 border-caution bg-caution/5 px-6 py-7 sm:px-8'>
             <ShieldCheck className='h-7 w-7 text-caution-dark' aria-hidden='true' />
             <h2 className='mt-5 text-2xl font-semibold text-foreground'>
@@ -206,7 +197,7 @@ export default function Landing() {
             <p className='mt-4 leading-7 text-foreground'>{content.landing.disclaimer.content}</p>
             <Link
               to='/methodology'
-              className='mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4'
+              className='mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg outline-none px-3'
             >
               <Info className='h-4 w-4' aria-hidden='true' />
               Lire la méthodologie et les limites
