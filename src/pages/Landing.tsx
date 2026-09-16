@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ArrowRight, Check, Info, ShieldCheck } from 'lucide-react';
 
@@ -17,7 +17,6 @@ const desktopHeroWebpSrcSet =
   '/assets/explorer-preview.w640.webp 640w, /assets/explorer-preview.w960.webp 960w, /assets/explorer-preview.w1280.webp 1280w, /assets/explorer-preview.w1440.webp 1440w';
 
 export default function Landing() {
-  const navigate = useNavigate();
 
   return (
     <div className='flex min-h-screen flex-col bg-background'>
@@ -29,8 +28,10 @@ export default function Landing() {
           >
             Méthodologie
           </Link>
-          <Button size='sm' onClick={() => navigate('/profile')}>
-            Commencer
+          <Button size='sm' asChild>
+            <Link to='/profile'>
+              Commencer
+            </Link>
           </Button>
         </nav>
       </SiteHeader>
@@ -60,10 +61,13 @@ export default function Landing() {
                   de réintroduction. Il ne formule aucun diagnostic et ne garantit aucune tolérance.
                 </span>
               </p>
+
               <div className='mt-6 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:items-center sm:gap-3'>
-                <Button size='lg' onClick={() => navigate('/profile')} className='gap-2'>
-                  {content.landing.hero.cta}
-                  <ArrowRight className='h-5 w-5' aria-hidden='true' />
+                <Button size='lg' className='gap-2' asChild>
+                  <Link to='/profile'>
+                    {content.landing.hero.cta}
+                    <ArrowRight className='h-5 w-5' aria-hidden='true' />
+                  </Link>
                 </Button>
                 <Button
                 type='button'
@@ -90,6 +94,7 @@ export default function Landing() {
                 ))}
               </ul>
             </div>
+
             <figure className='overflow-hidden rounded-lg border border-border bg-card shadow-lg'>
               <picture>
                 <source
@@ -189,6 +194,7 @@ export default function Landing() {
               ))}
             </ul>
           </div>
+
           <div className='border-l-2 border-caution bg-caution/5 px-6 py-7 sm:px-8'>
             <ShieldCheck className='h-7 w-7 text-caution-dark' aria-hidden='true' />
             <h2 className='mt-5 text-2xl font-semibold text-foreground'>
@@ -213,9 +219,11 @@ export default function Landing() {
                 Commencez par vos six réponses.
               </h2>
             </div>
-            <Button size='lg' onClick={() => navigate('/profile')} className='gap-2'>
-              Configurer mon profil
-              <ArrowRight className='h-5 w-5' aria-hidden='true' />
+            <Button size='lg' className='gap-2' asChild>
+              <Link to='/profile'>
+                Configurer mon profil
+                <ArrowRight className='h-5 w-5' aria-hidden='true' />
+              </Link>
             </Button>
           </div>
         </section>
