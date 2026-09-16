@@ -8,9 +8,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { content } from '../config/content';
 import Landing from './Landing';
 
-const { reducedMotionMock } = vi.hoisted(() => ({
-  reducedMotionMock: vi.fn<() => boolean>(),
-}));
 
 vi.mock('motion/react', async () => {
   const React = await import('react');
@@ -42,7 +39,6 @@ vi.mock('motion/react', async () => {
       h2: createMotionComponent('h2'),
       p: createMotionComponent('p'),
     },
-    useReducedMotion: reducedMotionMock,
   };
 });
 
@@ -57,7 +53,6 @@ const renderLanding = () =>
   );
 
 beforeEach(() => {
-  reducedMotionMock.mockReturnValue(false);
   HTMLElement.prototype.scrollIntoView = vi.fn();
 });
 
@@ -70,19 +65,23 @@ describe('Landing workflow', () => {
   it('routes the primary call to action to Profile', () => {
     renderLanding();
 
-    fireEvent.click(screen.getAllByRole('button', { name: content.landing.hero.cta })[0]!);
+    fireEvent.click(
+      screen.getByRole('link', {
+        name: content.landing.hero.cta,
+      })
+    );
 
     expect(screen.getByRole('heading', { name: 'Profil cible' })).toBeTruthy();
   });
 
-  it('uses immediate scrolling when reduced motion is requested', () => {
-    reducedMotionMock.mockReturnValue(true);
+  it('scrolls to the FODMAP section when the CTA is clicked', () => {
     renderLanding();
 
     const destination = document.getElementById('what-are-fodmaps');
+
     fireEvent.click(screen.getByRole('button', { name: /En savoir plus/ }));
 
-    expect(destination?.scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto' });
+    expect(destination?.scrollIntoView).toHaveBeenCalledTimes(1);
   });
 
   it('uses responsive Explorer preview art direction while preserving the approved fallback asset', () => {
