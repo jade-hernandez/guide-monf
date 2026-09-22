@@ -315,7 +315,7 @@ describe('Explorer workflow', () => {
     );
 
     renderExplorer();
-    fireEvent.click(screen.getByRole('button', { name: 'Remplir mon profil' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Remplir mon profil' }));
 
     expect(screen.getByRole('heading', { name: 'Profil cible' })).toBeTruthy();
   });

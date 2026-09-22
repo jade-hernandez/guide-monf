@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ArrowRight, SearchX } from 'lucide-react';
 
@@ -8,7 +8,7 @@ import { Button } from '../components/ui/button';
 import { content } from '../config/content';
 
 export function NoProfileUser() {
-  const navigate = useNavigate();
+
 
   return (
     <div className='flex min-h-screen flex-col bg-background'>
@@ -23,9 +23,11 @@ export function NoProfileUser() {
           L’Explorateur a besoin d’un profil enregistré pour comparer les aliments aux familles
           FODMAP que vous avez marquées comme étant à éviter.
         </p>
-        <Button className='mt-8 gap-2' size='lg' onClick={() => navigate('/profile')}>
-          {content.explorer.noProfilUser.cta}
-          <ArrowRight className='h-5 w-5' aria-hidden='true' />
+        <Button size='lg' className='mt-8 gap-2' asChild>
+          <Link to='/profile'>
+            {content.explorer.noProfilUser.cta}
+            <ArrowRight className='h-5 w-5' aria-hidden='true' />
+          </Link>
         </Button>
       </main>
       <Footer />
