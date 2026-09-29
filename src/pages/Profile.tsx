@@ -137,7 +137,8 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
                   aria-label={`Configuration pour ${info.name}`}
                   className='grid grid-cols-2 gap-2'
                 >
-                  <button
+                  <Button
+                    type='button'
                     onClick={() => handleToggle(type, true)}
                     className={cn(
                       'flex min-h-[44px] items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors',
@@ -150,9 +151,11 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
                   >
                     <Check className='h-4 w-4' aria-hidden='true' />
                     <span>{content.profile.toggleButtons.tolerate}</span>
-                  </button>
+                  </Button>
 
-                  <button
+                  <Button
+                    type='button'
+                    variant='destructive'
                     onClick={() => handleToggle(type, false)}
                     className={cn(
                       'flex min-h-[44px] items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors',
@@ -165,7 +168,7 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
                   >
                     <X className='h-4 w-4' aria-hidden='true' />
                     <span>{content.profile.toggleButtons.avoid}</span>
-                  </button>
+                  </Button>
                 </div>
               </article>
             ))}
