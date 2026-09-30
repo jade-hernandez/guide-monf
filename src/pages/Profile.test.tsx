@@ -98,7 +98,7 @@ describe('Profile workflow', () => {
     expect(screen.getByText('6/6')).toBeTruthy();
   });
 
-  it('keeps Continue disabled until all six answers are configured', () => {
+  it('prevents continuing until all six answers are configured', () => {
     const updateProfile = vi.fn(() => true);
     useUserMock.mockReturnValue(createUserContext({ updateProfile }));
 
@@ -106,9 +106,9 @@ describe('Profile workflow', () => {
 
     const continueButton = screen.getByRole('button', {
       name: content.profile.continueButton.label,
-    }) as HTMLButtonElement;
+    });
 
-    expect(continueButton.disabled).toBe(true);
+    expect(continueButton.getAttribute('aria-disabled')).toBe('true');
     fireEvent.click(continueButton);
     expect(updateProfile).not.toHaveBeenCalled();
     expect(screen.getByText(content.profile.validation.incomplete)).toBeTruthy();

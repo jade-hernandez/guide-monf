@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ArrowLeft, Check, X } from 'lucide-react';
@@ -45,7 +45,9 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
   const configuredCount = Object.values(selections).filter((v) => v !== null).length;
   const allConfigured = configuredCount === 6;
 
-  const handleContinue = () => {
+  const handleContinue = (event: React.SubmitEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (!allConfigured) return;
 
     const newProfile = {
@@ -116,10 +118,10 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
           </div>
         </aside>
 
-        <section aria-label='Choix FODMAP'>
-          <div className='space-y-3'>
+        <form  aria-label='Choix FODMAP' onSubmit={handleContinue}>
+          <ul className='space-y-3'>
             {fodmapTypes.map(({ type, info }) => (
-              <article
+              <li
                 key={type}
                 className='grid gap-5 rounded-lg border border-border bg-card p-5 sm:grid-cols-[minmax(0,1fr)_minmax(17rem,0.8fr)] sm:items-center'
               >
@@ -170,9 +172,9 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
                     <span>{content.profile.toggleButtons.avoid}</span>
                   </Button>
                 </div>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <div className='mt-5 border-t border-border bg-background/95 py-4 backdrop-blur-sm sm:sticky sm:bottom-0'>
             {saveError && (
@@ -184,21 +186,23 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
               </p>
             )}
             <Button
-              onClick={handleContinue}
-              disabled={!allConfigured}
-              size='lg'
-              className='w-full'
-              aria-label={content.profile.continueButton.label}
-            >
-              {content.profile.continueButton.label}
-            </Button>
+                type='submit'
+                aria-disabled={!allConfigured}
+                aria-describedby={!allConfigured ? 'profile-incomplete' : undefined}
+                size='lg'
+                className='w-full aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:hover:bg-primary'
+                >
+                {content.profile.continueButton.label}
+              </Button>
             {!allConfigured && (
-              <p className='mt-3 text-center text-sm text-muted-foreground'>
+              <p
+                id='profile-incomplete'
+                className='mt-3 text-center text-sm text-muted-foreground'>
                 {content.profile.validation.incomplete}
               </p>
             )}
           </div>
-        </section>
+        </form>
       </main>
       <Footer />
     </div>
