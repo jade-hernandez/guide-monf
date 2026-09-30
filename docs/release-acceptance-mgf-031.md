@@ -189,6 +189,5 @@ Temporary evidence was kept outside the repository:
 - Safari/WebKit and iOS Simulator checks were attempted but blocked by local machine settings or
   missing Apple components.
 - Firefox smoke was not run because Firefox is not installed locally.
-- Dataset provenance and reuse rights remain limited as documented in
-  `docs/dataset-provenance.md`; this release acceptance does not certify clinical accuracy,
-  medical use, or dataset licensing.
+- Dataset provenance and reuse rights remain limited as documented in `docs/dataset-provenance.md`;
+  this release acceptance does not certify clinical accuracy, medical use, or dataset licensing.

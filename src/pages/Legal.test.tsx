@@ -20,8 +20,12 @@ describe('Legal page', () => {
 
     expect(screen.getByText('Dernière mise à jour : 30 juillet 2026')).toBeTruthy();
     expect(screen.getByText(/date de dernière mise à jour affichée sur cette page/)).toBeTruthy();
-    expect(screen.getByText(/texte en vigueur est consultable en revenant sur cette page/)).toBeTruthy();
-    expect(screen.queryByText(/informés des changements significatifs via l'application/)).toBeNull();
+    expect(
+      screen.getByText(/texte en vigueur est consultable en revenant sur cette page/)
+    ).toBeTruthy();
+    expect(
+      screen.queryByText(/informés des changements significatifs via l'application/)
+    ).toBeNull();
     expect(screen.queryByText(/accessible dans les paramètres de l'application/)).toBeNull();
   });
 });

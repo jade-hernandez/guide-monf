@@ -8,7 +8,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { content } from '../config/content';
 import Landing from './Landing';
 
-
 vi.mock('motion/react', async () => {
   const React = await import('react');
 

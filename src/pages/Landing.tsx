@@ -17,21 +17,18 @@ const desktopHeroWebpSrcSet =
   '/assets/explorer-preview.w640.webp 640w, /assets/explorer-preview.w960.webp 960w, /assets/explorer-preview.w1280.webp 1280w, /assets/explorer-preview.w1440.webp 1440w';
 
 export default function Landing() {
-
   return (
     <div className='flex min-h-screen flex-col bg-background'>
       <SiteHeader>
         <nav className='flex items-center gap-2 sm:gap-5' aria-label='Navigation principale'>
           <Link
             to='/methodology'
-            className='hidden min-h-[40px] items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:inline-flex rounded-lg px-3'
+            className='hidden min-h-[40px] items-center rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:inline-flex'
           >
             Méthodologie
           </Link>
           <Button size='sm' asChild>
-            <Link to='/profile'>
-              Commencer
-            </Link>
+            <Link to='/profile'>Commencer</Link>
           </Button>
         </nav>
       </SiteHeader>
@@ -70,11 +67,11 @@ export default function Landing() {
                   </Link>
                 </Button>
                 <Button
-                type='button'
-                variant='link'
-                onClick={() => document.getElementById('what-are-fodmaps')?.scrollIntoView()}
-                className="min-h-[54px] px-3 text-left"
-              >
+                  type='button'
+                  variant='link'
+                  onClick={() => document.getElementById('what-are-fodmaps')?.scrollIntoView()}
+                  className='min-h-[54px] px-3 text-left'
+                >
                   En savoir plus
                 </Button>
               </div>
@@ -203,7 +200,7 @@ export default function Landing() {
             <p className='mt-4 leading-7 text-foreground'>{content.landing.disclaimer.content}</p>
             <Link
               to='/methodology'
-              className='mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg outline-none px-3'
+              className='mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
             >
               <Info className='h-4 w-4' aria-hidden='true' />
               Lire la méthodologie et les limites

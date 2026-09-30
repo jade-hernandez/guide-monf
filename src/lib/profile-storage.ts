@@ -52,9 +52,7 @@ export function isUserProfile(value: unknown): value is UserProfile {
   );
 
   return (
-    hasBooleanAnswers &&
-    isValidDateString(value.createdAt) &&
-    isValidDateString(value.lastUpdated)
+    hasBooleanAnswers && isValidDateString(value.createdAt) && isValidDateString(value.lastUpdated)
   );
 }
 

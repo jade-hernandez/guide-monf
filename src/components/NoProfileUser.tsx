@@ -8,8 +8,6 @@ import { Button } from '../components/ui/button';
 import { content } from '../config/content';
 
 export function NoProfileUser() {
-
-
   return (
     <div className='flex min-h-screen flex-col bg-background'>
       <SiteHeader />

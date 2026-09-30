@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ArrowLeft, Check, X } from 'lucide-react';
@@ -118,7 +118,7 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
           </div>
         </aside>
 
-        <form  aria-label='Choix FODMAP' onSubmit={handleContinue}>
+        <form aria-label='Choix FODMAP' onSubmit={handleContinue}>
           <ul className='space-y-3'>
             {fodmapTypes.map(({ type, info }) => (
               <li
@@ -186,18 +186,16 @@ function ProfileEditor({ initialProfile }: { initialProfile: UserProfile | null 
               </p>
             )}
             <Button
-                type='submit'
-                aria-disabled={!allConfigured}
-                aria-describedby={!allConfigured ? 'profile-incomplete' : undefined}
-                size='lg'
-                className='w-full aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:hover:bg-primary'
-                >
-                {content.profile.continueButton.label}
-              </Button>
+              type='submit'
+              aria-disabled={!allConfigured}
+              aria-describedby={!allConfigured ? 'profile-incomplete' : undefined}
+              size='lg'
+              className='w-full aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:hover:bg-primary'
+            >
+              {content.profile.continueButton.label}
+            </Button>
             {!allConfigured && (
-              <p
-                id='profile-incomplete'
-                className='mt-3 text-center text-sm text-muted-foreground'>
+              <p id='profile-incomplete' className='mt-3 text-center text-sm text-muted-foreground'>
                 {content.profile.validation.incomplete}
               </p>
             )}
