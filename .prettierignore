@@ -25,3 +25,6 @@ coverage
 *.gen.*
 *.generated.*
 pnpm-lock.yaml
+
+# Third-party assets
+public/fonts
