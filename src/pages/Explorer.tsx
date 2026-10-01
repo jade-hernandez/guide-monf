@@ -14,7 +14,6 @@ import { categories } from '../config/food-categories';
 import { useUser } from '../hooks/use-user';
 import { getSavedAvoidedFodmapTypes, selectExplorerFoods } from '../lib/compatibility';
 import { baseDonneesFodmap } from '../lib/fodmap-db';
-import { cn } from '../lib/utils';
 import type { FoodCategory } from '../types';
 
 const EXPLORER_PAGE_SIZE = 16;
@@ -104,7 +103,7 @@ export default function Explorer() {
       <SiteHeader>
         <Link
           to='/profile'
-          className='inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+          className='inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
           aria-label='Modifier le profil'
         >
           <ArrowLeft className='h-4 w-4' aria-hidden='true' />
@@ -143,39 +142,34 @@ export default function Explorer() {
           </div>
 
           <div className='mt-4 flex flex-col gap-4 lg:flex-row lg:items-start'>
-            <button
+            <Button
+              variant={showCompatibleOnly ? 'success' : 'outline'}
               onClick={toggleCompatibleOnly}
-              className={cn(
-                'inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-                showCompatibleOnly
-                  ? 'border-success bg-success text-success-foreground'
-                  : 'border-border bg-card text-foreground hover:border-success/50'
-              )}
               aria-pressed={showCompatibleOnly}
               aria-label={content.explorer.filters.safeForMe.ariaLabel}
+              className='shrink-0 gap-2 border px-4 text-sm font-medium'
             >
               <Filter className='h-5 w-5' aria-hidden='true' />
               <span>{content.explorer.filters.safeForMe.label}</span>
-            </button>
+            </Button>
 
             <div className='flex flex-wrap gap-2'>
-              {categories.map(({ value, label }) => (
-                <button
-                  key={value}
-                  onClick={() => toggleCategory(value)}
-                  className={cn(
-                    'min-h-[40px] rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-                    selectedCategories.has(value)
-                      ? 'border-primary bg-primary text-primary-foreground'
-                      : 'border-border bg-card text-foreground hover:border-primary/40'
-                  )}
-                  aria-pressed={selectedCategories.has(value)}
-                >
-                  {label}
-                </button>
-              ))}
+              {categories.map(({ value, label }) => {
+                const isSelected = selectedCategories.has(value);
+
+                return (
+                  <Button
+                    key={value}
+                    size='sm'
+                    variant={isSelected ? 'default' : 'outline'}
+                    onClick={() => toggleCategory(value)}
+                    aria-pressed={isSelected}
+                    className='border px-3 font-medium'
+                  >
+                    {label}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         </section>
