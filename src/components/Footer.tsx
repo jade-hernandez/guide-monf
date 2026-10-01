@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import { Github, Linkedin } from 'lucide-react';
-
 import { content } from '../config/content';
 
 export const Footer = () => {
@@ -18,31 +16,38 @@ export const Footer = () => {
           </div>
 
           <div className='flex flex-wrap gap-x-6 gap-y-3 text-sm'>
-            <Link to='/methodology' className='text-muted-foreground hover:text-foreground'>
+            <Link
+              to='/methodology'
+              className='rounded text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8'
+            >
               Méthodologie
             </Link>
-            <Link to='/legal' className='text-muted-foreground hover:text-foreground'>
+            <Link
+              to='/legal'
+              className='rounded text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8'
+            >
               Mentions légales
             </Link>
-            <Link to='/about' className='text-muted-foreground hover:text-foreground'>
+            <Link
+              to='/about'
+              className='rounded text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8'
+            >
               À propos
             </Link>
             <a
               href='https://www.linkedin.com/in/hernandez-jade/'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-flex items-center gap-2 text-muted-foreground hover:text-foreground'
+              className='inline-flex items-center gap-2 rounded text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8'
             >
-              <Linkedin className='h-4 w-4' aria-hidden='true' />
               LinkedIn
             </a>
             <a
               href='https://github.com/jade-hernandez/guide-monf'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-flex items-center gap-2 text-muted-foreground hover:text-foreground'
+              className='inline-flex items-center gap-2 rounded text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8'
             >
-              <Github className='h-4 w-4' aria-hidden='true' />
               GitHub
             </a>
           </div>
